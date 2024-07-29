@@ -130,7 +130,7 @@ paths:
           $ref: '#/components/schemas/CreatePublicationCampaign'
         style: deepObject
       - description: |-
-          The merchant’s publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
+          The merchants publication ID if it is different from the Voucherify publication ID. Its an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
           If source_id is provided only 1 voucher can be published per request.
         explode: true
         in: query
@@ -5875,7 +5875,7 @@ paths:
                     total: 3
               schema:
                 $ref: '#/components/schemas/PublicationsListResponseBody'
-          description: "Returns a list of publications you’ve previously created with\
+          description: "Returns a list of publications you've previously created with\
             \ <!-- [create publication](OpenAPI.json/paths/~1publications/post) -->[create\
             \ publication](ref:create-publication) or implicitly by the distribution\
             \ manager. The publications are returned in sorted order, with the most\
@@ -20248,7 +20248,7 @@ components:
             Defines the scenario Voucherify should consider during the qualification process.
 
             - `ALL` - Scenario that returns all redeemables available for the customer in one API request. This scenario is used by default when no value is selected.
-            - `CUSTOMER_WALLET` - returns vouchers applicable to the customer’s cart based on the vouchers assigned to the customer’s profile.
+            - `CUSTOMER_WALLET` - returns vouchers applicable to the customer's cart based on the vouchers assigned to the customer's profile.
             - `AUDIENCE_ONLY` - returns all vouchers, promotion tiers, and campaigns available to the customer. Voucherify validates the rules based on the customer profile only.
             - `PRODUCTS` - returns all promotions available for the products (when a discount is defined to be applied to the item or when the item is required in the validation rule).
             - `PRODUCTS_DISCOUNT` - returns all promotions available for products when a discount is defined as applicable to specific item(s).
@@ -20419,12 +20419,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -20479,12 +20479,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -20540,12 +20540,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -21266,7 +21266,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s transaction ID if it is different from the\
+          description: "The merchant's transaction ID if it is different from the\
             \ Voucherify transaction ID. It is really useful in case of an integration\
             \ between multiple systems. It can be a transaction ID from a CRM system,\
             \ database or 3rd-party service."
@@ -21888,7 +21888,7 @@ components:
         data:
           description: This is an object representing a loyalty tier. Loyalty tiers
             are used to create a loyalty program with different levels of membership
-            and varied earning rules and rewards based on customer’s tiers.
+            and varied earning rules and rewards based on customer's tiers.
           items:
             $ref: '#/components/schemas/LoyaltyTier'
           nullable: true
@@ -22965,7 +22965,7 @@ components:
           type: string
         source_id:
           description: |-
-            The merchant’s publication ID if it is different from the Voucherify publication ID. It's an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
+            The merchant's publication ID if it is different from the Voucherify publication ID. It's an optional tracking identifier of a publication. It is really useful in case of an integration between multiple systems. It can be a publication ID from a CRM system, database or 3rd-party service.
             If `source_id` is provided only 1 voucher can be published per request.
           nullable: true
           type: string
@@ -23172,7 +23172,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s publication ID if it is different from the\
+          description: "The merchant's publication ID if it is different from the\
             \ Voucherify publication ID. It's an optional tracking identifier of a\
             \ publication. It is really useful in case of an integration between multiple\
             \ systems. It can be a publication ID from a CRM system, database or 3rd-party\
@@ -23390,7 +23390,7 @@ components:
             Defines the scenario Voucherify should consider during the qualification process.
 
             - `ALL` - Scenario that returns all redeemables available for the customer in one API request. This scenario is used by default when no value is selected.
-            - `CUSTOMER_WALLET` - returns vouchers applicable to the customer’s cart based on the vouchers assigned to the customer’s profile.
+            - `CUSTOMER_WALLET` - returns vouchers applicable to the customer's cart based on the vouchers assigned to the customer's profile.
             - `AUDIENCE_ONLY` - returns all vouchers, promotion tiers, and campaigns available to the customer. Voucherify validates the rules based on the customer profile only.
             - `PRODUCTS` - returns all promotions available for the products (when a discount is defined to be applied to the item or when the item is required in the validation rule).
             - `PRODUCTS_DISCOUNT` - returns all promotions available for products when a discount is defined as applicable to specific item(s).
@@ -23486,12 +23486,12 @@ components:
               sku_id: sku_0a41e31c7b41c28358
               id: prod_0b7d7dfb05cbe5c616
             campaign:
-              balance: 5
+              balance: 3
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 3
-              exchange_ratio: 6
+              points_ratio: 0
+              exchange_ratio: 7
           customer: ""
           object: reward
         gift:
@@ -23676,7 +23676,7 @@ components:
           - 6
           category_id: cat_0c9da30e7116ba6bba
           validation_rule_assignments:
-            total: 6
+            total: 3
             data:
             - rule_id: val_4j7DCRm2IS59
               related_object_type: voucher
@@ -23816,11 +23816,11 @@ components:
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
           items:
-          - total_applied_discount_amount: 1
+          - total_applied_discount_amount: 9
             amount: 1
             product:
               metadata: "{}"
-              price: 9.965781217890562
+              price: 8.762042012749001
               name: name
               id: id
               source_id: source_id
@@ -23830,26 +23830,29 @@ components:
             initial_quantity: 1
             discount_amount: 1
             sku_id: sku_id
-            initial_amount: 7
-            subtotal_amount: 5
+            applied_quantity: 1
+            initial_amount: 5
+            subtotal_amount: 6
             related_object: product
             applied_discount_amount: 6
-            price: 4
+            price: 9
             product_id: product_id
             discount_quantity: 7
+            applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.369310271410669
+              price: 9.018348186070783
               id: id
               source_id: source_id
               override: true
               sku: sku
+            applied_quantity_amount: 4
             object: order_item
-          - total_applied_discount_amount: 1
+          - total_applied_discount_amount: 9
             amount: 1
             product:
               metadata: "{}"
-              price: 9.965781217890562
+              price: 8.762042012749001
               name: name
               id: id
               source_id: source_id
@@ -23859,20 +23862,23 @@ components:
             initial_quantity: 1
             discount_amount: 1
             sku_id: sku_id
-            initial_amount: 7
-            subtotal_amount: 5
+            applied_quantity: 1
+            initial_amount: 5
+            subtotal_amount: 6
             related_object: product
             applied_discount_amount: 6
-            price: 4
+            price: 9
             product_id: product_id
             discount_quantity: 7
+            applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.369310271410669
+              price: 9.018348186070783
               id: id
               source_id: source_id
               override: true
               sku: sku
+            applied_quantity_amount: 4
             object: order_item
           status: CREATED
           items_discount_amount: 5
@@ -24012,16 +24018,16 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
-            amount: 3
+            amount: 7
           reason: reason
           metadata: "{}"
           amount: 0
@@ -24149,10 +24155,10 @@ components:
               email: email
               object: customer
             validity_day_of_week:
-            - 8
-            - 8
+            - 3
+            - 3
             redemption:
-              quantity: 9
+              quantity: 6
               redeemed_quantity: 1
               redeemed_points: 100000
               url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -24173,12 +24179,12 @@ components:
           promotion_tier:
             summary:
               redemptions:
-                total_redeemed: 1
+                total_redeemed: 6
               orders:
-                total_amount: 2
+                total_amount: 5
                 total_discount_amount: 6
             metadata: "{}"
-            hierarchy: 6
+            hierarchy: 1
             validity_hours:
               daily:
               - days_of_week:
@@ -24202,7 +24208,7 @@ components:
             - 6
             category_id: cat_0c9da30e7116ba6bba
             validation_rule_assignments:
-              total: 6
+              total: 3
               data:
               - rule_id: val_4j7DCRm2IS59
                 related_object_type: voucher
@@ -24255,8 +24261,8 @@ components:
                 amount_off: 6.027456183070403
             campaign:
               validity_day_of_week:
-              - 3
-              - 3
+              - 2
+              - 2
               category_id: cat_0b688929a2476386a6
               validity_hours:
                 daily:
@@ -24317,7 +24323,7 @@ components:
           id: id
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 7
+            points: 6
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -24342,11 +24348,11 @@ components:
             source_id: source_id
             customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
             items:
-            - total_applied_discount_amount: 1
+            - total_applied_discount_amount: 9
               amount: 1
               product:
                 metadata: "{}"
-                price: 9.965781217890562
+                price: 8.762042012749001
                 name: name
                 id: id
                 source_id: source_id
@@ -24356,26 +24362,29 @@ components:
               initial_quantity: 1
               discount_amount: 1
               sku_id: sku_id
-              initial_amount: 7
-              subtotal_amount: 5
+              applied_quantity: 1
+              initial_amount: 5
+              subtotal_amount: 6
               related_object: product
               applied_discount_amount: 6
-              price: 4
+              price: 9
               product_id: product_id
               discount_quantity: 7
+              applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.369310271410669
+                price: 9.018348186070783
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
+              applied_quantity_amount: 4
               object: order_item
-            - total_applied_discount_amount: 1
+            - total_applied_discount_amount: 9
               amount: 1
               product:
                 metadata: "{}"
-                price: 9.965781217890562
+                price: 8.762042012749001
                 name: name
                 id: id
                 source_id: source_id
@@ -24385,20 +24394,23 @@ components:
               initial_quantity: 1
               discount_amount: 1
               sku_id: sku_id
-              initial_amount: 7
-              subtotal_amount: 5
+              applied_quantity: 1
+              initial_amount: 5
+              subtotal_amount: 6
               related_object: product
               applied_discount_amount: 6
-              price: 4
+              price: 9
               product_id: product_id
               discount_quantity: 7
+              applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.369310271410669
+                price: 9.018348186070783
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
+              applied_quantity_amount: 4
               object: order_item
             status: CREATED
             items_discount_amount: 5
@@ -24430,16 +24442,16 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
-            amount: 3
+            amount: 7
           reason: reason
           metadata: "{}"
           amount: 0
@@ -24567,10 +24579,10 @@ components:
               email: email
               object: customer
             validity_day_of_week:
-            - 8
-            - 8
+            - 3
+            - 3
             redemption:
-              quantity: 9
+              quantity: 6
               redeemed_quantity: 1
               redeemed_points: 100000
               url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -24591,12 +24603,12 @@ components:
           promotion_tier:
             summary:
               redemptions:
-                total_redeemed: 1
+                total_redeemed: 6
               orders:
-                total_amount: 2
+                total_amount: 5
                 total_discount_amount: 6
             metadata: "{}"
-            hierarchy: 6
+            hierarchy: 1
             validity_hours:
               daily:
               - days_of_week:
@@ -24620,7 +24632,7 @@ components:
             - 6
             category_id: cat_0c9da30e7116ba6bba
             validation_rule_assignments:
-              total: 6
+              total: 3
               data:
               - rule_id: val_4j7DCRm2IS59
                 related_object_type: voucher
@@ -24673,8 +24685,8 @@ components:
                 amount_off: 6.027456183070403
             campaign:
               validity_day_of_week:
-              - 3
-              - 3
+              - 2
+              - 2
               category_id: cat_0b688929a2476386a6
               validity_hours:
                 daily:
@@ -24735,7 +24747,7 @@ components:
           id: id
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 7
+            points: 6
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -24760,11 +24772,11 @@ components:
             source_id: source_id
             customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
             items:
-            - total_applied_discount_amount: 1
+            - total_applied_discount_amount: 9
               amount: 1
               product:
                 metadata: "{}"
-                price: 9.965781217890562
+                price: 8.762042012749001
                 name: name
                 id: id
                 source_id: source_id
@@ -24774,26 +24786,29 @@ components:
               initial_quantity: 1
               discount_amount: 1
               sku_id: sku_id
-              initial_amount: 7
-              subtotal_amount: 5
+              applied_quantity: 1
+              initial_amount: 5
+              subtotal_amount: 6
               related_object: product
               applied_discount_amount: 6
-              price: 4
+              price: 9
               product_id: product_id
               discount_quantity: 7
+              applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.369310271410669
+                price: 9.018348186070783
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
+              applied_quantity_amount: 4
               object: order_item
-            - total_applied_discount_amount: 1
+            - total_applied_discount_amount: 9
               amount: 1
               product:
                 metadata: "{}"
-                price: 9.965781217890562
+                price: 8.762042012749001
                 name: name
                 id: id
                 source_id: source_id
@@ -24803,20 +24818,23 @@ components:
               initial_quantity: 1
               discount_amount: 1
               sku_id: sku_id
-              initial_amount: 7
-              subtotal_amount: 5
+              applied_quantity: 1
+              initial_amount: 5
+              subtotal_amount: 6
               related_object: product
               applied_discount_amount: 6
-              price: 4
+              price: 9
               product_id: product_id
               discount_quantity: 7
+              applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.369310271410669
+                price: 9.018348186070783
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
+              applied_quantity_amount: 4
               object: order_item
             status: CREATED
             items_discount_amount: 5
@@ -24952,12 +24970,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -25012,12 +25030,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -25073,12 +25091,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -25273,12 +25291,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -25335,12 +25353,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -25396,12 +25414,12 @@ components:
                 sku_id: sku_0a41e31c7b41c28358
                 id: prod_0b7d7dfb05cbe5c616
               campaign:
-                balance: 5
+                balance: 3
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 3
-                exchange_ratio: 6
+                points_ratio: 0
+                exchange_ratio: 7
             customer: ""
             object: reward
           gift:
@@ -26252,7 +26270,7 @@ components:
           nullable: true
           type: integer
         source_id:
-          description: "The merchant’s transaction ID if it is different from the\
+          description: "The merchant's transaction ID if it is different from the\
             \ Voucherify transaction ID. It is really useful in case of an integration\
             \ between multiple systems. It can be a transaction ID from a CRM system,\
             \ database or 3rd-party service."
@@ -28256,7 +28274,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s transaction ID if it is different from the\
+          description: "The merchant's transaction ID if it is different from the\
             \ Voucherify transaction ID. It is really useful in case of an integration\
             \ between multiple systems. It can be a transaction ID from a CRM system,\
             \ database or 3rd-party service."
@@ -28520,11 +28538,11 @@ components:
       title: Order Calculated No Customer Data
     OrderItemCalculated:
       example:
-        total_applied_discount_amount: 1
+        total_applied_discount_amount: 9
         amount: 1
         product:
           metadata: "{}"
-          price: 9.965781217890562
+          price: 8.762042012749001
           name: name
           id: id
           source_id: source_id
@@ -28534,28 +28552,31 @@ components:
         initial_quantity: 1
         discount_amount: 1
         sku_id: sku_id
-        initial_amount: 7
-        subtotal_amount: 5
+        applied_quantity: 1
+        initial_amount: 5
+        subtotal_amount: 6
         related_object: product
         applied_discount_amount: 6
-        price: 4
+        price: 9
         product_id: product_id
         discount_quantity: 7
+        applied_discount_quantity: 7
         source_id: source_id
         sku:
-          price: 9.369310271410669
+          price: 9.018348186070783
           id: id
           source_id: source_id
           override: true
           sku: sku
+        applied_quantity_amount: 4
         object: order_item
       properties:
         sku_id:
-          description: A unique SKU ID assigned by Voucherify.
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
           nullable: true
           type: string
         product_id:
-          description: A unique product ID assigned by Voucherify.
+          description: Unique identifier of the product. It is assigned by Voucherify.
           nullable: true
           type: string
         related_object:
@@ -28567,7 +28588,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s product/SKU ID (if it is different from the\
+          description: "The merchant's product/SKU ID (if it is different from the\
             \ Voucherify product/SKU ID). It is useful in the integration between\
             \ multiple systems. It can be an ID from an eCommerce site, a database,\
             \ or a third-party service."
@@ -28596,6 +28617,22 @@ components:
           type: integer
         applied_discount_amount:
           description: This field shows the order-level discount applied.
+          nullable: true
+          type: integer
+        applied_discount_quantity:
+          description: Number of the discounted items applied in the transaction.
+          nullable: true
+          type: integer
+        applied_quantity:
+          description: Quantity of items changed by the application of a new quantity
+            items. It can be positive when an item is added or negative if an item
+            is replaced.
+          nullable: true
+          type: integer
+        applied_quantity_amount:
+          description: Amount for the items changed by the application of a new quantity
+            items. It can be positive when an item is added or negative if an item
+            is replaced.
           nullable: true
           type: integer
         initial_amount:
@@ -29445,12 +29482,12 @@ components:
               sku_id: sku_0a41e31c7b41c28358
               id: prod_0b7d7dfb05cbe5c616
             campaign:
-              balance: 5
+              balance: 3
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 3
-              exchange_ratio: 6
+              points_ratio: 0
+              exchange_ratio: 7
           customer: ""
           object: reward
         gift:
@@ -29720,12 +29757,12 @@ components:
             sku_id: sku_0a41e31c7b41c28358
             id: prod_0b7d7dfb05cbe5c616
           campaign:
-            balance: 5
+            balance: 3
             id: camp_13BbZ0kQsNinhqsX3wUts2UP
             type: type
           coin:
-            points_ratio: 3
-            exchange_ratio: 6
+            points_ratio: 0
+            exchange_ratio: 7
         customer: ""
         object: reward
       properties:
@@ -29812,12 +29849,12 @@ components:
               sku_id: sku_0a41e31c7b41c28358
               id: prod_0b7d7dfb05cbe5c616
             campaign:
-              balance: 5
+              balance: 3
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 3
-              exchange_ratio: 6
+              points_ratio: 0
+              exchange_ratio: 7
           customer: ""
           object: reward
         gift:
@@ -30161,7 +30198,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s customer ID if it is different from the Voucherify\
+          description: "The merchant's customer ID if it is different from the Voucherify\
             \ customer ID. It is really useful in case of an integration between multiple\
             \ systems. It can be a customer ID from a CRM system, database or 3rd-party\
             \ service."
@@ -30546,7 +30583,7 @@ components:
     ValidationRuleAssignmentsList:
       description: Validation Rule Assignments List
       example:
-        total: 6
+        total: 3
         data:
         - rule_id: val_4j7DCRm2IS59
           related_object_type: voucher
@@ -31323,7 +31360,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s transaction ID if it is different from the\
+          description: "The merchant's transaction ID if it is different from the\
             \ Voucherify transaction ID. It is really useful in case of an integration\
             \ between multiple systems. It can be a transaction ID from a CRM system,\
             \ database or 3rd-party service. In case of a redemption, this value is\
@@ -32143,12 +32180,20 @@ components:
       type: object
     OrderItem:
       properties:
+        object:
+          default: order_item
+          description: The type of the object represented by JSON. This object stores
+            information about the `order_item`.
+          enum:
+          - order_item
+          nullable: true
+          type: string
         sku_id:
-          description: A unique SKU ID assigned by Voucherify.
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
           nullable: true
           type: string
         product_id:
-          description: A unique product ID assigned by Voucherify.
+          description: Unique identifier of the product. It is assigned by Voucherify.
           nullable: true
           type: string
         related_object:
@@ -32160,7 +32205,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s product/SKU ID (if it is different from the\
+          description: "The merchant's product/SKU ID (if it is different from the\
             \ Voucherify product/SKU ID). It is useful in the integration between\
             \ multiple systems. It can be an ID from an eCommerce site, a database,\
             \ or a third-party service."
@@ -32195,9 +32240,35 @@ components:
             sum of the order items' amounts.
           nullable: true
           type: integer
+        applied_discount_amount:
+          description: Order-level discount amount applied in the transaction.
+          nullable: true
+          type: integer
+        applied_discount_quantity:
+          description: Number of the discounted items applied in the transaction.
+          nullable: true
+          type: integer
+        applied_quantity:
+          description: Quantity of items changed by the application of a new quantity
+            items. It can be positive when an item is added or negative if an item
+            is replaced.
+          nullable: true
+          type: integer
+        applied_quantity_amount:
+          description: Amount for the items changed by the application of a new quantity
+            items. It can be positive when an item is added or negative if an item
+            is replaced.
+          nullable: true
+          type: integer
         price:
           description: Unit price of an item. Value is multiplied by 100 to precisely
             represent 2 decimal places. For example `10000 cents` for `$100.00`.
+          nullable: true
+          type: integer
+        subtotal_amount:
+          description: "Final order item amount after the applied item-level discount.\
+            \  If there are no item-level discounts applied, this item is equal to\
+            \ the `amount`.   \n`subtotal_amount`=`amount`-`discount_amount`"
           nullable: true
           type: integer
         product:
@@ -32205,9 +32276,9 @@ components:
         sku:
           $ref: '#/components/schemas/OrderItemCalculated_sku'
         metadata:
-          description: A set of custom key/value pairs that you can attach to an SKU.
-            It can be useful for storing additional information about the SKU in a
-            structured format.
+          description: A set of custom key/value pairs that you can attach to an order
+            item. It can be useful for storing additional information about the order
+            item in a structured format.
           nullable: true
           type: object
       title: Order Item
@@ -34623,7 +34694,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s publication ID if it is different from the\
+          description: "The merchant's publication ID if it is different from the\
             \ Voucherify publication ID. It's an optional tracking identifier of a\
             \ publication. It is really useful in case of an integration between multiple\
             \ systems. It can be a publication ID from a CRM system, database or 3rd-party\
@@ -34782,11 +34853,11 @@ components:
         source_id: source_id
         customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
         items:
-        - total_applied_discount_amount: 1
+        - total_applied_discount_amount: 9
           amount: 1
           product:
             metadata: "{}"
-            price: 9.965781217890562
+            price: 8.762042012749001
             name: name
             id: id
             source_id: source_id
@@ -34796,26 +34867,29 @@ components:
           initial_quantity: 1
           discount_amount: 1
           sku_id: sku_id
-          initial_amount: 7
-          subtotal_amount: 5
+          applied_quantity: 1
+          initial_amount: 5
+          subtotal_amount: 6
           related_object: product
           applied_discount_amount: 6
-          price: 4
+          price: 9
           product_id: product_id
           discount_quantity: 7
+          applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.369310271410669
+            price: 9.018348186070783
             id: id
             source_id: source_id
             override: true
             sku: sku
+          applied_quantity_amount: 4
           object: order_item
-        - total_applied_discount_amount: 1
+        - total_applied_discount_amount: 9
           amount: 1
           product:
             metadata: "{}"
-            price: 9.965781217890562
+            price: 8.762042012749001
             name: name
             id: id
             source_id: source_id
@@ -34825,20 +34899,23 @@ components:
           initial_quantity: 1
           discount_amount: 1
           sku_id: sku_id
-          initial_amount: 7
-          subtotal_amount: 5
+          applied_quantity: 1
+          initial_amount: 5
+          subtotal_amount: 6
           related_object: product
           applied_discount_amount: 6
-          price: 4
+          price: 9
           product_id: product_id
           discount_quantity: 7
+          applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.369310271410669
+            price: 9.018348186070783
             id: id
             source_id: source_id
             override: true
             sku: sku
+          applied_quantity_amount: 4
           object: order_item
         status: CREATED
         items_discount_amount: 5
@@ -35659,7 +35736,7 @@ components:
         - 6
         category_id: cat_0c9da30e7116ba6bba
         validation_rule_assignments:
-          total: 6
+          total: 3
           data:
           - rule_id: val_4j7DCRm2IS59
             related_object_type: voucher
@@ -36022,11 +36099,11 @@ components:
         source_id: source_id
         customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
         items:
-        - total_applied_discount_amount: 1
+        - total_applied_discount_amount: 9
           amount: 1
           product:
             metadata: "{}"
-            price: 9.965781217890562
+            price: 8.762042012749001
             name: name
             id: id
             source_id: source_id
@@ -36036,26 +36113,29 @@ components:
           initial_quantity: 1
           discount_amount: 1
           sku_id: sku_id
-          initial_amount: 7
-          subtotal_amount: 5
+          applied_quantity: 1
+          initial_amount: 5
+          subtotal_amount: 6
           related_object: product
           applied_discount_amount: 6
-          price: 4
+          price: 9
           product_id: product_id
           discount_quantity: 7
+          applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.369310271410669
+            price: 9.018348186070783
             id: id
             source_id: source_id
             override: true
             sku: sku
+          applied_quantity_amount: 4
           object: order_item
-        - total_applied_discount_amount: 1
+        - total_applied_discount_amount: 9
           amount: 1
           product:
             metadata: "{}"
-            price: 9.965781217890562
+            price: 8.762042012749001
             name: name
             id: id
             source_id: source_id
@@ -36065,20 +36145,23 @@ components:
           initial_quantity: 1
           discount_amount: 1
           sku_id: sku_id
-          initial_amount: 7
-          subtotal_amount: 5
+          applied_quantity: 1
+          initial_amount: 5
+          subtotal_amount: 6
           related_object: product
           applied_discount_amount: 6
-          price: 4
+          price: 9
           product_id: product_id
           discount_quantity: 7
+          applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.369310271410669
+            price: 9.018348186070783
             id: id
             source_id: source_id
             override: true
             sku: sku
+          applied_quantity_amount: 4
           object: order_item
         status: CREATED
         items_discount_amount: 5
@@ -36344,7 +36427,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemVoucherRedemption:
       example:
-        quantity: 9
+        quantity: 6
         redeemed_quantity: 1
         redeemed_points: 100000
         url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -36503,10 +36586,10 @@ components:
           email: email
           object: customer
         validity_day_of_week:
-        - 8
-        - 8
+        - 3
+        - 3
         redemption:
-          quantity: 9
+          quantity: 6
           redeemed_quantity: 1
           redeemed_points: 100000
           url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -36718,8 +36801,8 @@ components:
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierCampaign:
       example:
         validity_day_of_week:
-        - 3
-        - 3
+        - 2
+        - 2
         category_id: cat_0b688929a2476386a6
         validity_hours:
           daily:
@@ -36811,7 +36894,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummaryRedemptions:
       example:
-        total_redeemed: 1
+        total_redeemed: 6
       properties:
         total_redeemed:
           description: Number of times the promotion tier was redeemed.
@@ -36821,7 +36904,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummaryOrders:
       example:
-        total_amount: 2
+        total_amount: 5
         total_discount_amount: 6
       properties:
         total_amount:
@@ -36837,9 +36920,9 @@ components:
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummary:
       example:
         redemptions:
-          total_redeemed: 1
+          total_redeemed: 6
         orders:
-          total_amount: 2
+          total_amount: 5
           total_discount_amount: 6
       properties:
         redemptions:
@@ -36852,12 +36935,12 @@ components:
       example:
         summary:
           redemptions:
-            total_redeemed: 1
+            total_redeemed: 6
           orders:
-            total_amount: 2
+            total_amount: 5
             total_discount_amount: 6
         metadata: "{}"
-        hierarchy: 6
+        hierarchy: 1
         validity_hours:
           daily:
           - days_of_week:
@@ -36881,7 +36964,7 @@ components:
         - 6
         category_id: cat_0c9da30e7116ba6bba
         validation_rule_assignments:
-          total: 6
+          total: 3
           data:
           - rule_id: val_4j7DCRm2IS59
             related_object_type: voucher
@@ -36934,8 +37017,8 @@ components:
             amount_off: 6.027456183070403
         campaign:
           validity_day_of_week:
-          - 3
-          - 3
+          - 2
+          - 2
           category_id: cat_0b688929a2476386a6
           validity_hours:
             daily:
@@ -37102,7 +37185,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemGift:
       example:
-        amount: 3
+        amount: 7
       properties:
         amount:
           description: Amount subtracted from the gift card as a result of the redemption.
@@ -37115,7 +37198,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemLoyaltyCard:
       example:
-        points: 7
+        points: 6
       properties:
         points:
           description: Number of points subtracted from the loyalty card as a result
@@ -37144,16 +37227,16 @@ components:
               sku_id: sku_0a41e31c7b41c28358
               id: prod_0b7d7dfb05cbe5c616
             campaign:
-              balance: 5
+              balance: 3
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 3
-              exchange_ratio: 6
+              points_ratio: 0
+              exchange_ratio: 7
           customer: ""
           object: reward
         gift:
-          amount: 3
+          amount: 7
         reason: reason
         metadata: "{}"
         amount: 0
@@ -37281,10 +37364,10 @@ components:
             email: email
             object: customer
           validity_day_of_week:
-          - 8
-          - 8
+          - 3
+          - 3
           redemption:
-            quantity: 9
+            quantity: 6
             redeemed_quantity: 1
             redeemed_points: 100000
             url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -37305,12 +37388,12 @@ components:
         promotion_tier:
           summary:
             redemptions:
-              total_redeemed: 1
+              total_redeemed: 6
             orders:
-              total_amount: 2
+              total_amount: 5
               total_discount_amount: 6
           metadata: "{}"
-          hierarchy: 6
+          hierarchy: 1
           validity_hours:
             daily:
             - days_of_week:
@@ -37334,7 +37417,7 @@ components:
           - 6
           category_id: cat_0c9da30e7116ba6bba
           validation_rule_assignments:
-            total: 6
+            total: 3
             data:
             - rule_id: val_4j7DCRm2IS59
               related_object_type: voucher
@@ -37387,8 +37470,8 @@ components:
               amount_off: 6.027456183070403
           campaign:
             validity_day_of_week:
-            - 3
-            - 3
+            - 2
+            - 2
             category_id: cat_0b688929a2476386a6
             validity_hours:
               daily:
@@ -37449,7 +37532,7 @@ components:
         id: id
         customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
         loyalty_card:
-          points: 7
+          points: 6
         tracking_id: tracking_id
         object: redemption
         status: SUCCEEDED
@@ -37474,11 +37557,11 @@ components:
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
           items:
-          - total_applied_discount_amount: 1
+          - total_applied_discount_amount: 9
             amount: 1
             product:
               metadata: "{}"
-              price: 9.965781217890562
+              price: 8.762042012749001
               name: name
               id: id
               source_id: source_id
@@ -37488,26 +37571,29 @@ components:
             initial_quantity: 1
             discount_amount: 1
             sku_id: sku_id
-            initial_amount: 7
-            subtotal_amount: 5
+            applied_quantity: 1
+            initial_amount: 5
+            subtotal_amount: 6
             related_object: product
             applied_discount_amount: 6
-            price: 4
+            price: 9
             product_id: product_id
             discount_quantity: 7
+            applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.369310271410669
+              price: 9.018348186070783
               id: id
               source_id: source_id
               override: true
               sku: sku
+            applied_quantity_amount: 4
             object: order_item
-          - total_applied_discount_amount: 1
+          - total_applied_discount_amount: 9
             amount: 1
             product:
               metadata: "{}"
-              price: 9.965781217890562
+              price: 8.762042012749001
               name: name
               id: id
               source_id: source_id
@@ -37517,20 +37603,23 @@ components:
             initial_quantity: 1
             discount_amount: 1
             sku_id: sku_id
-            initial_amount: 7
-            subtotal_amount: 5
+            applied_quantity: 1
+            initial_amount: 5
+            subtotal_amount: 6
             related_object: product
             applied_discount_amount: 6
-            price: 4
+            price: 9
             product_id: product_id
             discount_quantity: 7
+            applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.369310271410669
+              price: 9.018348186070783
               id: id
               source_id: source_id
               override: true
               sku: sku
+            applied_quantity_amount: 4
             object: order_item
           status: CREATED
           items_discount_amount: 5
@@ -38865,7 +38954,7 @@ components:
       description: An object containing details of the related product.
       example:
         metadata: "{}"
-        price: 9.965781217890562
+        price: 8.762042012749001
         name: name
         id: id
         source_id: source_id
@@ -38878,7 +38967,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s product ID (if it is different than Voucherify's\
+          description: "The merchant's product ID (if it is different than Voucherify's\
             \ product ID). It is really useful in case of integration between multiple\
             \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
             \ party service."
@@ -38911,7 +39000,7 @@ components:
       additionalProperties: false
       description: An object containing details of the related SKU.
       example:
-        price: 9.369310271410669
+        price: 9.018348186070783
         id: id
         source_id: source_id
         override: true
@@ -38924,7 +39013,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s SKU ID (if it is different than Voucherify's\
+          description: "The merchant's SKU ID (if it is different than Voucherify's\
             \ SKU ID). It is really useful in case of integration between multiple\
             \ systems. It can be an ID from an eCommerce site, a database or a 3rd\
             \ party service."
@@ -40172,7 +40261,7 @@ components:
     RedemptionRewardResult_parameters_campaign:
       description: Defines the product redeemed as a reward.
       example:
-        balance: 5
+        balance: 3
         id: camp_13BbZ0kQsNinhqsX3wUts2UP
         type: type
       nullable: true
@@ -40204,7 +40293,7 @@ components:
           nullable: true
           type: string
         sku_id:
-          description: A unique SKU ID assigned by Voucherify.
+          description: Unique identifier of the SKU. It is assigned by Voucherify.
           example: sku_0a41e31c7b41c28358
           nullable: true
           type: string
@@ -40213,8 +40302,8 @@ components:
       description: Defines the ratio by mapping the number of loyalty points in `points_ratio`
         to a predefined cash amount in `exchange_ratio`.
       example:
-        points_ratio: 3
-        exchange_ratio: 6
+        points_ratio: 0
+        exchange_ratio: 7
       nullable: true
       properties:
         exchange_ratio:
@@ -40235,12 +40324,12 @@ components:
           sku_id: sku_0a41e31c7b41c28358
           id: prod_0b7d7dfb05cbe5c616
         campaign:
-          balance: 5
+          balance: 3
           id: camp_13BbZ0kQsNinhqsX3wUts2UP
           type: type
         coin:
-          points_ratio: 3
-          exchange_ratio: 6
+          points_ratio: 0
+          exchange_ratio: 7
       nullable: true
       properties:
         campaign:
@@ -40765,7 +40854,7 @@ components:
           nullable: true
           type: string
         source_id:
-          description: "The merchant’s order ID if it is different from the Voucherify\
+          description: "The merchant's order ID if it is different from the Voucherify\
             \ order ID. It is really useful in case of integration between multiple\
             \ systems. It can be an order ID from CRM, database or 3rd party service."
           nullable: true
