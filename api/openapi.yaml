@@ -25766,13 +25766,16 @@ components:
         customers:
         - customers
         - customers
-        type: type
+        type: static
       properties:
         name:
           description: Segment name.
           nullable: true
           type: string
         type:
+          enum:
+          - static
+          - auto-update
           nullable: true
           type: string
         customers:
@@ -25795,7 +25798,7 @@ components:
     SegmentsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Segment'
-      description: Response body schema for **POST** `/segments`.
+      description: "Response body schema for **GET** `/v1/segments/{segmentId}`."
       title: Segments Get Response Body
     SkusGetResponseBody:
       allOf:
@@ -30056,6 +30059,8 @@ components:
           default: segment
           description: The type of the object represented by JSON. This object stores
             information about the customer segment.
+          enum:
+          - segment
           nullable: true
           type: string
       title: Segment

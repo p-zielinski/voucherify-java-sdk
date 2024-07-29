@@ -2,7 +2,7 @@
 
 # SegmentsGetResponseBody
 
-Response body schema for **POST** `/segments`.
+Response body schema for **GET** `/v1/segments/{segmentId}`.
 
 ## Properties
 
@@ -14,7 +14,7 @@ Response body schema for **POST** `/segments`.
 |**type** | [**TypeEnum**](#TypeEnum) | Describes whether the segment is dynamic (customers come in and leave based on set criteria) or static (manually selected customers). |
 |**filter** | **Object** | Defines a set of criteria for an &#x60;auto-update&#x60; segment type.   |
 |**initialSyncStatus** | [**InitialSyncStatusEnum**](#InitialSyncStatusEnum) |  |
-|**_object** | **String** | The type of the object represented by JSON. This object stores information about the customer segment. |
+|**_object** | [**ObjectEnum**](#ObjectEnum) | The type of the object represented by JSON. This object stores information about the customer segment. |
 
 
 
@@ -33,6 +33,14 @@ Response body schema for **POST** `/segments`.
 |---- | -----|
 | IN_PROGRESS | &quot;IN_PROGRESS&quot; |
 | DONE | &quot;DONE&quot; |
+
+
+
+## Enum: ObjectEnum
+
+| Name | Value |
+|---- | -----|
+| SEGMENT | &quot;segment&quot; |
 
 
 

@@ -172,9 +172,54 @@ public class Segment {
   @SerializedName(SERIALIZED_NAME_INITIAL_SYNC_STATUS)
   private InitialSyncStatusEnum initialSyncStatus;
 
+  /**
+   * The type of the object represented by JSON. This object stores information about the customer segment.
+   */
+  @JsonAdapter(ObjectEnum.Adapter.class)
+  public enum ObjectEnum {
+    SEGMENT("segment");
+
+    private String value;
+
+    ObjectEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ObjectEnum fromValue(String value) {
+      for (ObjectEnum b : ObjectEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+        return null;
+    }
+
+    public static class Adapter extends TypeAdapter<ObjectEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ObjectEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ObjectEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ObjectEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_OBJECT = "object";
   @SerializedName(SERIALIZED_NAME_OBJECT)
-  private String _object = "segment";
+  private ObjectEnum _object = ObjectEnum.SEGMENT;
 
   public Segment() {
   }
@@ -305,7 +350,7 @@ public class Segment {
   }
 
 
-  public Segment _object(String _object) {
+  public Segment _object(ObjectEnum _object) {
     
     this._object = _object;
     return this;
@@ -316,12 +361,12 @@ public class Segment {
    * @return _object
   **/
   @javax.annotation.Nullable
-  public String getObject() {
+  public ObjectEnum getObject() {
     return _object;
   }
 
 
-  public void setObject(String _object) {
+  public void setObject(ObjectEnum _object) {
     this._object = _object;
   }
 
