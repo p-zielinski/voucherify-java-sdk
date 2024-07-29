@@ -17062,6 +17062,118 @@ paths:
       tags:
       - Segments
       x-accepts: application/json
+    get:
+      description: Retrieves the segment with given segment ID.
+      operationId: get-segment
+      parameters:
+      - description: A unique customer segment ID.
+        explode: false
+        in: path
+        name: segmentId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterSegmentId'
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Tier Segment:
+                  value:
+                    id: seg_Mv5w1b2FIEbiCCO5ioT8TfI2
+                    name: Tiers 2 - Senior
+                    created_at: 2022-06-09T13:21:26.656Z
+                    type: auto-update
+                    filter:
+                      junction: and
+                      loyalty_points.campaigns.Tiers 2.points:
+                        conditions:
+                          $more_than_equal:
+                          - 41
+                    initial_sync_status: DONE
+                    object: segment
+              schema:
+                $ref: '#/components/schemas/SegmentsGetResponseBody'
+          description: Returns segment object.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Get Segment
+      tags:
+      - Segments
+      x-accepts: application/json
+  /v1/segments:
+    post:
+      description: |-
+        Create a customer segment.
+         🚧 Limit on Static Segments
+         There is a cap on the number of customers that you can assign to a static segment: **20,000**. If you would like to create a bigger segment, then you can use the unlimited auto-update segment instead and use some customer metadata to build this segment.
+      operationId: create-segment
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Static Segment:
+                value:
+                  name: Customers in a new Segment
+                  type: static
+                  customers:
+                  - cust_iajsExT2QB4sGWzABY85WRqV
+                  - cust_sehkNIi8Uq2qQuRqSr7xn4Zi
+              Dynamic:
+                value:
+                  name: Customers in a new Dynamic Segment
+                  type: auto-update
+                  filter:
+                    junction: and
+                    created_at:
+                      conditions:
+                        $after:
+                        - 2021-12-01T00:00:00.000Z
+            schema:
+              $ref: '#/components/schemas/SegmentsCreateRequestBody'
+        description: Specify the boundary conditions for the customer segment.
+      responses:
+        "200":
+          content:
+            application/json:
+              examples:
+                Static:
+                  value:
+                    id: seg_vC8iOSCqUG02EsPzsHynLv8i
+                    name: Customers in a new Segment
+                    created_at: 2022-09-13T08:57:15.801Z
+                    type: static
+                    filter: null
+                    initial_sync_status: DONE
+                    object: segment
+                Dynamic:
+                  value:
+                    id: seg_nZULMFHhVWIFm9vQ0dytg83Q
+                    name: Customers in a new Dynamic Segment
+                    created_at: 2022-09-13T09:03:32.764Z
+                    type: auto-update
+                    filter:
+                      junction: and
+                      created_at:
+                        conditions:
+                          $after:
+                          - 2021-12-01T00:00:00.000Z
+                    initial_sync_status: IN_PROGRESS
+                    object: segment
+              schema:
+                $ref: '#/components/schemas/SegmentsCreateResponseBody'
+          description: Returns a customer segment object.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: Create Segment
+      tags:
+      - Segments
+      x-content-type: application/json
+      x-accepts: application/json
   /v1/events:
     post:
       description: "To track a custom event, you create an event object.  \nThe event\
@@ -25647,6 +25759,44 @@ components:
           type: integer
       title: RewardsUpdateRequestBody
       type: object
+    SegmentsCreateRequestBody:
+      example:
+        filter: "{}"
+        name: name
+        customers:
+        - customers
+        - customers
+        type: type
+      properties:
+        name:
+          description: Segment name.
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        customers:
+          description: Array of customer IDs.
+          items:
+            type: string
+          nullable: true
+          type: array
+        filter:
+          description: Defines a set of criteria for an `auto-update` segment type.
+          nullable: true
+          type: object
+      title: SegmentsCreateRequestBody
+      type: object
+    SegmentsCreateResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/Segment'
+      description: Response body schema for **POST** `/segments`.
+      title: Segments Create Response Body
+    SegmentsGetResponseBody:
+      allOf:
+      - $ref: '#/components/schemas/Segment'
+      description: Response body schema for **POST** `/segments`.
+      title: Segments Get Response Body
     SkusGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Sku'
@@ -29864,6 +30014,51 @@ components:
         product:
           $ref: '#/components/schemas/RewardType_product'
       title: RewardType
+      type: object
+    Segment:
+      description: This is an object representing a customer segment.
+      properties:
+        id:
+          description: Unique segment ID.
+          example: seg_1wc52c5z6r1kQ81brO8j9Hk2
+          nullable: true
+          type: string
+        name:
+          description: Segment name.
+          nullable: true
+          type: string
+        created_at:
+          description: Timestamp representing the date and time when the segment was
+            created. The value is shown in the ISO 8601 format.
+          example: 2022-05-12T13:01:56.896Z
+          format: date-time
+          nullable: true
+          type: string
+        type:
+          description: Describes whether the segment is dynamic (customers come in
+            and leave based on set criteria) or static (manually selected customers).
+          enum:
+          - auto-update
+          - static
+          nullable: true
+          type: string
+        filter:
+          description: 'Defines a set of criteria for an `auto-update` segment type.  '
+          nullable: true
+          type: object
+        initial_sync_status:
+          enum:
+          - IN_PROGRESS
+          - DONE
+          nullable: true
+          type: string
+        object:
+          default: segment
+          description: The type of the object represented by JSON. This object stores
+            information about the customer segment.
+          nullable: true
+          type: string
+      title: Segment
       type: object
     Session:
       example:
