@@ -477,6 +477,8 @@ Class | Method | HTTP request | Description
 - [FilterConditionsString](docs/FilterConditionsString.md)
 - [FiltersCondition](docs/FiltersCondition.md)
 - [Gift](docs/Gift.md)
+- [HolderRole](docs/HolderRole.md)
+- [HolderRoleConditions](docs/HolderRoleConditions.md)
 - [InapplicableTo](docs/InapplicableTo.md)
 - [InapplicableToResultList](docs/InapplicableToResultList.md)
 - [Junction](docs/Junction.md)

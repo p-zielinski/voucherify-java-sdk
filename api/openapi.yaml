@@ -20423,8 +20423,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -20483,8 +20483,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -20544,8 +20544,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -23490,8 +23490,8 @@ components:
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 0
-              exchange_ratio: 7
+              points_ratio: 7
+              exchange_ratio: 3
           customer: ""
           object: reward
         gift:
@@ -23676,7 +23676,7 @@ components:
           - 6
           category_id: cat_0c9da30e7116ba6bba
           validation_rule_assignments:
-            total: 3
+            total: 6
             data:
             - rule_id: val_4j7DCRm2IS59
               related_object_type: voucher
@@ -23816,11 +23816,10 @@ components:
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
           items:
-          - total_applied_discount_amount: 9
-            amount: 1
+          - amount: 1
             product:
               metadata: "{}"
-              price: 8.762042012749001
+              price: 6.683562403749608
               name: name
               id: id
               source_id: source_id
@@ -23832,7 +23831,7 @@ components:
             sku_id: sku_id
             applied_quantity: 1
             initial_amount: 5
-            subtotal_amount: 6
+            subtotal_amount: 9
             related_object: product
             applied_discount_amount: 6
             price: 9
@@ -23841,18 +23840,17 @@ components:
             applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.018348186070783
+              price: 8.762042012749001
               id: id
               source_id: source_id
               override: true
               sku: sku
             applied_quantity_amount: 4
             object: order_item
-          - total_applied_discount_amount: 9
-            amount: 1
+          - amount: 1
             product:
               metadata: "{}"
-              price: 8.762042012749001
+              price: 6.683562403749608
               name: name
               id: id
               source_id: source_id
@@ -23864,7 +23862,7 @@ components:
             sku_id: sku_id
             applied_quantity: 1
             initial_amount: 5
-            subtotal_amount: 6
+            subtotal_amount: 9
             related_object: product
             applied_discount_amount: 6
             price: 9
@@ -23873,7 +23871,7 @@ components:
             applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.018348186070783
+              price: 8.762042012749001
               id: id
               source_id: source_id
               override: true
@@ -23999,7 +23997,7 @@ components:
     RedemptionsListResponseBody:
       description: Response body schema for **GET** `/redemptions`.
       example:
-        total: 0
+        total: 6
         redemptions:
         - date: 2021-12-22T10:13:06.487Z
           reward:
@@ -24022,12 +24020,12 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
-            amount: 7
+            amount: 0
           reason: reason
           metadata: "{}"
           amount: 0
@@ -24139,7 +24137,7 @@ components:
             loyalty_card:
               next_expiration_date: 2023-05-30T00:00:00.000+00:00
               balance: 6970
-              next_expiration_points: 6
+              next_expiration_points: 9
               points: 7000
             campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
             validity_timeframe:
@@ -24155,10 +24153,10 @@ components:
               email: email
               object: customer
             validity_day_of_week:
-            - 3
-            - 3
+            - 6
+            - 6
             redemption:
-              quantity: 6
+              quantity: 3
               redeemed_quantity: 1
               redeemed_points: 100000
               url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -24181,10 +24179,10 @@ components:
               redemptions:
                 total_redeemed: 6
               orders:
-                total_amount: 5
-                total_discount_amount: 6
+                total_amount: 6
+                total_discount_amount: 5
             metadata: "{}"
-            hierarchy: 1
+            hierarchy: 6
             validity_hours:
               daily:
               - days_of_week:
@@ -24204,11 +24202,11 @@ components:
             expiration_date: 2022-09-26T00:00:00Z
             updated_at: 2022-02-09T09:20:05.603Z
             validity_day_of_week:
-            - 6
-            - 6
+            - 2
+            - 2
             category_id: cat_0c9da30e7116ba6bba
             validation_rule_assignments:
-              total: 3
+              total: 6
               data:
               - rule_id: val_4j7DCRm2IS59
                 related_object_type: voucher
@@ -24261,8 +24259,8 @@ components:
                 amount_off: 6.027456183070403
             campaign:
               validity_day_of_week:
-              - 2
-              - 2
+              - 1
+              - 1
               category_id: cat_0b688929a2476386a6
               validity_hours:
                 daily:
@@ -24323,7 +24321,7 @@ components:
           id: id
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 6
+            points: 7
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -24348,11 +24346,10 @@ components:
             source_id: source_id
             customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
             items:
-            - total_applied_discount_amount: 9
-              amount: 1
+            - amount: 1
               product:
                 metadata: "{}"
-                price: 8.762042012749001
+                price: 6.683562403749608
                 name: name
                 id: id
                 source_id: source_id
@@ -24364,7 +24361,7 @@ components:
               sku_id: sku_id
               applied_quantity: 1
               initial_amount: 5
-              subtotal_amount: 6
+              subtotal_amount: 9
               related_object: product
               applied_discount_amount: 6
               price: 9
@@ -24373,18 +24370,17 @@ components:
               applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.018348186070783
+                price: 8.762042012749001
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
               applied_quantity_amount: 4
               object: order_item
-            - total_applied_discount_amount: 9
-              amount: 1
+            - amount: 1
               product:
                 metadata: "{}"
-                price: 8.762042012749001
+                price: 6.683562403749608
                 name: name
                 id: id
                 source_id: source_id
@@ -24396,7 +24392,7 @@ components:
               sku_id: sku_id
               applied_quantity: 1
               initial_amount: 5
-              subtotal_amount: 6
+              subtotal_amount: 9
               related_object: product
               applied_discount_amount: 6
               price: 9
@@ -24405,7 +24401,7 @@ components:
               applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.018348186070783
+                price: 8.762042012749001
                 id: id
                 source_id: source_id
                 override: true
@@ -24446,12 +24442,12 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
-            amount: 7
+            amount: 0
           reason: reason
           metadata: "{}"
           amount: 0
@@ -24563,7 +24559,7 @@ components:
             loyalty_card:
               next_expiration_date: 2023-05-30T00:00:00.000+00:00
               balance: 6970
-              next_expiration_points: 6
+              next_expiration_points: 9
               points: 7000
             campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
             validity_timeframe:
@@ -24579,10 +24575,10 @@ components:
               email: email
               object: customer
             validity_day_of_week:
-            - 3
-            - 3
+            - 6
+            - 6
             redemption:
-              quantity: 6
+              quantity: 3
               redeemed_quantity: 1
               redeemed_points: 100000
               url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -24605,10 +24601,10 @@ components:
               redemptions:
                 total_redeemed: 6
               orders:
-                total_amount: 5
-                total_discount_amount: 6
+                total_amount: 6
+                total_discount_amount: 5
             metadata: "{}"
-            hierarchy: 1
+            hierarchy: 6
             validity_hours:
               daily:
               - days_of_week:
@@ -24628,11 +24624,11 @@ components:
             expiration_date: 2022-09-26T00:00:00Z
             updated_at: 2022-02-09T09:20:05.603Z
             validity_day_of_week:
-            - 6
-            - 6
+            - 2
+            - 2
             category_id: cat_0c9da30e7116ba6bba
             validation_rule_assignments:
-              total: 3
+              total: 6
               data:
               - rule_id: val_4j7DCRm2IS59
                 related_object_type: voucher
@@ -24685,8 +24681,8 @@ components:
                 amount_off: 6.027456183070403
             campaign:
               validity_day_of_week:
-              - 2
-              - 2
+              - 1
+              - 1
               category_id: cat_0b688929a2476386a6
               validity_hours:
                 daily:
@@ -24747,7 +24743,7 @@ components:
           id: id
           customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
           loyalty_card:
-            points: 6
+            points: 7
           tracking_id: tracking_id
           object: redemption
           status: SUCCEEDED
@@ -24772,11 +24768,10 @@ components:
             source_id: source_id
             customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
             items:
-            - total_applied_discount_amount: 9
-              amount: 1
+            - amount: 1
               product:
                 metadata: "{}"
-                price: 8.762042012749001
+                price: 6.683562403749608
                 name: name
                 id: id
                 source_id: source_id
@@ -24788,7 +24783,7 @@ components:
               sku_id: sku_id
               applied_quantity: 1
               initial_amount: 5
-              subtotal_amount: 6
+              subtotal_amount: 9
               related_object: product
               applied_discount_amount: 6
               price: 9
@@ -24797,18 +24792,17 @@ components:
               applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.018348186070783
+                price: 8.762042012749001
                 id: id
                 source_id: source_id
                 override: true
                 sku: sku
               applied_quantity_amount: 4
               object: order_item
-            - total_applied_discount_amount: 9
-              amount: 1
+            - amount: 1
               product:
                 metadata: "{}"
-                price: 8.762042012749001
+                price: 6.683562403749608
                 name: name
                 id: id
                 source_id: source_id
@@ -24820,7 +24814,7 @@ components:
               sku_id: sku_id
               applied_quantity: 1
               initial_amount: 5
-              subtotal_amount: 6
+              subtotal_amount: 9
               related_object: product
               applied_discount_amount: 6
               price: 9
@@ -24829,7 +24823,7 @@ components:
               applied_discount_quantity: 7
               source_id: source_id
               sku:
-                price: 9.018348186070783
+                price: 8.762042012749001
                 id: id
                 source_id: source_id
                 override: true
@@ -24974,8 +24968,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -25034,8 +25028,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -25095,8 +25089,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -25295,8 +25289,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -25357,8 +25351,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -25418,8 +25412,8 @@ components:
                 id: camp_13BbZ0kQsNinhqsX3wUts2UP
                 type: type
               coin:
-                points_ratio: 0
-                exchange_ratio: 7
+                points_ratio: 7
+                exchange_ratio: 3
             customer: ""
             object: reward
           gift:
@@ -28538,11 +28532,10 @@ components:
       title: Order Calculated No Customer Data
     OrderItemCalculated:
       example:
-        total_applied_discount_amount: 9
         amount: 1
         product:
           metadata: "{}"
-          price: 8.762042012749001
+          price: 6.683562403749608
           name: name
           id: id
           source_id: source_id
@@ -28554,7 +28547,7 @@ components:
         sku_id: sku_id
         applied_quantity: 1
         initial_amount: 5
-        subtotal_amount: 6
+        subtotal_amount: 9
         related_object: product
         applied_discount_amount: 6
         price: 9
@@ -28563,7 +28556,7 @@ components:
         applied_discount_quantity: 7
         source_id: source_id
         sku:
-          price: 9.018348186070783
+          price: 8.762042012749001
           id: id
           source_id: source_id
           override: true
@@ -28639,12 +28632,6 @@ components:
           description: A positive integer in the smallest currency unit (e.g. 100
             cents for $1.00) representing the total amount of the order. This is the
             sum of the order items' amounts.
-          nullable: true
-          type: integer
-        total_applied_discount_amount:
-          description: "Sum of all order-level AND all product-specific discounts\
-            \ applied in a particular request.  \n`total_applied_discount_amount`\
-            \ = `applied_discount_amount` + `items_applied_discount_amount`"
           nullable: true
           type: integer
         price:
@@ -29486,8 +29473,8 @@ components:
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 0
-              exchange_ratio: 7
+              points_ratio: 7
+              exchange_ratio: 3
           customer: ""
           object: reward
         gift:
@@ -29761,8 +29748,8 @@ components:
             id: camp_13BbZ0kQsNinhqsX3wUts2UP
             type: type
           coin:
-            points_ratio: 0
-            exchange_ratio: 7
+            points_ratio: 7
+            exchange_ratio: 3
         customer: ""
         object: reward
       properties:
@@ -29853,8 +29840,8 @@ components:
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 0
-              exchange_ratio: 7
+              points_ratio: 7
+              exchange_ratio: 3
           customer: ""
           object: reward
         gift:
@@ -30583,7 +30570,7 @@ components:
     ValidationRuleAssignmentsList:
       description: Validation Rule Assignments List
       example:
-        total: 3
+        total: 6
         data:
         - rule_id: val_4j7DCRm2IS59
           related_object_type: voucher
@@ -34853,11 +34840,10 @@ components:
         source_id: source_id
         customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
         items:
-        - total_applied_discount_amount: 9
-          amount: 1
+        - amount: 1
           product:
             metadata: "{}"
-            price: 8.762042012749001
+            price: 6.683562403749608
             name: name
             id: id
             source_id: source_id
@@ -34869,7 +34855,7 @@ components:
           sku_id: sku_id
           applied_quantity: 1
           initial_amount: 5
-          subtotal_amount: 6
+          subtotal_amount: 9
           related_object: product
           applied_discount_amount: 6
           price: 9
@@ -34878,18 +34864,17 @@ components:
           applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.018348186070783
+            price: 8.762042012749001
             id: id
             source_id: source_id
             override: true
             sku: sku
           applied_quantity_amount: 4
           object: order_item
-        - total_applied_discount_amount: 9
-          amount: 1
+        - amount: 1
           product:
             metadata: "{}"
-            price: 8.762042012749001
+            price: 6.683562403749608
             name: name
             id: id
             source_id: source_id
@@ -34901,7 +34886,7 @@ components:
           sku_id: sku_id
           applied_quantity: 1
           initial_amount: 5
-          subtotal_amount: 6
+          subtotal_amount: 9
           related_object: product
           applied_discount_amount: 6
           price: 9
@@ -34910,7 +34895,7 @@ components:
           applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.018348186070783
+            price: 8.762042012749001
             id: id
             source_id: source_id
             override: true
@@ -35736,7 +35721,7 @@ components:
         - 6
         category_id: cat_0c9da30e7116ba6bba
         validation_rule_assignments:
-          total: 3
+          total: 6
           data:
           - rule_id: val_4j7DCRm2IS59
             related_object_type: voucher
@@ -36099,11 +36084,10 @@ components:
         source_id: source_id
         customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
         items:
-        - total_applied_discount_amount: 9
-          amount: 1
+        - amount: 1
           product:
             metadata: "{}"
-            price: 8.762042012749001
+            price: 6.683562403749608
             name: name
             id: id
             source_id: source_id
@@ -36115,7 +36099,7 @@ components:
           sku_id: sku_id
           applied_quantity: 1
           initial_amount: 5
-          subtotal_amount: 6
+          subtotal_amount: 9
           related_object: product
           applied_discount_amount: 6
           price: 9
@@ -36124,18 +36108,17 @@ components:
           applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.018348186070783
+            price: 8.762042012749001
             id: id
             source_id: source_id
             override: true
             sku: sku
           applied_quantity_amount: 4
           object: order_item
-        - total_applied_discount_amount: 9
-          amount: 1
+        - amount: 1
           product:
             metadata: "{}"
-            price: 8.762042012749001
+            price: 6.683562403749608
             name: name
             id: id
             source_id: source_id
@@ -36147,7 +36130,7 @@ components:
           sku_id: sku_id
           applied_quantity: 1
           initial_amount: 5
-          subtotal_amount: 6
+          subtotal_amount: 9
           related_object: product
           applied_discount_amount: 6
           price: 9
@@ -36156,7 +36139,7 @@ components:
           applied_discount_quantity: 7
           source_id: source_id
           sku:
-            price: 9.018348186070783
+            price: 8.762042012749001
             id: id
             source_id: source_id
             override: true
@@ -36373,7 +36356,7 @@ components:
       example:
         next_expiration_date: 2023-05-30T00:00:00.000+00:00
         balance: 6970
-        next_expiration_points: 6
+        next_expiration_points: 9
         points: 7000
       properties:
         points:
@@ -36427,7 +36410,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemVoucherRedemption:
       example:
-        quantity: 6
+        quantity: 3
         redeemed_quantity: 1
         redeemed_points: 100000
         url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -36570,7 +36553,7 @@ components:
         loyalty_card:
           next_expiration_date: 2023-05-30T00:00:00.000+00:00
           balance: 6970
-          next_expiration_points: 6
+          next_expiration_points: 9
           points: 7000
         campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
         validity_timeframe:
@@ -36586,10 +36569,10 @@ components:
           email: email
           object: customer
         validity_day_of_week:
-        - 3
-        - 3
+        - 6
+        - 6
         redemption:
-          quantity: 6
+          quantity: 3
           redeemed_quantity: 1
           redeemed_points: 100000
           url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -36801,8 +36784,8 @@ components:
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierCampaign:
       example:
         validity_day_of_week:
-        - 2
-        - 2
+        - 1
+        - 1
         category_id: cat_0b688929a2476386a6
         validity_hours:
           daily:
@@ -36904,8 +36887,8 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummaryOrders:
       example:
-        total_amount: 5
-        total_discount_amount: 6
+        total_amount: 6
+        total_discount_amount: 5
       properties:
         total_amount:
           description: Sum of order totals.
@@ -36922,8 +36905,8 @@ components:
         redemptions:
           total_redeemed: 6
         orders:
-          total_amount: 5
-          total_discount_amount: 6
+          total_amount: 6
+          total_discount_amount: 5
       properties:
         redemptions:
           $ref: '#/components/schemas/Redemptions_List_Response_Body_Redemptions_ItemPromotionTierSummaryRedemptions'
@@ -36937,10 +36920,10 @@ components:
           redemptions:
             total_redeemed: 6
           orders:
-            total_amount: 5
-            total_discount_amount: 6
+            total_amount: 6
+            total_discount_amount: 5
         metadata: "{}"
-        hierarchy: 1
+        hierarchy: 6
         validity_hours:
           daily:
           - days_of_week:
@@ -36960,11 +36943,11 @@ components:
         expiration_date: 2022-09-26T00:00:00Z
         updated_at: 2022-02-09T09:20:05.603Z
         validity_day_of_week:
-        - 6
-        - 6
+        - 2
+        - 2
         category_id: cat_0c9da30e7116ba6bba
         validation_rule_assignments:
-          total: 3
+          total: 6
           data:
           - rule_id: val_4j7DCRm2IS59
             related_object_type: voucher
@@ -37017,8 +37000,8 @@ components:
             amount_off: 6.027456183070403
         campaign:
           validity_day_of_week:
-          - 2
-          - 2
+          - 1
+          - 1
           category_id: cat_0b688929a2476386a6
           validity_hours:
             daily:
@@ -37185,7 +37168,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemGift:
       example:
-        amount: 7
+        amount: 0
       properties:
         amount:
           description: Amount subtracted from the gift card as a result of the redemption.
@@ -37198,7 +37181,7 @@ components:
       type: object
     Redemptions_List_Response_Body_Redemptions_ItemLoyaltyCard:
       example:
-        points: 6
+        points: 7
       properties:
         points:
           description: Number of points subtracted from the loyalty card as a result
@@ -37231,12 +37214,12 @@ components:
               id: camp_13BbZ0kQsNinhqsX3wUts2UP
               type: type
             coin:
-              points_ratio: 0
-              exchange_ratio: 7
+              points_ratio: 7
+              exchange_ratio: 3
           customer: ""
           object: reward
         gift:
-          amount: 7
+          amount: 0
         reason: reason
         metadata: "{}"
         amount: 0
@@ -37348,7 +37331,7 @@ components:
           loyalty_card:
             next_expiration_date: 2023-05-30T00:00:00.000+00:00
             balance: 6970
-            next_expiration_points: 6
+            next_expiration_points: 9
             points: 7000
           campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
           validity_timeframe:
@@ -37364,10 +37347,10 @@ components:
             email: email
             object: customer
           validity_day_of_week:
-          - 3
-          - 3
+          - 6
+          - 6
           redemption:
-            quantity: 6
+            quantity: 3
             redeemed_quantity: 1
             redeemed_points: 100000
             url: /v1/vouchers/WVPblOYX/redemptions?page=1&limit=10
@@ -37390,10 +37373,10 @@ components:
             redemptions:
               total_redeemed: 6
             orders:
-              total_amount: 5
-              total_discount_amount: 6
+              total_amount: 6
+              total_discount_amount: 5
           metadata: "{}"
-          hierarchy: 1
+          hierarchy: 6
           validity_hours:
             daily:
             - days_of_week:
@@ -37413,11 +37396,11 @@ components:
           expiration_date: 2022-09-26T00:00:00Z
           updated_at: 2022-02-09T09:20:05.603Z
           validity_day_of_week:
-          - 6
-          - 6
+          - 2
+          - 2
           category_id: cat_0c9da30e7116ba6bba
           validation_rule_assignments:
-            total: 3
+            total: 6
             data:
             - rule_id: val_4j7DCRm2IS59
               related_object_type: voucher
@@ -37470,8 +37453,8 @@ components:
               amount_off: 6.027456183070403
           campaign:
             validity_day_of_week:
-            - 2
-            - 2
+            - 1
+            - 1
             category_id: cat_0b688929a2476386a6
             validity_hours:
               daily:
@@ -37532,7 +37515,7 @@ components:
         id: id
         customer_id: cust_i8t5Tt6eiKG5K79KQlJ0Vs64
         loyalty_card:
-          points: 6
+          points: 7
         tracking_id: tracking_id
         object: redemption
         status: SUCCEEDED
@@ -37557,11 +37540,10 @@ components:
           source_id: source_id
           customer_id: cust_7iUa6ICKyU6gH40dBU25kQU1
           items:
-          - total_applied_discount_amount: 9
-            amount: 1
+          - amount: 1
             product:
               metadata: "{}"
-              price: 8.762042012749001
+              price: 6.683562403749608
               name: name
               id: id
               source_id: source_id
@@ -37573,7 +37555,7 @@ components:
             sku_id: sku_id
             applied_quantity: 1
             initial_amount: 5
-            subtotal_amount: 6
+            subtotal_amount: 9
             related_object: product
             applied_discount_amount: 6
             price: 9
@@ -37582,18 +37564,17 @@ components:
             applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.018348186070783
+              price: 8.762042012749001
               id: id
               source_id: source_id
               override: true
               sku: sku
             applied_quantity_amount: 4
             object: order_item
-          - total_applied_discount_amount: 9
-            amount: 1
+          - amount: 1
             product:
               metadata: "{}"
-              price: 8.762042012749001
+              price: 6.683562403749608
               name: name
               id: id
               source_id: source_id
@@ -37605,7 +37586,7 @@ components:
             sku_id: sku_id
             applied_quantity: 1
             initial_amount: 5
-            subtotal_amount: 6
+            subtotal_amount: 9
             related_object: product
             applied_discount_amount: 6
             price: 9
@@ -37614,7 +37595,7 @@ components:
             applied_discount_quantity: 7
             source_id: source_id
             sku:
-              price: 9.018348186070783
+              price: 8.762042012749001
               id: id
               source_id: source_id
               override: true
@@ -38954,7 +38935,7 @@ components:
       description: An object containing details of the related product.
       example:
         metadata: "{}"
-        price: 8.762042012749001
+        price: 6.683562403749608
         name: name
         id: id
         source_id: source_id
@@ -39000,7 +38981,7 @@ components:
       additionalProperties: false
       description: An object containing details of the related SKU.
       example:
-        price: 9.018348186070783
+        price: 8.762042012749001
         id: id
         source_id: source_id
         override: true
@@ -39341,6 +39322,59 @@ components:
         conditions:
           $ref: '#/components/schemas/QualificationsOption_filters_resource_type_conditions'
       type: object
+    Holder_Role_conditions:
+      description: Data filters used to narrow the data records to be returned in
+        the result.
+      nullable: true
+      properties:
+        $is:
+          description: Will return records only for the first value in the array.
+          items:
+            enum:
+            - OWNER
+            - REFERRER
+            - REFEREE
+            type: string
+          nullable: true
+          type: array
+        $is_not:
+          description: Will return records only for the first value in the array.
+          items:
+            enum:
+            - OWNER
+            - REFERRER
+            - REFEREE
+            type: string
+          nullable: true
+          type: array
+        $in:
+          description: Will return records for the values in the array.
+          items:
+            enum:
+            - OWNER
+            - REFERRER
+            - REFEREE
+            type: string
+          nullable: true
+          type: array
+        $not_in:
+          description: Will return records for the values in the array.
+          items:
+            enum:
+            - OWNER
+            - REFERRER
+            - REFEREE
+            type: string
+          nullable: true
+          type: array
+      type: object
+    Holder_Role:
+      nullable: true
+      properties:
+        conditions:
+          $ref: '#/components/schemas/Holder_Role_conditions'
+      title: Holder Role
+      type: object
     QualificationsOption_filters:
       additionalProperties: false
       description: A set of filters to return only a specific category or type of
@@ -39363,6 +39397,8 @@ components:
           $ref: '#/components/schemas/QualificationsFieldConditions'
         code:
           $ref: '#/components/schemas/QualificationsFieldConditions'
+        holder_role:
+          $ref: '#/components/schemas/Holder_Role'
       type: object
     Redemption_Related_Redemptions_Rollbacks_Item:
       example:
@@ -40302,8 +40338,8 @@ components:
       description: Defines the ratio by mapping the number of loyalty points in `points_ratio`
         to a predefined cash amount in `exchange_ratio`.
       example:
-        points_ratio: 0
-        exchange_ratio: 7
+        points_ratio: 7
+        exchange_ratio: 3
       nullable: true
       properties:
         exchange_ratio:
@@ -40328,8 +40364,8 @@ components:
           id: camp_13BbZ0kQsNinhqsX3wUts2UP
           type: type
         coin:
-          points_ratio: 0
-          exchange_ratio: 7
+          points_ratio: 7
+          exchange_ratio: 3
       nullable: true
       properties:
         campaign:
