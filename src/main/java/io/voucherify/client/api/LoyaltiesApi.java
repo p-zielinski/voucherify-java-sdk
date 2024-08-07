@@ -41,6 +41,7 @@ import io.voucherify.client.model.LoyaltiesEarningRulesUpdateResponseBody;
 import io.voucherify.client.model.LoyaltiesGetCampaignResponseBody;
 import io.voucherify.client.model.LoyaltiesListCampaignsResponseBody;
 import io.voucherify.client.model.LoyaltiesListMembersResponseBody;
+import io.voucherify.client.model.LoyaltiesMemberActivityListResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersBalanceUpdateRequestBody;
 import io.voucherify.client.model.LoyaltiesMembersBalanceUpdateResponseBody;
 import io.voucherify.client.model.LoyaltiesMembersGetResponseBody;
@@ -72,6 +73,7 @@ import io.voucherify.client.model.LoyaltiesUpdateCampaignRequestBody;
 import io.voucherify.client.model.LoyaltiesUpdateCampaignResponseBody;
 import io.voucherify.client.model.LoyaltyTier;
 import io.voucherify.client.model.ParameterCreatedBeforeAfter;
+import io.voucherify.client.model.ParameterOrderCreatedAt;
 import io.voucherify.client.model.ParameterOrderListCampaigns;
 import io.voucherify.client.model.ParameterOrderListEarningRules;
 import io.voucherify.client.model.ParameterOrderListLoyaltyTiers;
@@ -3056,6 +3058,270 @@ public class LoyaltiesApi {
 
         okhttp3.Call localVarCall = listLoyaltyTiersValidateBeforeCall(campaignId, limit, order, _callback);
         Type localVarReturnType = new TypeToken<LoyaltiesTiersListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listMemberActivity
+     * @param memberId Unique loyalty card assigned to a particular customer. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listMemberActivityCall(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/members/{memberId}/activity"
+            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMemberActivityValidateBeforeCall(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'memberId' is set
+        if (memberId == null) {
+            throw new ApiException("Missing the required parameter 'memberId' when calling listMemberActivity(Async)");
+        }
+
+        return listMemberActivityCall(memberId, limit, order, startingAfterId, _callback);
+
+    }
+
+    /**
+     * List Member Activity
+     *   📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * @param memberId Unique loyalty card assigned to a particular customer. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @return LoyaltiesMemberActivityListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesMemberActivityListResponseBody listMemberActivity(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesMemberActivityListResponseBody> localVarResp = listMemberActivityWithHttpInfo(memberId, limit, order, startingAfterId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Member Activity
+     *   📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * @param memberId Unique loyalty card assigned to a particular customer. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @return ApiResponse&lt;LoyaltiesMemberActivityListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesMemberActivityListResponseBody> listMemberActivityWithHttpInfo(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listMemberActivityValidateBeforeCall(memberId, limit, order, startingAfterId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesMemberActivityListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Member Activity (asynchronously)
+     *   📘 Alternative endpoint  This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter. Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * @param memberId Unique loyalty card assigned to a particular customer. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listMemberActivityAsync(String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback<LoyaltiesMemberActivityListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listMemberActivityValidateBeforeCall(memberId, limit, order, startingAfterId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesMemberActivityListResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listMemberActivity1
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId A code that identifies the loyalty card. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call listMemberActivity1Call(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/v1/loyalties/{campaignId}/members/{memberId}/activity"
+            .replace("{" + "campaignId" + "}", localVarApiClient.escapeString(campaignId.toString()))
+            .replace("{" + "memberId" + "}", localVarApiClient.escapeString(memberId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (order != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
+        }
+
+        if (startingAfterId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("starting_after_id", startingAfterId));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "X-App-Id", "X-App-Token" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMemberActivity1ValidateBeforeCall(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'campaignId' is set
+        if (campaignId == null) {
+            throw new ApiException("Missing the required parameter 'campaignId' when calling listMemberActivity1(Async)");
+        }
+
+        // verify the required parameter 'memberId' is set
+        if (memberId == null) {
+            throw new ApiException("Missing the required parameter 'memberId' when calling listMemberActivity1(Async)");
+        }
+
+        return listMemberActivity1Call(campaignId, memberId, limit, order, startingAfterId, _callback);
+
+    }
+
+    /**
+     * List Member Activity
+     * Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId A code that identifies the loyalty card. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @return LoyaltiesMemberActivityListResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public LoyaltiesMemberActivityListResponseBody listMemberActivity1(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId) throws ApiException {
+        ApiResponse<LoyaltiesMemberActivityListResponseBody> localVarResp = listMemberActivity1WithHttpInfo(campaignId, memberId, limit, order, startingAfterId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Member Activity
+     * Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId A code that identifies the loyalty card. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @return ApiResponse&lt;LoyaltiesMemberActivityListResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<LoyaltiesMemberActivityListResponseBody> listMemberActivity1WithHttpInfo(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId) throws ApiException {
+        okhttp3.Call localVarCall = listMemberActivity1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesMemberActivityListResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Member Activity (asynchronously)
+     * Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+     * @param campaignId Unique campaign ID. (required)
+     * @param memberId A code that identifies the loyalty card. (required)
+     * @param limit Limits the number of objects to be returned. The limit can range between 1 and 100 items. If no limit is set, it returns 10 items. (optional)
+     * @param order Apply this filter to order the events according the date and time when it was created. The dash - preceding a sorting option means sorting in a descending order. (optional)
+     * @param startingAfterId A cursor for pagination. It retrieves the events starting after an event with the given ID. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call listMemberActivity1Async(String campaignId, String memberId, Integer limit, ParameterOrderCreatedAt order, String startingAfterId, final ApiCallback<LoyaltiesMemberActivityListResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listMemberActivity1ValidateBeforeCall(campaignId, memberId, limit, order, startingAfterId, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesMemberActivityListResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -162,8 +162,9 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for POST `/v1/loyalties/{campaignId}/rewards` and PUT `/v1/loyalties/{campaignId}/rewards/{assignmentId}`
   - Added support for POST `/v1/loyalties` and PUT `/v1/loyalties/{campaignId}`
   - Added support for GET `/v1/loyalties/{campaignId}` and GET `/v1/loyalties`
-  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}` and GET `/v1/loyalties/{campaignId}/members`
+  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}` and GET `/v1/loyalties/{campaignId}/members` and GET `/v1/loyalties/members/{memberId}`
   - Added new query option to GET `/v1/vouchers` - `code` and `ids`
+  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}/activity` and GET `/v1/loyalties/members/{memberId}/activity`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Property `type` of Model `CampaignVoucher` has no default value anymore.
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
@@ -285,6 +286,8 @@ Class | Method | HTTP request | Description
 *LoyaltiesApi* | [**listLoyaltyTierEarningRules**](docs/LoyaltiesApi.md#listLoyaltyTierEarningRules) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules | List Loyalty Tier Earning Rules
 *LoyaltiesApi* | [**listLoyaltyTierRewards**](docs/LoyaltiesApi.md#listLoyaltyTierRewards) | **GET** /v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards | List Loyalty Tier Rewards
 *LoyaltiesApi* | [**listLoyaltyTiers**](docs/LoyaltiesApi.md#listLoyaltyTiers) | **GET** /v1/loyalties/{campaignId}/tiers | List Loyalty Tiers
+*LoyaltiesApi* | [**listMemberActivity**](docs/LoyaltiesApi.md#listMemberActivity) | **GET** /v1/loyalties/members/{memberId}/activity | List Member Activity
+*LoyaltiesApi* | [**listMemberActivity1**](docs/LoyaltiesApi.md#listMemberActivity1) | **GET** /v1/loyalties/{campaignId}/members/{memberId}/activity | List Member Activity
 *LoyaltiesApi* | [**listMemberLoyaltyTier**](docs/LoyaltiesApi.md#listMemberLoyaltyTier) | **GET** /v1/loyalties/members/{memberId}/tiers | List Member&#39;s Loyalty Tiers
 *LoyaltiesApi* | [**listMemberRewards**](docs/LoyaltiesApi.md#listMemberRewards) | **GET** /v1/loyalties/members/{memberId}/rewards | List Member Rewards
 *LoyaltiesApi* | [**listMembers**](docs/LoyaltiesApi.md#listMembers) | **GET** /v1/loyalties/{campaignId}/members | List Members
@@ -578,6 +581,7 @@ Class | Method | HTTP request | Description
 - [LoyaltiesListCampaignsResponseBody](docs/LoyaltiesListCampaignsResponseBody.md)
 - [LoyaltiesListMembersResponseBody](docs/LoyaltiesListMembersResponseBody.md)
 - [LoyaltiesLoyaltyTierReward](docs/LoyaltiesLoyaltyTierReward.md)
+- [LoyaltiesMemberActivityListResponseBody](docs/LoyaltiesMemberActivityListResponseBody.md)
 - [LoyaltiesMembersBalanceUpdateRequestBody](docs/LoyaltiesMembersBalanceUpdateRequestBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBody](docs/LoyaltiesMembersBalanceUpdateResponseBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject](docs/LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject.md)
@@ -636,6 +640,7 @@ Class | Method | HTTP request | Description
 - [LoyaltyTiersExpirationAllStartDate](docs/LoyaltyTiersExpirationAllStartDate.md)
 - [LuckyDraw](docs/LuckyDraw.md)
 - [MappingPoints](docs/MappingPoints.md)
+- [MemberActivity](docs/MemberActivity.md)
 - [Order](docs/Order.md)
 - [OrderBase](docs/OrderBase.md)
 - [OrderCalculated](docs/OrderCalculated.md)

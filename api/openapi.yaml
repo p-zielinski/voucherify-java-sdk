@@ -11321,6 +11321,129 @@ paths:
       tags:
       - Loyalties
       x-accepts: application/json
+  /v1/loyalties/{campaignId}/members/{memberId}/activity:
+    get:
+      description: Retrieves the list of activities for the given member ID related
+        to a voucher and customer who is the holder of the voucher.
+      operationId: list-member-activity-1
+      parameters:
+      - description: Unique campaign ID.
+        explode: false
+        in: path
+        name: campaignId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterCampaignId'
+        style: simple
+      - description: A code that identifies the loyalty card.
+        explode: false
+        in: path
+        name: memberId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterMemberId'
+        style: simple
+      - description: "Limits the number of objects to be returned. The limit can range\
+          \ between 1 and 100 items. If no limit is set, it returns 10 items."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: Apply this filter to order the events according the date and
+          time when it was created. The dash - preceding a sorting option means sorting
+          in a descending order.
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterOrderCreatedAt'
+        style: form
+      - description: A cursor for pagination. It retrieves the events starting after
+          an event with the given ID.
+        explode: true
+        in: query
+        name: starting_after_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterString'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoyaltiesMemberActivityListResponseBody'
+          description: Returns a list of event objects related to the loyalty card.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Member Activity
+      tags:
+      - Loyalties
+      x-accepts: application/json
+  /v1/loyalties/members/{memberId}/activity:
+    get:
+      description: |2-
+
+         📘 Alternative endpoint
+         This endpoint is an alternative to this endpoint. The URL was re-designed to allow you to get member activities without having to provide the campaignId as a path parameter.
+        Retrieves the list of activities for the given member ID related to a voucher and customer who is the holder of the voucher.
+      operationId: list-member-activity
+      parameters:
+      - description: Unique loyalty card assigned to a particular customer.
+        explode: false
+        in: path
+        name: memberId
+        required: true
+        schema:
+          $ref: '#/components/schemas/ParameterMemberId'
+        style: simple
+      - description: "Limits the number of objects to be returned. The limit can range\
+          \ between 1 and 100 items. If no limit is set, it returns 10 items."
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterLimit'
+        style: form
+      - description: Apply this filter to order the events according the date and
+          time when it was created. The dash - preceding a sorting option means sorting
+          in a descending order.
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterOrderCreatedAt'
+        style: form
+      - description: A cursor for pagination. It retrieves the events starting after
+          an event with the given ID.
+        explode: true
+        in: query
+        name: starting_after_id
+        required: false
+        schema:
+          $ref: '#/components/schemas/ParameterString'
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoyaltiesMemberActivityListResponseBody'
+          description: Returns a list of event objects related to the loyalty card.
+      security:
+      - X-App-Id: []
+        X-App-Token: []
+      summary: List Member Activity
+      tags:
+      - Loyalties
+      x-accepts: application/json
   /v1/loyalties/{campaignId}/members/{memberId}/balance:
     post:
       description: "This method adds or removes balance to an existing loyalty card.\
@@ -26970,6 +27093,61 @@ components:
           type: integer
       title: Loyalties List Members Response Body
       type: object
+    LoyaltiesMemberActivityListResponseBody:
+      description: Response body schema for retrieving member activity.
+      example:
+        data:
+        - data: "{}"
+          group_id: w-0e30613abc1f044513
+          created_at: 2022-08-30T09:14:07.66Z
+          id: evcus_0c150c51730c6b60b1
+          type: type
+        - data: "{}"
+          group_id: w-0e30613abc1f044513
+          created_at: 2022-08-30T09:14:07.66Z
+          id: evcus_0c150c51730c6b60b1
+          type: type
+        more_starting_after: more_starting_after
+        data_ref: data
+        has_more: true
+        object: list
+      properties:
+        object:
+          default: list
+          description: The type of the object represented by JSON. This object stores
+            information about member activities in a dictionary.
+          enum:
+          - list
+          nullable: true
+          type: string
+        data_ref:
+          default: data
+          description: Identifies the name of the attribute that contains the array
+            of member activity objects.
+          nullable: true
+          type: string
+        data:
+          description: Array of member activity objects.
+          items:
+            $ref: '#/components/schemas/MemberActivity'
+          nullable: true
+          type: array
+        has_more:
+          description: "As query results are always limited (by the limit parameter),\
+            \ the `has_more` flag indicates if there are more records for given filter\
+            \ parameters. This lets you know if you can run another request with a\
+            \ `starting_after_id` query or a different limit to get more records returned\
+            \ in the results."
+          nullable: true
+          type: boolean
+        more_starting_after:
+          description: Returns an ID that can be used to return another page of results.
+            Use the event id in the `starting_after_id` query parameter to display
+            another page of the results starting after the event with that ID.
+          nullable: true
+          type: string
+      title: Member Activity List Response Body
+      type: object
     LoyaltiesMembersBalanceUpdateRequestBody:
       description: "Request Body schema for **POST** `/loyalties/members/{memberId}/balance`\
         \ and **POST** `/loyalties/{campaignId}/members/{memberId}/balance`."
@@ -35620,6 +35798,50 @@ components:
           nullable: true
           type: string
       title: Lucky Draw
+      type: object
+    MemberActivity:
+      description: "This is an object representing member activity.  \n\nThis is a\
+        \ general object which presents moments from members' activity. There are\
+        \ all types of different events that members perform during their journey\
+        \ once they participate in a loyalty program. Events describe moments when\
+        \ the members redeem loyalty cards and earn points or rewards. The list of\
+        \ all types of activities is listed below.\n\nThe details describing the activity\
+        \ are collected in an array property named `data`. In this object, software\
+        \ integrators can find all further information explaining the event context."
+      example:
+        data: "{}"
+        group_id: w-0e30613abc1f044513
+        created_at: 2022-08-30T09:14:07.66Z
+        id: evcus_0c150c51730c6b60b1
+        type: type
+      properties:
+        id:
+          description: "Unique event ID, assigned by Voucherify."
+          example: evcus_0c150c51730c6b60b1
+          nullable: true
+          type: string
+        type:
+          description: Event type.
+          nullable: true
+          type: string
+        data:
+          description: Contains details about the event. The objects that are returned
+            in the data attribute differ based on the context of the event type.
+          nullable: true
+          type: object
+        created_at:
+          description: Timestamp representing the date and time when the member activity
+            occurred in ISO 8601 format.
+          example: 2022-08-30T09:14:07.66Z
+          format: date-time
+          nullable: true
+          type: string
+        group_id:
+          description: Unique identifier of the request that caused the event.
+          example: w-0e30613abc1f044513
+          nullable: true
+          type: string
+      title: Member Activity
       type: object
     Order:
       allOf:
