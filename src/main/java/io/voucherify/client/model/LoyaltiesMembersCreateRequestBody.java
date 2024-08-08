@@ -19,8 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CreatePublicationCampaign;
-import io.voucherify.client.model.PublicationsCreateRequestBodyCustomer;
+import io.voucherify.client.model.Customer;
 import java.io.IOException;
 import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -50,22 +49,18 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * PublicationsCreateRequestBody
+ * Request body schema for assigning a loyalty card to a customer using **POST** &#x60;/loyalties/{campaignId}/members&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class PublicationsCreateRequestBody {
-  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
-  @SerializedName(SERIALIZED_NAME_VOUCHER)
-  private String voucher;
-
+public class LoyaltiesMembersCreateRequestBody {
   public static final String SERIALIZED_NAME_SOURCE_ID = "source_id";
   @SerializedName(SERIALIZED_NAME_SOURCE_ID)
   private String sourceId;
 
   public static final String SERIALIZED_NAME_CUSTOMER = "customer";
   @SerializedName(SERIALIZED_NAME_CUSTOMER)
-  private PublicationsCreateRequestBodyCustomer customer;
+  private Customer customer;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -75,35 +70,14 @@ public class PublicationsCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private String channel;
 
-  public static final String SERIALIZED_NAME_CAMPAIGN = "campaign";
-  @SerializedName(SERIALIZED_NAME_CAMPAIGN)
-  private CreatePublicationCampaign campaign;
+  public static final String SERIALIZED_NAME_VOUCHER = "voucher";
+  @SerializedName(SERIALIZED_NAME_VOUCHER)
+  private String voucher;
 
-  public PublicationsCreateRequestBody() {
+  public LoyaltiesMembersCreateRequestBody() {
   }
 
-  public PublicationsCreateRequestBody voucher(String voucher) {
-    
-    this.voucher = voucher;
-    return this;
-  }
-
-   /**
-   * Code of voucher being published.
-   * @return voucher
-  **/
-  @javax.annotation.Nullable
-  public String getVoucher() {
-    return voucher;
-  }
-
-
-  public void setVoucher(String voucher) {
-    this.voucher = voucher;
-  }
-
-
-  public PublicationsCreateRequestBody sourceId(String sourceId) {
+  public LoyaltiesMembersCreateRequestBody sourceId(String sourceId) {
     
     this.sourceId = sourceId;
     return this;
@@ -124,7 +98,7 @@ public class PublicationsCreateRequestBody {
   }
 
 
-  public PublicationsCreateRequestBody customer(PublicationsCreateRequestBodyCustomer customer) {
+  public LoyaltiesMembersCreateRequestBody customer(Customer customer) {
     
     this.customer = customer;
     return this;
@@ -134,25 +108,25 @@ public class PublicationsCreateRequestBody {
    * Get customer
    * @return customer
   **/
-  @javax.annotation.Nullable
-  public PublicationsCreateRequestBodyCustomer getCustomer() {
+  @javax.annotation.Nonnull
+  public Customer getCustomer() {
     return customer;
   }
 
 
-  public void setCustomer(PublicationsCreateRequestBodyCustomer customer) {
+  public void setCustomer(Customer customer) {
     this.customer = customer;
   }
 
 
-  public PublicationsCreateRequestBody metadata(Object metadata) {
+  public LoyaltiesMembersCreateRequestBody metadata(Object metadata) {
     
     this.metadata = metadata;
     return this;
   }
 
    /**
-   * Get metadata
+   * The metadata object stores all custom attributes assigned to the publication. A set of key/value pairs that you can attach to a publication object. It can be useful for storing additional information about the publication in a structured format.
    * @return metadata
   **/
   @javax.annotation.Nullable
@@ -166,7 +140,7 @@ public class PublicationsCreateRequestBody {
   }
 
 
-  public PublicationsCreateRequestBody channel(String channel) {
+  public LoyaltiesMembersCreateRequestBody channel(String channel) {
     
     this.channel = channel;
     return this;
@@ -187,24 +161,24 @@ public class PublicationsCreateRequestBody {
   }
 
 
-  public PublicationsCreateRequestBody campaign(CreatePublicationCampaign campaign) {
+  public LoyaltiesMembersCreateRequestBody voucher(String voucher) {
     
-    this.campaign = campaign;
+    this.voucher = voucher;
     return this;
   }
 
    /**
-   * Get campaign
-   * @return campaign
+   * Code of voucher being published.
+   * @return voucher
   **/
   @javax.annotation.Nullable
-  public CreatePublicationCampaign getCampaign() {
-    return campaign;
+  public String getVoucher() {
+    return voucher;
   }
 
 
-  public void setCampaign(CreatePublicationCampaign campaign) {
-    this.campaign = campaign;
+  public void setVoucher(String voucher) {
+    this.voucher = voucher;
   }
 
   /**
@@ -220,9 +194,9 @@ public class PublicationsCreateRequestBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the PublicationsCreateRequestBody instance itself
+   * @return the LoyaltiesMembersCreateRequestBody instance itself
    */
-  public PublicationsCreateRequestBody putAdditionalProperty(String key, Object value) {
+  public LoyaltiesMembersCreateRequestBody putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -261,14 +235,13 @@ public class PublicationsCreateRequestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PublicationsCreateRequestBody publicationsCreateRequestBody = (PublicationsCreateRequestBody) o;
-    return Objects.equals(this.voucher, publicationsCreateRequestBody.voucher) &&
-        Objects.equals(this.sourceId, publicationsCreateRequestBody.sourceId) &&
-        Objects.equals(this.customer, publicationsCreateRequestBody.customer) &&
-        Objects.equals(this.metadata, publicationsCreateRequestBody.metadata) &&
-        Objects.equals(this.channel, publicationsCreateRequestBody.channel) &&
-        Objects.equals(this.campaign, publicationsCreateRequestBody.campaign)&&
-        Objects.equals(this.additionalProperties, publicationsCreateRequestBody.additionalProperties);
+    LoyaltiesMembersCreateRequestBody loyaltiesMembersCreateRequestBody = (LoyaltiesMembersCreateRequestBody) o;
+    return Objects.equals(this.sourceId, loyaltiesMembersCreateRequestBody.sourceId) &&
+        Objects.equals(this.customer, loyaltiesMembersCreateRequestBody.customer) &&
+        Objects.equals(this.metadata, loyaltiesMembersCreateRequestBody.metadata) &&
+        Objects.equals(this.channel, loyaltiesMembersCreateRequestBody.channel) &&
+        Objects.equals(this.voucher, loyaltiesMembersCreateRequestBody.voucher)&&
+        Objects.equals(this.additionalProperties, loyaltiesMembersCreateRequestBody.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -277,7 +250,7 @@ public class PublicationsCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(voucher, sourceId, customer, metadata, channel, campaign, additionalProperties);
+    return Objects.hash(sourceId, customer, metadata, channel, voucher, additionalProperties);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -290,13 +263,12 @@ public class PublicationsCreateRequestBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PublicationsCreateRequestBody {\n");
-    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
+    sb.append("class LoyaltiesMembersCreateRequestBody {\n");
     sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
     sb.append("    customer: ").append(toIndentedString(customer)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-    sb.append("    campaign: ").append(toIndentedString(campaign)).append("\n");
+    sb.append("    voucher: ").append(toIndentedString(voucher)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -320,31 +292,31 @@ public class PublicationsCreateRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("voucher");
     openapiFields.add("source_id");
     openapiFields.add("customer");
     openapiFields.add("metadata");
     openapiFields.add("channel");
-    openapiFields.add("campaign");
+    openapiFields.add("voucher");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("customer");
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!PublicationsCreateRequestBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'PublicationsCreateRequestBody' and its subtypes
+       if (!LoyaltiesMembersCreateRequestBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LoyaltiesMembersCreateRequestBody' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<PublicationsCreateRequestBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(PublicationsCreateRequestBody.class));
+       final TypeAdapter<LoyaltiesMembersCreateRequestBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltiesMembersCreateRequestBody.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<PublicationsCreateRequestBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<LoyaltiesMembersCreateRequestBody>() {
            @Override
-           public void write(JsonWriter out, PublicationsCreateRequestBody value) throws IOException {
+           public void write(JsonWriter out, LoyaltiesMembersCreateRequestBody value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -367,11 +339,11 @@ public class PublicationsCreateRequestBody {
            }
 
            @Override
-           public PublicationsCreateRequestBody read(JsonReader in) throws IOException {
+           public LoyaltiesMembersCreateRequestBody read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             PublicationsCreateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
+             LoyaltiesMembersCreateRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -398,18 +370,18 @@ public class PublicationsCreateRequestBody {
   }
 
  /**
-  * Create an instance of PublicationsCreateRequestBody given an JSON string
+  * Create an instance of LoyaltiesMembersCreateRequestBody given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of PublicationsCreateRequestBody
-  * @throws IOException if the JSON string is invalid with respect to PublicationsCreateRequestBody
+  * @return An instance of LoyaltiesMembersCreateRequestBody
+  * @throws IOException if the JSON string is invalid with respect to LoyaltiesMembersCreateRequestBody
   */
-  public static PublicationsCreateRequestBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, PublicationsCreateRequestBody.class);
+  public static LoyaltiesMembersCreateRequestBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, LoyaltiesMembersCreateRequestBody.class);
   }
 
  /**
-  * Convert an instance of PublicationsCreateRequestBody to an JSON string
+  * Convert an instance of LoyaltiesMembersCreateRequestBody to an JSON string
   *
   * @return JSON string
   */

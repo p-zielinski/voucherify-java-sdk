@@ -165,6 +165,8 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}` and GET `/v1/loyalties/{campaignId}/members` and GET `/v1/loyalties/members/{memberId}`
   - Added new query option to GET `/v1/vouchers` - `code` and `ids`
   - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}/activity` and GET `/v1/loyalties/members/{memberId}/activity`
+  - Added support for POST `/v1/loyalties/{campaignId}/members`
+  - Added parameter `channel` to `PublicationsCreateRequestBody` model
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Property `type` of Model `CampaignVoucher` has no default value anymore.
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
@@ -260,6 +262,7 @@ Class | Method | HTTP request | Description
 *ExportsApi* | [**downloadExport**](docs/ExportsApi.md#downloadExport) | **GET** /v1/exports/{export_Id} | Download Export
 *ExportsApi* | [**getExport**](docs/ExportsApi.md#getExport) | **GET** /v1/exports/{exportId} | Get Export
 *ExportsApi* | [**listExports**](docs/ExportsApi.md#listExports) | **GET** /v1/exports | List Exports
+*LoyaltiesApi* | [**addMember**](docs/LoyaltiesApi.md#addMember) | **POST** /v1/loyalties/{campaignId}/members | Add Member
 *LoyaltiesApi* | [**createEarningRule**](docs/LoyaltiesApi.md#createEarningRule) | **POST** /v1/loyalties/{campaignId}/earning-rules | Create Earning Rule
 *LoyaltiesApi* | [**createInBulkLoyaltyTiers**](docs/LoyaltiesApi.md#createInBulkLoyaltyTiers) | **POST** /v1/loyalties/{campaignId}/tiers | Create loyalty tiers
 *LoyaltiesApi* | [**createLoyaltyProgram**](docs/LoyaltiesApi.md#createLoyaltyProgram) | **POST** /v1/loyalties | Create Loyalty Campaign
@@ -465,6 +468,7 @@ Class | Method | HTTP request | Description
 - [ClientValidationsValidateRequestBodyAllOfOptions](docs/ClientValidationsValidateRequestBodyAllOfOptions.md)
 - [ClientValidationsValidateResponseBody](docs/ClientValidationsValidateResponseBody.md)
 - [CodeConfig](docs/CodeConfig.md)
+- [CreatePublicationBase](docs/CreatePublicationBase.md)
 - [CreatePublicationCampaign](docs/CreatePublicationCampaign.md)
 - [Customer](docs/Customer.md)
 - [CustomerActivity](docs/CustomerActivity.md)
@@ -585,6 +589,8 @@ Class | Method | HTTP request | Description
 - [LoyaltiesMembersBalanceUpdateRequestBody](docs/LoyaltiesMembersBalanceUpdateRequestBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBody](docs/LoyaltiesMembersBalanceUpdateResponseBody.md)
 - [LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject](docs/LoyaltiesMembersBalanceUpdateResponseBodyRelatedObject.md)
+- [LoyaltiesMembersCreateRequestBody](docs/LoyaltiesMembersCreateRequestBody.md)
+- [LoyaltiesMembersCreateResponseBody](docs/LoyaltiesMembersCreateResponseBody.md)
 - [LoyaltiesMembersGetResponseBody](docs/LoyaltiesMembersGetResponseBody.md)
 - [LoyaltiesMembersPointsExpirationListResponseBody](docs/LoyaltiesMembersPointsExpirationListResponseBody.md)
 - [LoyaltiesMembersPointsExpirationListResponseBodyDataItem](docs/LoyaltiesMembersPointsExpirationListResponseBodyDataItem.md)
