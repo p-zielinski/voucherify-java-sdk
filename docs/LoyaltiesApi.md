@@ -259,7 +259,7 @@ public class Example {
 
 <a id="createRewardAssignment1"></a>
 # **createRewardAssignment1**
-> List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt; createRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentResponseBody)
+> LoyaltiesRewardsCreateAssignmentResponseBody createRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody)
 
 Create Reward Assignment
 
@@ -288,9 +288,9 @@ public class Example {
 
     LoyaltiesApi apiInstance = new LoyaltiesApi(defaultClient);
     String campaignId = "campaignId_example"; // String | Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign. 
-    LoyaltiesRewardsCreateAssignmentResponseBody loyaltiesRewardsCreateAssignmentResponseBody = new LoyaltiesRewardsCreateAssignmentResponseBody(); // LoyaltiesRewardsCreateAssignmentResponseBody | Define the cost of the rewards in loyalty points.
+    List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody = Arrays.asList(); // List<LoyaltiesRewardsCreateAssignmentItemRequestBody> | Define the cost of the rewards in loyalty points.
     try {
-      List<LoyaltiesRewardsCreateAssignmentItemRequestBody> result = apiInstance.createRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentResponseBody);
+      LoyaltiesRewardsCreateAssignmentResponseBody result = apiInstance.createRewardAssignment1(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling LoyaltiesApi#createRewardAssignment1");
@@ -308,11 +308,11 @@ public class Example {
 | Name | Type | Description  |
 |------------- | ------------- | ------------- |
 | **campaignId** | **String**| Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  |
-| **loyaltiesRewardsCreateAssignmentResponseBody** | [**LoyaltiesRewardsCreateAssignmentResponseBody**](LoyaltiesRewardsCreateAssignmentResponseBody.md)| Define the cost of the rewards in loyalty points. |
+| **loyaltiesRewardsCreateAssignmentItemRequestBody** | [**List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt;**](LoyaltiesRewardsCreateAssignmentItemRequestBody.md)| Define the cost of the rewards in loyalty points. |
 
 ### Return type
 
-[**List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt;**](LoyaltiesRewardsCreateAssignmentItemRequestBody.md)
+[**LoyaltiesRewardsCreateAssignmentResponseBody**](LoyaltiesRewardsCreateAssignmentResponseBody.md)
 
 ### Authorization
 

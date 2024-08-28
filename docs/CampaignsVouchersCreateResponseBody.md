@@ -2,7 +2,7 @@
 
 # CampaignsVouchersCreateResponseBody
 
-Response body schema for **POST** `/campaigns/{campaignId}/vouchers/{code}` and **POST** `/campaigns/{campaignId}/vouchers`.
+Response body schema for **POST** `v1/campaigns/{campaignId}/vouchers/{code}` and **POST** `v1/campaigns/{campaignId}/vouchers`.
 
 ## Properties
 
@@ -30,7 +30,7 @@ Response body schema for **POST** `/campaigns/{campaignId}/vouchers/{code}` and 
 |**isReferralCode** | **Boolean** | Flag indicating whether this voucher is a referral code; &#x60;true&#x60; for campaign type &#x60;REFERRAL_PROGRAM&#x60;. |
 |**createdAt** | **OffsetDateTime** | Timestamp representing the date and time when the voucher was created. The value is shown in the ISO 8601 format. |
 |**updatedAt** | **OffsetDateTime** | Timestamp representing the date and time when the voucher was last updated in ISO 8601 format. |
-|**holderId** | **String** | Unique identifier of the customer who owns the voucher. |
+|**holderId** | **String** | Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify. |
 |**referrerId** | **String** | Unique identifier of the referring person. |
 |**_object** | **String** | The type of the object represented by JSON. Default is &#x60;voucher&#x60;. |
 |**publish** | [**CampaignsVouchersCreateCombinedResponseBodyPublish**](CampaignsVouchersCreateCombinedResponseBodyPublish.md) |  |

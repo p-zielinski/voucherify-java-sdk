@@ -9,7 +9,7 @@ This is an object representing an earning rule for tiers.
 | Name | Type | Description |
 |------------ | ------------- | ------------- |
 |**validationRuleId** | **String** | A unique validation rule identifier assigned by the Voucherify API. The validation rule is verified before points are added to the balance. |
-|**loyalty** | [**DefineFixedAmountOfPoints**](DefineFixedAmountOfPoints.md) |  |
+|**loyalty** | [**EarningRuleFixed**](EarningRuleFixed.md) |  |
 |**event** | [**EventEnum**](#EventEnum) | Defines the event which triggers the earning rule to add points to a loyalty card.    - &#x60;customer.loyalty.tier.joined&#x60; an event defined by the Voucherify API corresponding to a customer joining a tier     - &#x60;customer.loyalty.tier.left&#x60; an event defined by the Voucherify API corresponding to a customer leaving a tier     - &#x60;customer.loyalty.tier.upgraded&#x60; an event defined by the Voucherify API corresponding to a customer&#39;s tier being upgraded     - &#x60;customer.loyalty.tier.downgraded&#x60; an event defined by the Voucherify API corresponding to a customer&#39;s tier being upgraded     - &#x60;customer.loyalty.tier.prolonged&#x60; an event defined by the Voucherify API corresponding to a customer&#39;s tier being prolonged |
 |**loyaltyTier** | [**EarningRuleBaseLoyaltyTier**](EarningRuleBaseLoyaltyTier.md) |  |
 |**source** | [**LoyaltiesEarningRulesCreateCustomEventRequestBodySource**](LoyaltiesEarningRulesCreateCustomEventRequestBodySource.md) |  |

@@ -438,12 +438,12 @@ public class LoyaltiesApi {
     /**
      * Build call for createRewardAssignment1
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
-     * @param loyaltiesRewardsCreateAssignmentResponseBody Define the cost of the rewards in loyalty points. (optional)
+     * @param loyaltiesRewardsCreateAssignmentItemRequestBody Define the cost of the rewards in loyalty points. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public okhttp3.Call createRewardAssignment1Call(String campaignId, LoyaltiesRewardsCreateAssignmentResponseBody loyaltiesRewardsCreateAssignmentResponseBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createRewardAssignment1Call(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -457,7 +457,7 @@ public class LoyaltiesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = loyaltiesRewardsCreateAssignmentResponseBody;
+        Object localVarPostBody = loyaltiesRewardsCreateAssignmentItemRequestBody;
 
         // create path and map variables
         String localVarPath = "/v1/loyalties/{campaignId}/rewards"
@@ -490,13 +490,13 @@ public class LoyaltiesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createRewardAssignment1ValidateBeforeCall(String campaignId, LoyaltiesRewardsCreateAssignmentResponseBody loyaltiesRewardsCreateAssignmentResponseBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createRewardAssignment1ValidateBeforeCall(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'campaignId' is set
         if (campaignId == null) {
             throw new ApiException("Missing the required parameter 'campaignId' when calling createRewardAssignment1(Async)");
         }
 
-        return createRewardAssignment1Call(campaignId, loyaltiesRewardsCreateAssignmentResponseBody, _callback);
+        return createRewardAssignment1Call(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody, _callback);
 
     }
 
@@ -504,12 +504,12 @@ public class LoyaltiesApi {
      * Create Reward Assignment
      * Add rewards to a loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
-     * @param loyaltiesRewardsCreateAssignmentResponseBody Define the cost of the rewards in loyalty points. (optional)
-     * @return List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt;
+     * @param loyaltiesRewardsCreateAssignmentItemRequestBody Define the cost of the rewards in loyalty points. (optional)
+     * @return LoyaltiesRewardsCreateAssignmentResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<LoyaltiesRewardsCreateAssignmentItemRequestBody> createRewardAssignment1(String campaignId, LoyaltiesRewardsCreateAssignmentResponseBody loyaltiesRewardsCreateAssignmentResponseBody) throws ApiException {
-        ApiResponse<List<LoyaltiesRewardsCreateAssignmentItemRequestBody>> localVarResp = createRewardAssignment1WithHttpInfo(campaignId, loyaltiesRewardsCreateAssignmentResponseBody);
+    public LoyaltiesRewardsCreateAssignmentResponseBody createRewardAssignment1(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody) throws ApiException {
+        ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> localVarResp = createRewardAssignment1WithHttpInfo(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody);
         return localVarResp.getData();
     }
 
@@ -517,13 +517,13 @@ public class LoyaltiesApi {
      * Create Reward Assignment
      * Add rewards to a loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
-     * @param loyaltiesRewardsCreateAssignmentResponseBody Define the cost of the rewards in loyalty points. (optional)
-     * @return ApiResponse&lt;List&lt;LoyaltiesRewardsCreateAssignmentItemRequestBody&gt;&gt;
+     * @param loyaltiesRewardsCreateAssignmentItemRequestBody Define the cost of the rewards in loyalty points. (optional)
+     * @return ApiResponse&lt;LoyaltiesRewardsCreateAssignmentResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<LoyaltiesRewardsCreateAssignmentItemRequestBody>> createRewardAssignment1WithHttpInfo(String campaignId, LoyaltiesRewardsCreateAssignmentResponseBody loyaltiesRewardsCreateAssignmentResponseBody) throws ApiException {
-        okhttp3.Call localVarCall = createRewardAssignment1ValidateBeforeCall(campaignId, loyaltiesRewardsCreateAssignmentResponseBody, null);
-        Type localVarReturnType = new TypeToken<List<LoyaltiesRewardsCreateAssignmentItemRequestBody>>(){}.getType();
+    public ApiResponse<LoyaltiesRewardsCreateAssignmentResponseBody> createRewardAssignment1WithHttpInfo(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createRewardAssignment1ValidateBeforeCall(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody, null);
+        Type localVarReturnType = new TypeToken<LoyaltiesRewardsCreateAssignmentResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -531,15 +531,15 @@ public class LoyaltiesApi {
      * Create Reward Assignment (asynchronously)
      * Add rewards to a loyalty campaign.
      * @param campaignId Unique campaign ID or name of the loyalty campaign. You can either pass the campaign ID, which was assigned by Voucherify, or the name of the campaign as the path parameter value, e.g., Loyalty%20Campaign.  (required)
-     * @param loyaltiesRewardsCreateAssignmentResponseBody Define the cost of the rewards in loyalty points. (optional)
+     * @param loyaltiesRewardsCreateAssignmentItemRequestBody Define the cost of the rewards in loyalty points. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public okhttp3.Call createRewardAssignment1Async(String campaignId, LoyaltiesRewardsCreateAssignmentResponseBody loyaltiesRewardsCreateAssignmentResponseBody, final ApiCallback<List<LoyaltiesRewardsCreateAssignmentItemRequestBody>> _callback) throws ApiException {
+    public okhttp3.Call createRewardAssignment1Async(String campaignId, List<LoyaltiesRewardsCreateAssignmentItemRequestBody> loyaltiesRewardsCreateAssignmentItemRequestBody, final ApiCallback<LoyaltiesRewardsCreateAssignmentResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createRewardAssignment1ValidateBeforeCall(campaignId, loyaltiesRewardsCreateAssignmentResponseBody, _callback);
-        Type localVarReturnType = new TypeToken<List<LoyaltiesRewardsCreateAssignmentItemRequestBody>>(){}.getType();
+        okhttp3.Call localVarCall = createRewardAssignment1ValidateBeforeCall(campaignId, loyaltiesRewardsCreateAssignmentItemRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<LoyaltiesRewardsCreateAssignmentResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

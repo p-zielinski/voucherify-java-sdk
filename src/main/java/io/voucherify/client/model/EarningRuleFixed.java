@@ -48,11 +48,11 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * DefineFixedAmountOfPoints
+ * EarningRuleFixed
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class DefineFixedAmountOfPoints {
+public class EarningRuleFixed {
   /**
    * The number of points to be added to the loyalty card.
    */
@@ -106,10 +106,10 @@ public class DefineFixedAmountOfPoints {
   @SerializedName(SERIALIZED_NAME_POINTS)
   private Integer points;
 
-  public DefineFixedAmountOfPoints() {
+  public EarningRuleFixed() {
   }
 
-  public DefineFixedAmountOfPoints type(TypeEnum type) {
+  public EarningRuleFixed type(TypeEnum type) {
     
     this.type = type;
     return this;
@@ -130,7 +130,7 @@ public class DefineFixedAmountOfPoints {
   }
 
 
-  public DefineFixedAmountOfPoints points(Integer points) {
+  public EarningRuleFixed points(Integer points) {
     
     this.points = points;
     return this;
@@ -163,9 +163,9 @@ public class DefineFixedAmountOfPoints {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the DefineFixedAmountOfPoints instance itself
+   * @return the EarningRuleFixed instance itself
    */
-  public DefineFixedAmountOfPoints putAdditionalProperty(String key, Object value) {
+  public EarningRuleFixed putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -204,10 +204,10 @@ public class DefineFixedAmountOfPoints {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DefineFixedAmountOfPoints defineFixedAmountOfPoints = (DefineFixedAmountOfPoints) o;
-    return Objects.equals(this.type, defineFixedAmountOfPoints.type) &&
-        Objects.equals(this.points, defineFixedAmountOfPoints.points)&&
-        Objects.equals(this.additionalProperties, defineFixedAmountOfPoints.additionalProperties);
+    EarningRuleFixed earningRuleFixed = (EarningRuleFixed) o;
+    return Objects.equals(this.type, earningRuleFixed.type) &&
+        Objects.equals(this.points, earningRuleFixed.points)&&
+        Objects.equals(this.additionalProperties, earningRuleFixed.additionalProperties);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -229,7 +229,7 @@ public class DefineFixedAmountOfPoints {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DefineFixedAmountOfPoints {\n");
+    sb.append("class EarningRuleFixed {\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    points: ").append(toIndentedString(points)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -266,16 +266,16 @@ public class DefineFixedAmountOfPoints {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!DefineFixedAmountOfPoints.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'DefineFixedAmountOfPoints' and its subtypes
+       if (!EarningRuleFixed.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EarningRuleFixed' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<DefineFixedAmountOfPoints> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(DefineFixedAmountOfPoints.class));
+       final TypeAdapter<EarningRuleFixed> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EarningRuleFixed.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<DefineFixedAmountOfPoints>() {
+       return (TypeAdapter<T>) new TypeAdapter<EarningRuleFixed>() {
            @Override
-           public void write(JsonWriter out, DefineFixedAmountOfPoints value) throws IOException {
+           public void write(JsonWriter out, EarningRuleFixed value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -298,11 +298,11 @@ public class DefineFixedAmountOfPoints {
            }
 
            @Override
-           public DefineFixedAmountOfPoints read(JsonReader in) throws IOException {
+           public EarningRuleFixed read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             DefineFixedAmountOfPoints instance = thisAdapter.fromJsonTree(jsonObj);
+             EarningRuleFixed instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -329,18 +329,18 @@ public class DefineFixedAmountOfPoints {
   }
 
  /**
-  * Create an instance of DefineFixedAmountOfPoints given an JSON string
+  * Create an instance of EarningRuleFixed given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of DefineFixedAmountOfPoints
-  * @throws IOException if the JSON string is invalid with respect to DefineFixedAmountOfPoints
+  * @return An instance of EarningRuleFixed
+  * @throws IOException if the JSON string is invalid with respect to EarningRuleFixed
   */
-  public static DefineFixedAmountOfPoints fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, DefineFixedAmountOfPoints.class);
+  public static EarningRuleFixed fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EarningRuleFixed.class);
   }
 
  /**
-  * Convert an instance of DefineFixedAmountOfPoints to an JSON string
+  * Convert an instance of EarningRuleFixed to an JSON string
   *
   * @return JSON string
   */

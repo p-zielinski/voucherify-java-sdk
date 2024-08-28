@@ -162,8 +162,8 @@ Remember that this SDK is auto generated (except of the tests) so changes made h
   - Added support for POST `/v1/loyalties/{campaignId}/rewards` and PUT `/v1/loyalties/{campaignId}/rewards/{assignmentId}`
   - Added support for POST `/v1/loyalties` and PUT `/v1/loyalties/{campaignId}`
   - Added support for GET `/v1/loyalties/{campaignId}` and GET `/v1/loyalties`
-  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}` and GET `/v1/loyalties/{campaignId}/members`
-  - Added new query option to GET `/v1/vouchers` - `code` and `ids`
+  - Added support for GET `/v1/loyalties/{campaignId}/members/{memberId}` and GET `/v1/loyalties/{campaignId}/members` and GET `/v1/loyalties/members/{memberId}`
+- Added new query option to GET `/v1/vouchers` - `code` and `ids`
 - ❗❗❗ BREAKING CHANGES ❗❗❗:
     - Property `type` of Model `CampaignVoucher` has no default value anymore.
     - Removed `totalAppliedDiscountAmount` from OrderItemCalculated model
@@ -239,7 +239,7 @@ Class | Method | HTTP request | Description
 *ClientSideApi* | [**listPromotionTiersClientSide**](docs/ClientSideApi.md#listPromotionTiersClientSide) | **GET** /client/v1/promotions/tiers | List Promotion Tiers (client-side)
 *ClientSideApi* | [**redeemStackedDiscountsClientSide**](docs/ClientSideApi.md#redeemStackedDiscountsClientSide) | **POST** /client/v1/redemptions | Redeem Stackable Discounts (client-side)
 *ClientSideApi* | [**trackCustomEventClientSide**](docs/ClientSideApi.md#trackCustomEventClientSide) | **POST** /client/v1/events | Track Custom Event (client-side)
-*ClientSideApi* | [**updateCustomersConsentsClientSide**](docs/ClientSideApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side)
+*ClientSideApi* | [**updateCustomersConsentsClientSide**](docs/ClientSideApi.md#updateCustomersConsentsClientSide) | **PUT** /client/v1/customers/{customerId}/consents | Update Customer&#39;s consents (client-side) [Deprecated]
 *ClientSideApi* | [**validateStackedDiscountsClientSide**](docs/ClientSideApi.md#validateStackedDiscountsClientSide) | **POST** /client/v1/validations | Validate Stackable Discounts (client-side)
 *CustomersApi* | [**createCustomer**](docs/CustomersApi.md#createCustomer) | **POST** /v1/customers | Create Customer
 *CustomersApi* | [**customerPermanentlyDeletion**](docs/CustomersApi.md#customerPermanentlyDeletion) | **POST** /v1/customers/{customerId}/permanent-deletion | Delete Customer Permanently
@@ -250,7 +250,7 @@ Class | Method | HTTP request | Description
 *CustomersApi* | [**listCustomerSegments**](docs/CustomersApi.md#listCustomerSegments) | **GET** /v1/customers/{customerId}/segments | List Customer&#39;s Segments
 *CustomersApi* | [**listCustomers**](docs/CustomersApi.md#listCustomers) | **GET** /v1/customers | List Customers
 *CustomersApi* | [**updateCustomer**](docs/CustomersApi.md#updateCustomer) | **PUT** /v1/customers/{customerId} | Update Customer
-*CustomersApi* | [**updateCustomersConsents**](docs/CustomersApi.md#updateCustomersConsents) | **PUT** /v1/customers/{customerId}/consents | Update Customer&#39;s consents
+*CustomersApi* | [**updateCustomersConsents**](docs/CustomersApi.md#updateCustomersConsents) | **PUT** /v1/customers/{customerId}/consents | Update Customer&#39;s consents [Deprecated]
 *CustomersApi* | [**updateCustomersInBulk**](docs/CustomersApi.md#updateCustomersInBulk) | **POST** /v1/customers/bulk/async | Update Customers in bulk
 *CustomersApi* | [**updateCustomersMetadataInBulk**](docs/CustomersApi.md#updateCustomersMetadataInBulk) | **POST** /v1/customers/metadata/async | Update Customers&#39; Metadata in bulk
 *EventsApi* | [**trackCustomEvent**](docs/EventsApi.md#trackCustomEvent) | **POST** /v1/events | Track Custom Event
@@ -495,7 +495,6 @@ Class | Method | HTTP request | Description
 - [CustomersUpdateInBulkResponseBody](docs/CustomersUpdateInBulkResponseBody.md)
 - [CustomersUpdateRequestBody](docs/CustomersUpdateRequestBody.md)
 - [CustomersUpdateResponseBody](docs/CustomersUpdateResponseBody.md)
-- [DefineFixedAmountOfPoints](docs/DefineFixedAmountOfPoints.md)
 - [Discount](docs/Discount.md)
 - [DiscountUnitMultipleOneUnit](docs/DiscountUnitMultipleOneUnit.md)
 - [EarningRule](docs/EarningRule.md)
@@ -514,6 +513,7 @@ Class | Method | HTTP request | Description
 - [EarningRuleBaseLoyaltyTier](docs/EarningRuleBaseLoyaltyTier.md)
 - [EarningRuleBaseSegment](docs/EarningRuleBaseSegment.md)
 - [EarningRuleBaseSource](docs/EarningRuleBaseSource.md)
+- [EarningRuleFixed](docs/EarningRuleFixed.md)
 - [Error](docs/Error.md)
 - [EventsCreateRequestBody](docs/EventsCreateRequestBody.md)
 - [EventsCreateResponseBody](docs/EventsCreateResponseBody.md)
@@ -606,6 +606,8 @@ Class | Method | HTTP request | Description
 - [LoyaltiesRewardAssignmentsListResponseBody](docs/LoyaltiesRewardAssignmentsListResponseBody.md)
 - [LoyaltiesRewardAssignmentsRewardGetResponseBody](docs/LoyaltiesRewardAssignmentsRewardGetResponseBody.md)
 - [LoyaltiesRewardsCreateAssignmentItemRequestBody](docs/LoyaltiesRewardsCreateAssignmentItemRequestBody.md)
+- [LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters](docs/LoyaltiesRewardsCreateAssignmentItemRequestBodyParameters.md)
+- [LoyaltiesRewardsCreateAssignmentItemRequestBodyParametersLoyalty](docs/LoyaltiesRewardsCreateAssignmentItemRequestBodyParametersLoyalty.md)
 - [LoyaltiesRewardsCreateAssignmentResponseBody](docs/LoyaltiesRewardsCreateAssignmentResponseBody.md)
 - [LoyaltiesRewardsGetResponseBody](docs/LoyaltiesRewardsGetResponseBody.md)
 - [LoyaltiesRewardsListAssignmentsResponseBody](docs/LoyaltiesRewardsListAssignmentsResponseBody.md)
@@ -624,6 +626,7 @@ Class | Method | HTTP request | Description
 - [LoyaltyCardTransaction](docs/LoyaltyCardTransaction.md)
 - [LoyaltyCardTransactionsType](docs/LoyaltyCardTransactionsType.md)
 - [LoyaltyMember](docs/LoyaltyMember.md)
+- [LoyaltyMemberPublish](docs/LoyaltyMemberPublish.md)
 - [LoyaltyTier](docs/LoyaltyTier.md)
 - [LoyaltyTierAllOfConfig](docs/LoyaltyTierAllOfConfig.md)
 - [LoyaltyTierAllOfConfigPoints](docs/LoyaltyTierAllOfConfigPoints.md)
@@ -808,9 +811,6 @@ Class | Method | HTTP request | Description
 - [RedemptionRewardResultParametersCampaign](docs/RedemptionRewardResultParametersCampaign.md)
 - [RedemptionRewardResultParametersCoin](docs/RedemptionRewardResultParametersCoin.md)
 - [RedemptionRewardResultParametersProduct](docs/RedemptionRewardResultParametersProduct.md)
-- [RedemptionRewardResultProduct](docs/RedemptionRewardResultProduct.md)
-- [RedemptionRewardResultSku](docs/RedemptionRewardResultSku.md)
-- [RedemptionRewardResultVoucher](docs/RedemptionRewardResultVoucher.md)
 - [RedemptionRollback](docs/RedemptionRollback.md)
 - [RedemptionRollbackChannel](docs/RedemptionRollbackChannel.md)
 - [RedemptionRollbackGift](docs/RedemptionRollbackGift.md)
@@ -999,7 +999,8 @@ Class | Method | HTTP request | Description
 - [VouchersBalanceUpdateResponseBody](docs/VouchersBalanceUpdateResponseBody.md)
 - [VouchersBalanceUpdateResponseBodyRelatedObject](docs/VouchersBalanceUpdateResponseBodyRelatedObject.md)
 - [VouchersCreateResponseBody](docs/VouchersCreateResponseBody.md)
-- [VouchersCreateWithWithSpecificCodeRequestBody](docs/VouchersCreateWithWithSpecificCodeRequestBody.md)
+- [VouchersCreateWithSpecificCodeRequestBody](docs/VouchersCreateWithSpecificCodeRequestBody.md)
+- [VouchersCreateWithSpecificCodeRequestBodyRedemption](docs/VouchersCreateWithSpecificCodeRequestBodyRedemption.md)
 - [VouchersDisableResponseBody](docs/VouchersDisableResponseBody.md)
 - [VouchersEnableResponseBody](docs/VouchersEnableResponseBody.md)
 - [VouchersGetResponseBody](docs/VouchersGetResponseBody.md)

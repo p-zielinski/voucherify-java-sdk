@@ -61,7 +61,7 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * Response body schema for **POST** &#x60;/campaigns/{campaignId}/vouchers/{code}&#x60; and **POST** &#x60;/campaigns/{campaignId}/vouchers&#x60;.
+ * Response body schema for **POST** &#x60;v1/campaigns/{campaignId}/vouchers/{code}&#x60; and **POST** &#x60;v1/campaigns/{campaignId}/vouchers&#x60;.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
@@ -768,7 +768,7 @@ public class CampaignsVouchersCreateResponseBody {
   }
 
    /**
-   * Unique identifier of the customer who owns the voucher.
+   * Unique customer identifier of the redeemable holder. It equals to the customer ID assigned by Voucherify.
    * @return holderId
   **/
   @javax.annotation.Nullable

@@ -297,7 +297,7 @@ public class LoyaltyCampaignVoucher {
   }
 
    /**
-   * Always &#x60;false&#x60; for loyalty card voucher
+   * Always &#x60;false&#x60; for a loyalty card voucher
    * @return isReferralCode
   **/
   @javax.annotation.Nullable

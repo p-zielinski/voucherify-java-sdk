@@ -19,9 +19,9 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.voucherify.client.model.CodeConfig;
 import java.io.IOException;
 import java.util.Arrays;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,36 +48,86 @@ import java.util.Set;
 import io.voucherify.client.JSON;
 
 /**
- * VouchersCreateWithWithSpecificCodeRequestBody
+ * This object stores a summary of publish events: an events counter and an endpoint which can be called to return details of each event.  A publication is required for loyalty cards and referral codes. This object gets updated whenever a voucher has been published. Publication means assigning a code to a particular customer. Typically, a publication is made by distributing your codes to your customers, e.g. through Export to MailChimp or &lt;!-- [publish voucher](OpenAPI.json/paths/~1publications/post) --&gt;[publish voucher](ref:create-publication) API method.   &lt;!-- title: My Table Title --&gt;  | Required | Optional | | -------- | :------: | | &#x60;type&#x60;:&#x60;LOYALTY_CARD&#x60; |  &#x60;type&#x60;:&#x60;DISCOUNT_VOUCHER&#x60;   |  | &#x60;is_referral_code&#x60;:&#x60;true&#x60;      |    &#x60;type&#x60;:&#x60;GIFT_VOUCHER&#x60;   | 
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 
-public class VouchersCreateWithWithSpecificCodeRequestBody {
-  public static final String SERIALIZED_NAME_CODE_CONFIG = "code_config";
-  @SerializedName(SERIALIZED_NAME_CODE_CONFIG)
-  private CodeConfig codeConfig;
+public class LoyaltyMemberPublish {
+  public static final String SERIALIZED_NAME_OBJECT = "object";
+  @SerializedName(SERIALIZED_NAME_OBJECT)
+  private String _object = "list";
 
-  public VouchersCreateWithWithSpecificCodeRequestBody() {
+  public static final String SERIALIZED_NAME_COUNT = "count";
+  @SerializedName(SERIALIZED_NAME_COUNT)
+  private Integer count;
+
+  public static final String SERIALIZED_NAME_URL = "url";
+  @SerializedName(SERIALIZED_NAME_URL)
+  private String url;
+
+  public LoyaltyMemberPublish() {
   }
 
-  public VouchersCreateWithWithSpecificCodeRequestBody codeConfig(CodeConfig codeConfig) {
+  public LoyaltyMemberPublish _object(String _object) {
     
-    this.codeConfig = codeConfig;
+    this._object = _object;
     return this;
   }
 
    /**
-   * Get codeConfig
-   * @return codeConfig
+   * The type of the object represented is by default &#x60;list&#x60;. To get this list, you need to make a call to the endpoint returned in the &#x60;url&#x60; attribute.
+   * @return _object
   **/
   @javax.annotation.Nullable
-  public CodeConfig getCodeConfig() {
-    return codeConfig;
+  public String getObject() {
+    return _object;
   }
 
 
-  public void setCodeConfig(CodeConfig codeConfig) {
-    this.codeConfig = codeConfig;
+  public void setObject(String _object) {
+    this._object = _object;
+  }
+
+
+  public LoyaltyMemberPublish count(Integer count) {
+    
+    this.count = count;
+    return this;
+  }
+
+   /**
+   * Publication event counter.
+   * @return count
+  **/
+  @javax.annotation.Nullable
+  public Integer getCount() {
+    return count;
+  }
+
+
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+
+  public LoyaltyMemberPublish url(String url) {
+    
+    this.url = url;
+    return this;
+  }
+
+   /**
+   * The endpoint where this list of publications can be accessed using a GET method. &#x60;/v1/vouchers/{voucher_code}/publications&#x60;
+   * @return url
+  **/
+  @javax.annotation.Nullable
+  public String getUrl() {
+    return url;
+  }
+
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   /**
@@ -93,9 +143,9 @@ public class VouchersCreateWithWithSpecificCodeRequestBody {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the VouchersCreateWithWithSpecificCodeRequestBody instance itself
+   * @return the LoyaltyMemberPublish instance itself
    */
-  public VouchersCreateWithWithSpecificCodeRequestBody putAdditionalProperty(String key, Object value) {
+  public LoyaltyMemberPublish putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -134,21 +184,36 @@ public class VouchersCreateWithWithSpecificCodeRequestBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VouchersCreateWithWithSpecificCodeRequestBody vouchersCreateWithWithSpecificCodeRequestBody = (VouchersCreateWithWithSpecificCodeRequestBody) o;
-    return Objects.equals(this.codeConfig, vouchersCreateWithWithSpecificCodeRequestBody.codeConfig)&&
-        Objects.equals(this.additionalProperties, vouchersCreateWithWithSpecificCodeRequestBody.additionalProperties);
+    LoyaltyMemberPublish loyaltyMemberPublish = (LoyaltyMemberPublish) o;
+    return Objects.equals(this._object, loyaltyMemberPublish._object) &&
+        Objects.equals(this.count, loyaltyMemberPublish.count) &&
+        Objects.equals(this.url, loyaltyMemberPublish.url)&&
+        Objects.equals(this.additionalProperties, loyaltyMemberPublish.additionalProperties);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(codeConfig, additionalProperties);
+    return Objects.hash(_object, count, url, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VouchersCreateWithWithSpecificCodeRequestBody {\n");
-    sb.append("    codeConfig: ").append(toIndentedString(codeConfig)).append("\n");
+    sb.append("class LoyaltyMemberPublish {\n");
+    sb.append("    _object: ").append(toIndentedString(_object)).append("\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -172,7 +237,9 @@ public class VouchersCreateWithWithSpecificCodeRequestBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("code_config");
+    openapiFields.add("object");
+    openapiFields.add("count");
+    openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -182,16 +249,16 @@ public class VouchersCreateWithWithSpecificCodeRequestBody {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!VouchersCreateWithWithSpecificCodeRequestBody.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'VouchersCreateWithWithSpecificCodeRequestBody' and its subtypes
+       if (!LoyaltyMemberPublish.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'LoyaltyMemberPublish' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<VouchersCreateWithWithSpecificCodeRequestBody> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(VouchersCreateWithWithSpecificCodeRequestBody.class));
+       final TypeAdapter<LoyaltyMemberPublish> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(LoyaltyMemberPublish.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<VouchersCreateWithWithSpecificCodeRequestBody>() {
+       return (TypeAdapter<T>) new TypeAdapter<LoyaltyMemberPublish>() {
            @Override
-           public void write(JsonWriter out, VouchersCreateWithWithSpecificCodeRequestBody value) throws IOException {
+           public void write(JsonWriter out, LoyaltyMemberPublish value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -214,11 +281,11 @@ public class VouchersCreateWithWithSpecificCodeRequestBody {
            }
 
            @Override
-           public VouchersCreateWithWithSpecificCodeRequestBody read(JsonReader in) throws IOException {
+           public LoyaltyMemberPublish read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             VouchersCreateWithWithSpecificCodeRequestBody instance = thisAdapter.fromJsonTree(jsonObj);
+             LoyaltyMemberPublish instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -245,18 +312,18 @@ public class VouchersCreateWithWithSpecificCodeRequestBody {
   }
 
  /**
-  * Create an instance of VouchersCreateWithWithSpecificCodeRequestBody given an JSON string
+  * Create an instance of LoyaltyMemberPublish given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of VouchersCreateWithWithSpecificCodeRequestBody
-  * @throws IOException if the JSON string is invalid with respect to VouchersCreateWithWithSpecificCodeRequestBody
+  * @return An instance of LoyaltyMemberPublish
+  * @throws IOException if the JSON string is invalid with respect to LoyaltyMemberPublish
   */
-  public static VouchersCreateWithWithSpecificCodeRequestBody fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, VouchersCreateWithWithSpecificCodeRequestBody.class);
+  public static LoyaltyMemberPublish fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, LoyaltyMemberPublish.class);
   }
 
  /**
-  * Convert an instance of VouchersCreateWithWithSpecificCodeRequestBody to an JSON string
+  * Convert an instance of LoyaltyMemberPublish to an JSON string
   *
   * @return JSON string
   */

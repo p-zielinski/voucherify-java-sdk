@@ -2599,7 +2599,7 @@ paths:
                   metadata:
                     Season: Fall
             schema:
-              $ref: '#/components/schemas/VouchersCreateWithWithSpecificCodeRequestBody'
+              $ref: '#/components/schemas/VouchersCreateWithSpecificCodeRequestBody'
         description: Specify the details of the voucher that you would like to create.
       responses:
         "200":
@@ -14852,7 +14852,7 @@ paths:
                     loyalty:
                       points: 2
             schema:
-              $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentResponseBody'
+              $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentRequestBody'
         description: Define the cost of the rewards in loyalty points.
       responses:
         "200":
@@ -14882,7 +14882,7 @@ paths:
                     updated_at: null
                     object: reward_assignment
               schema:
-                $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentRequestBody'
+                $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentResponseBody'
           description: Returns a list of reward assignment objects.
       security:
       - X-App-Id: []
@@ -18283,7 +18283,11 @@ paths:
       x-accepts: application/json
   /v1/customers/{customerId}/consents:
     put:
-      description: Update marketing permissions for the specified customer.
+      deprecated: true
+      description: |-
+        Update marketing permissions for the specified customer.
+        ❗️ Deprecated
+         This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
       operationId: update-customers-consents
       parameters:
       - description: A Voucherify unique customer identifier or source ID.
@@ -18317,7 +18321,7 @@ paths:
       security:
       - X-App-Id: []
         X-App-Token: []
-      summary: Update Customer's consents
+      summary: "Update Customer's consents [Deprecated]"
       tags:
       - Customers
       x-content-type: application/json
@@ -23593,7 +23597,11 @@ paths:
       x-accepts: application/json
   /client/v1/customers/{customerId}/consents:
     put:
-      description: Update marketing permissions for the specified customer.
+      deprecated: true
+      description: |-
+        Update marketing permissions for the specified customer.
+        ❗️ Deprecated
+         This endpoint is deprecated. The feature of managing consents will be soon removed from Voucherify, including this endpoint.
       operationId: update-customers-consents-client-side
       parameters:
       - description: A Voucherify customer identifier or source_id
@@ -23627,7 +23635,7 @@ paths:
       security:
       - X-Client-Application-Id: []
         X-Client-Token: []
-      summary: Update Customer's consents (client-side)
+      summary: "Update Customer's consents (client-side) [Deprecated]"
       tags:
       - Client-side
       x-content-type: application/json
@@ -23883,10 +23891,10 @@ components:
     AsyncActionGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncAction'
-      description: "Response body schema for **GET** `/async-actions/{asyncActionId}`."
+      description: "Response body schema for **GET** `v1/async-actions/{asyncActionId}`."
       title: Async Action Get Response Body
     AsyncActionsListResponseBody:
-      description: Response body schema for **GET** `/async-actions`.
+      description: Response body schema for **GET** `v1/async-actions`.
       example:
         data_ref: async_actions
         async_actions:
@@ -23945,7 +23953,7 @@ components:
             effect: APPLY_TO_ORDER
           is_referral_code: true
           redemption:
-            quantity: 1
+            quantity: 5
           discount:
             fixed_amount_formula: fixed_amount_formula
             product: ""
@@ -23982,18 +23990,18 @@ components:
           type: DISCOUNT_VOUCHER
           loyalty_card:
             expiration_rules:
-              period_value: 5
-              rounding_value: 2
+              period_value: 7
+              rounding_value: 9
               rounding_type: rounding_type
               period_type: period_type
-            points: 5
+            points: 2
           code_config:
             charset: charset
             prefix: prefix
-            length: 0.8008281904610115
+            length: 1.4658129805029452
             pattern: pattern
             postfix: postfix
-            initial_count: 6
+            initial_count: 5
         validity_hours:
           daily:
           - days_of_week:
@@ -24046,7 +24054,7 @@ components:
         promotion:
           tiers:
           - metadata: "{}"
-            hierarchy: 7
+            hierarchy: 3
             validity_hours:
               daily:
               - days_of_week:
@@ -24066,8 +24074,8 @@ components:
             - validation_rules
             - validation_rules
             validity_day_of_week:
-            - 9
-            - 9
+            - 2
+            - 2
             category_id: cat_0c9da30e7116ba6bba
             name: name
             action:
@@ -24110,7 +24118,7 @@ components:
               interval: P2D
             start_date: 2022-09-23T00:00:00Z
           - metadata: "{}"
-            hierarchy: 7
+            hierarchy: 3
             validity_hours:
               daily:
               - days_of_week:
@@ -24130,8 +24138,8 @@ components:
             - validation_rules
             - validation_rules
             validity_day_of_week:
-            - 9
-            - 9
+            - 2
+            - 2
             category_id: cat_0c9da30e7116ba6bba
             name: name
             action:
@@ -24306,7 +24314,7 @@ components:
     CampaignsCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Campaign'
-      description: "Response body schema for **POST** `/campaigns/{campaignId}`."
+      description: "Response body schema for **POST** `v1/campaigns/{campaignId}`."
       title: Campaigns Create Response Body
       type: object
     CampaignsDeleteResponseBody:
@@ -24324,23 +24332,23 @@ components:
     CampaignsDisableResponseBody:
       allOf:
       - $ref: '#/components/schemas/EmptyJson'
-      description: "Response body schema for **POST** `/campaigns/{campaignId}/disable`."
+      description: "Response body schema for **POST** `v1/campaigns/{campaignId}/disable`."
       title: Campaigns Disable Response Body
       type: object
     CampaignsEnableResponseBody:
       allOf:
       - $ref: '#/components/schemas/EmptyJson'
-      description: "Response body schema for **POST** `/campaigns/{campaignId}/enable`."
+      description: "Response body schema for **POST** `v1/campaigns/{campaignId}/enable`."
       title: Campaigns Enable Response Body
       type: object
     CampaignsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Campaign'
-      description: "Response body schema for **GET** `/campaigns/{campaignId}`."
+      description: "Response body schema for **GET** `v1/campaigns/{campaignId}`."
       title: Campaigns Get Response Body
       type: object
     CampaignsImportCreateRequestBody:
-      description: "Request body schema for **POST** `/campaigns/{campaignId}/import`."
+      description: "Request body schema for **POST** `v1/campaigns/{campaignId}/import`."
       items:
         $ref: '#/components/schemas/CampaignsImportVoucherItem'
       title: Campaigns Import Create Request Body
@@ -24348,17 +24356,17 @@ components:
     CampaignsImportCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: "Response body schema for **POST** `/campaigns/{campaignId}/import`."
+      description: "Response body schema for **POST** `v1/campaigns/{campaignId}/import`."
       title: Campaigns Import Create Response Body
       type: object
     CampaignsImportCsvCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: "Response body schema for **POST** `/campaigns/{campaignId}/importCSV`."
+      description: "Response body schema for **POST** `v1/campaigns/{campaignId}/importCSV`."
       title: Campaigns Import Csv Create Response Body
       type: object
     CampaignsListResponseBody:
-      description: Schema model for **GET** `/campaigns`.
+      description: Schema model for **GET** `v1/campaigns`.
       example:
         total: 2
         campaigns:
@@ -24800,7 +24808,7 @@ components:
     CampaignsUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Campaign'
-      description: "Response body schema for **PUT** `/campaigns/{campaignId}`."
+      description: "Response body schema for **PUT** `v1/campaigns/{campaignId}`."
       title: Campaigns Update Response Body
       type: object
     CampaignsVouchersCreateCombinedResponseBody:
@@ -25066,7 +25074,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -25110,30 +25119,30 @@ components:
             $ref: '#/components/schemas/CodeConfig'
         type: object
       - $ref: '#/components/schemas/CampaignsVouchersCreateBaseRequestBody'
-      description: "Request body schema for **POST** `/campaigns/{campaignId}/vouchers`."
+      description: "Request body schema for **POST** `v1/campaigns/{campaignId}/vouchers`."
       title: Campaigns Vouchers Create In Bulk Request Body
       type: object
     CampaignsVouchersCreateRequestBody:
       allOf:
       - $ref: '#/components/schemas/CampaignsVouchersCreateBaseRequestBody'
-      description: "Request body schema for **POST** `/campaigns/{campaignId}/vouchers/{code}`."
+      description: "Request body schema for **POST** `v1/campaigns/{campaignId}/vouchers/{code}`."
       title: Campaigns Vouchers Create Request Body
       type: object
     CampaignsVouchersCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Voucher'
-      description: "Response body schema for **POST** `/campaigns/{campaignId}/vouchers/{code}`\
-        \ and **POST** `/campaigns/{campaignId}/vouchers`."
+      description: "Response body schema for **POST** `v1/campaigns/{campaignId}/vouchers/{code}`\
+        \ and **POST** `v1/campaigns/{campaignId}/vouchers`."
       title: Campaigns Vouchers Create Response Body
       type: object
     CampaignsVouchersImportCSVRequestBody:
       allOf:
       - $ref: '#/components/schemas/ImportCSVRequestBody'
-      description: "Request body schema for **POST** `/campaigns/{campaignId}/importCSV`."
+      description: "Request body schema for **POST** `v1/campaigns/{campaignId}/importCSV`."
       title: Campaigns Vouchers Import C S V Request Body
       type: object
     CategoriesCreateRequestBody:
-      description: Request body schema for **POST** `/categories`.
+      description: Request body schema for **POST** `v1/categories`.
       example:
         hierarchy: 0
         name: name
@@ -25149,7 +25158,7 @@ components:
       title: Categories Create Request Body
       type: object
     CategoriesCreateResponseBody:
-      description: Response body schema for **POST** `/categories`.
+      description: Response body schema for **POST** `v1/categories`.
       example:
         hierarchy: 0
         name: name
@@ -25187,11 +25196,11 @@ components:
     CategoriesGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Category'
-      description: "Response body schema for **GET** `/categories/{categoryId}`."
+      description: "Response body schema for **GET** `v1/categories/{categoryId}`."
       title: Categories Get Response Body
       type: object
     CategoriesListResponseBody:
-      description: Response body schema for **GET** `/categories`.
+      description: Response body schema for **GET** `v1/categories`.
       example:
         total: 0
         data:
@@ -25240,7 +25249,7 @@ components:
       title: Categories List Response Body
       type: object
     CategoriesUpdateRequestBody:
-      description: "Request body schema for **PUT** `/categories/{categoryId}`."
+      description: "Request body schema for **PUT** `v1/categories/{categoryId}`."
       example:
         hierarchy: 0
         name: name
@@ -25256,7 +25265,7 @@ components:
       title: Categories Update Request Body
       type: object
     CategoriesUpdateResponseBody:
-      description: "Response body schema for **PUT** `/categories/{categoryId}`."
+      description: "Response body schema for **PUT** `v1/categories/{categoryId}`."
       example:
         updated_at: 2022-08-16T10:52:08.094Z
         hierarchy: 0
@@ -25300,11 +25309,11 @@ components:
       title: Categories Update Response Body
       type: object
     ClientCustomersConsentsUpdateRequestBody:
-      description: "Request body schema for **PUT** `/customers/{customerId}/consents`."
+      description: "Request body schema for **PUT** `v1/customers/{customerId}/consents`."
       title: Client Customers Consents Update Request Body
       type: object
     ClientEventsCreateRequestBody:
-      description: Request body schema for **POST** `/events`.
+      description: Request body schema for **POST** `v1/events`.
       example:
         metadata: "{}"
         referral:
@@ -25344,7 +25353,7 @@ components:
       title: Client Events Create Request Body
       type: object
     ClientEventsCreateResponseBody:
-      description: Response body schema for **POST** `/events`.
+      description: Response body schema for **POST** `v1/events`.
       example:
         referral: "{}"
         loyalty: "{}"
@@ -25382,11 +25391,11 @@ components:
     ClientPromotionsTiersListResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTiersList'
-      description: Response body schema for **GET** `/client/v1/promotions/tiers`.
+      description: Response body schema for **GET** `v1/client/v1/promotions/tiers`.
       title: Client Promotions Tiers List Response Body
       type: object
     ClientQualificationsCheckEligibilityRequestBody:
-      description: Request body schema for **POST** `/qualifications`.
+      description: Request body schema for **POST** `v1/qualifications`.
       example:
         metadata: "{}"
         scenario: ALL
@@ -25447,7 +25456,7 @@ components:
       title: Client Qualifications Check Eligibility Request Body
       type: object
     ClientQualificationsCheckEligibilityResponseBody:
-      description: Response body schema for **POST** `/qualifications`.
+      description: Response body schema for **POST** `v1/qualifications`.
       example:
         redeemables:
           total: 5
@@ -25496,11 +25505,11 @@ components:
             $ref: '#/components/schemas/ClientRedemptionsRedeemRequestBody_allOf_options'
         type: object
       - $ref: '#/components/schemas/StackableValidateRedeemBase'
-      description: Response body schema for **POST** `/redemptions`.
+      description: Response body schema for **POST** `v1/redemptions`.
       title: Client Redemptions Redeem Request Body
       type: object
     ClientRedemptionsRedeemResponseBody:
-      description: Response body schema for **POST** `/redemptions`.
+      description: Response body schema for **POST** `v1/redemptions`.
       example:
         inapplicable_redeemables:
         - result:
@@ -25568,8 +25577,9 @@ components:
         redemptions:
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25577,7 +25587,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25628,8 +25638,9 @@ components:
           customer: ""
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25637,7 +25648,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25689,8 +25700,9 @@ components:
         parent_redemption:
           date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -25698,7 +25710,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -25829,7 +25841,7 @@ components:
             $ref: '#/components/schemas/ClientValidationsValidateRequestBody_allOf_options'
         type: object
       - $ref: '#/components/schemas/StackableValidateRedeemBase'
-      description: Response body schema for **POST** `/validations`.
+      description: Response body schema for **POST** `v1/validations`.
       title: Client Validations Validate Request Body
     ClientValidationsValidateResponseBody:
       allOf:
@@ -25875,7 +25887,7 @@ components:
       - $ref: '#/components/schemas/CustomerBase'
       title: Customer
     CustomersActivityListResponseBody:
-      description: "Response body schema for **GET** `/customers/{customerId}/activity`."
+      description: "Response body schema for **GET** `v1/customers/{customerId}/activity`."
       example:
         data:
         - data: "{}"
@@ -25930,38 +25942,38 @@ components:
       title: Customers Activity List Response Body
       type: object
     CustomersConsentsUpdateRequestBody:
-      description: "Request body schema for **PUT** `/customers/{customerId}/consents`."
+      description: "Request body schema for **PUT** `v1/customers/{customerId}/consents`."
       title: Customers Consents Update Request Body
       type: object
     CustomersCreateRequestBody:
       allOf:
       - $ref: '#/components/schemas/Customer'
-      description: Request body schema for **POST** `/customers`.
+      description: Request body schema for **POST** `v1/customers`.
       title: Customers Create Request Body
     CustomersCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/CustomerWithSummaryLoyaltyReferrals'
-      description: Response body for **POST** `/customers`.
+      description: Response body for **POST** `v1/customers`.
       title: Customers Create Response Body
     CustomersGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/CustomerWithSummaryLoyaltyReferrals'
-      description: "Response body schema for **GET** `/customers/{customerId}`."
+      description: "Response body schema for **GET** `v1/customers/{customerId}`."
       title: Customers Get Response Body
     CustomersImportCSVRequestBody:
       allOf:
       - $ref: '#/components/schemas/ImportCSVRequestBody'
-      description: Response body schema for **POST** `/customers/importCSV`.
+      description: Response body schema for **POST** `v1/customers/importCSV`.
       title: Customers Import C S V Request Body
       type: object
     CustomersImportCsvCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/customers/importCSV`.
+      description: Response body schema for **POST** `v1/customers/importCSV`.
       title: Customers Import Csv Create Response Body
       type: object
     CustomersListResponseBody:
-      description: Response body schema for **GET** `/customers`.
+      description: Response body schema for **GET** `v1/customers`.
       example:
         total: 0
         data_ref: customers
@@ -26002,7 +26014,7 @@ components:
           type: boolean
       title: Customers List Response Body
     CustomersMetadataUpdateInBulkRequestBody:
-      description: Request body schema for **POST** `/customers/metadata/async`.
+      description: Request body schema for **POST** `v1/customers/metadata/async`.
       example:
         source_ids:
         - source_ids
@@ -26029,11 +26041,11 @@ components:
     CustomersMetadataUpdateInBulkResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/customers/metadata/async`.
+      description: Response body schema for **POST** `v1/customers/metadata/async`.
       title: Customers Metadata Update In Bulk Response Body
       type: object
     CustomersPermanentDeletionCreateResponseBody:
-      description: "Response body schema for **POST** `/customers/{customerId}/permanent-deletion`."
+      description: "Response body schema for **POST** `v1/customers/{customerId}/permanent-deletion`."
       example:
         created_at: 2022-09-02T17:55:47.865Z
         related_object_id: cust_m557pDDl4IGXexkU6KOQ2Dwi
@@ -26089,7 +26101,7 @@ components:
     CustomersSegmentsListResponseBody:
       allOf:
       - $ref: '#/components/schemas/CustomerSegmentsList'
-      description: "Response body schema for **GET** `/customers/{customerId}/segments`."
+      description: "Response body schema for **GET** `v1/customers/{customerId}/segments`."
       title: Customers Segments List Response Body
       type: object
     CustomersUpdateInBulkRequestBody:
@@ -26102,26 +26114,26 @@ components:
         title: CustomerSourceId
         type: object
       - $ref: '#/components/schemas/CustomerBase'
-      description: Request body schema for **POST** `/customers/bulk/async`.
+      description: Request body schema for **POST** `v1/customers/bulk/async`.
       title: Customers Update In Bulk Request Body
     CustomersUpdateInBulkResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/customers/bulk/async`.
+      description: Response body schema for **POST** `v1/customers/bulk/async`.
       title: Customers Update In Bulk Response Body
       type: object
     CustomersUpdateRequestBody:
       allOf:
       - $ref: '#/components/schemas/CustomerBase'
-      description: "Request body schema for **PUT** `/customers/{customerId}`."
+      description: "Request body schema for **PUT** `v1/customers/{customerId}`."
       title: Customers Update Request Body
     CustomersUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/CustomerWithSummaryLoyaltyReferrals'
-      description: "Response body schema for **PUT** `/customers/{customerId}`."
+      description: "Response body schema for **PUT** `v1/customers/{customerId}`."
       title: Customers Update Response Body
     EventsCreateRequestBody:
-      description: Request body schema for **POST** `/events`.
+      description: Request body schema for **POST** `v1/events`.
       example:
         metadata: "{}"
         referral:
@@ -26161,7 +26173,7 @@ components:
       title: Events Create Request Body
       type: object
     EventsCreateResponseBody:
-      description: Response body schema for **POST** `/events`.
+      description: Response body schema for **POST** `v1/events`.
       example:
         referral: "{}"
         loyalty: "{}"
@@ -26310,11 +26322,11 @@ components:
     ExportsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Export'
-      description: "Response body schema for **GET** `/exports/{exportId}`."
+      description: "Response body schema for **GET** `v1/exports/{exportId}`."
       title: Exports Get Response Body
       type: object
     ExportsListResponseBody:
-      description: Response body schema for **GET** `/exports`.
+      description: Response body schema for **GET** `v1/exports`.
       example:
         total: 0
         exports:
@@ -26421,7 +26433,7 @@ components:
     LoyaltiesEarningRulesCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/EarningRule'
-      description: "Response body schema for **POST** `/loyalties/{campaignId}/earning-rules`."
+      description: "Response body schema for **POST** `v1/loyalties/{campaignId}/earning-rules`."
       title: Loyalties Earning Rules Create Response Body
       type: object
     LoyaltiesEarningRulesDisableResponseBody:
@@ -26443,7 +26455,7 @@ components:
             nullable: true
             type: boolean
         type: object
-      description: "Response body schema for **POST** `/loyalties/{campaignId}/earning-rules/{earningRuleId}/disable`"
+      description: "Response body schema for **POST** `v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/disable`"
       title: Loyalties Earning Rules Disable Response Body
     LoyaltiesEarningRulesEnableResponseBody:
       allOf:
@@ -26464,16 +26476,16 @@ components:
             nullable: true
             type: boolean
         type: object
-      description: "Response body schema for **POST** `/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable`"
+      description: "Response body schema for **POST** `v1/loyalties/{campaignId}/earning-rules/{earningRuleId}/enable`"
       title: Loyalties Earning Rules Enable Response Body
     LoyaltiesEarningRulesGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/EarningRule'
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/earning-rules/{earningRuleId}`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`."
       title: Loyalties Earning Rules Get Response Body
       type: object
     LoyaltiesEarningRulesListResponseBody:
-      description: "Response body schema for listing earning rules using **GET** `/loyalties/{campaignId}/earning-rules`\
+      description: "Response body schema for listing earning rules using **GET** `v1/loyalties/{campaignId}/earning-rules`\
         \ endpoint."
       example:
         total: 0
@@ -26512,7 +26524,7 @@ components:
     LoyaltiesEarningRulesUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/EarningRule'
-      description: "Response body schema for **PUT** `/loyalties/{campaignId}/earning-rules/{earningRuleId}`."
+      description: "Response body schema for **PUT** `v1/loyalties/{campaignId}/earning-rules/{earningRuleId}`."
       title: Loyalties Earning Rules Update Response Body
       type: object
     LoyaltiesGetCampaignResponseBody:
@@ -26818,7 +26830,7 @@ components:
       title: Loyalties List Campaigns Response Body
       type: object
     LoyaltiesListMembersResponseBody:
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/members`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/members`."
       example:
         total: 6
         data_ref: vouchers
@@ -26971,8 +26983,8 @@ components:
       title: Loyalties List Members Response Body
       type: object
     LoyaltiesMembersBalanceUpdateRequestBody:
-      description: "Request Body schema for **POST** `/loyalties/members/{memberId}/balance`\
-        \ and **POST** `/loyalties/{campaignId}/members/{memberId}/balance`."
+      description: "Request Body schema for **POST** `v1/loyalties/members/{memberId}/balance`\
+        \ and **POST** `v1/loyalties/{campaignId}/members/{memberId}/balance`."
       example:
         expiration_type: ""
         reason: reason
@@ -27017,8 +27029,8 @@ components:
       title: Loyalties Members Balance Update Request Body
       type: object
     LoyaltiesMembersBalanceUpdateResponseBody:
-      description: "Response schema for **POST** `/loyalties/members/{memberId}/balance`\
-        \ and for **POST** `/loyalties/{campaignId}/members/{memberId}/balance`."
+      description: "Response schema for **POST** `v1/loyalties/members/{memberId}/balance`\
+        \ and for **POST** `v1/loyalties/{campaignId}/members/{memberId}/balance`."
       example:
         total: 6
         balance: 0
@@ -27078,7 +27090,7 @@ components:
       title: Loyalties Members Get Response Body
       type: object
     LoyaltiesMembersPointsExpirationListResponseBody:
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}/points-expiration`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/members/{memberId}/points-expiration`."
       example:
         total: 6
         data:
@@ -27136,8 +27148,8 @@ components:
       title: Loyalties Members Points Expiration List Response Body
       type: object
     LoyaltiesMembersRedemptionRedeemRequestBody:
-      description: "Request body schema for **POST** `/loyalties/{campaignId}/members/{memberId}/redemption`\
-        \ and for **POST** `/loyalties/members/{memberId}/redemption`."
+      description: "Request body schema for **POST** `v1/loyalties/{campaignId}/members/{memberId}/redemption`\
+        \ and for **POST** `v1/loyalties/members/{memberId}/redemption`."
       example:
         reward:
           id: rew_eSi4eYJk7o3tOycvweicR2z7
@@ -27172,11 +27184,11 @@ components:
         - reward
         title: RedemptionRewardRequired
         type: object
-      description: "Response body schema for **POST** `/loyalties/{campaignId}/members/{memberId}/redemption`\
-        \ and for **POST** `/loyalties/members/{memberId}/redemption`."
+      description: "Response body schema for **POST** `v1/loyalties/{campaignId}/members/{memberId}/redemption`\
+        \ and for **POST** `v1/loyalties/members/{memberId}/redemption`."
       title: Loyalties Members Redemption Redeem Response Body
     LoyaltiesMembersRewardsListResponseBody:
-      description: "Response body schema for **GET** `/loyalties/members/{memberId}/rewards`"
+      description: "Response body schema for **GET** `v1/loyalties/members/{memberId}/rewards`"
       example:
         total: 0
         data:
@@ -27218,7 +27230,7 @@ components:
       title: Loyalties Members Rewards List Response Body
       type: object
     LoyaltiesMembersTiersListResponseBody:
-      description: "Response body schema for **GET** `/loyalties/members/{memberId}/tiers`."
+      description: "Response body schema for **GET** `v1/loyalties/members/{memberId}/tiers`."
       example:
         total: 0
         data:
@@ -27255,8 +27267,8 @@ components:
       title: Loyalties Members Tiers List Response Body
       type: object
     LoyaltiesMembersTransactionsExportCreateRequestBody:
-      description: "Request body schema for **POST** `/loyalties/members/{memberId}/transactions/export`\
-        \ and for **POST** `/loyalties/{campaignId}/members/{memberId}/transactions/export`."
+      description: "Request body schema for **POST** `v1/loyalties/members/{memberId}/transactions/export`\
+        \ and for **POST** `v1/loyalties/{campaignId}/members/{memberId}/transactions/export`."
       example:
         parameters:
           filters: ""
@@ -27272,11 +27284,11 @@ components:
     LoyaltiesMembersTransactionsExportCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/ExportVoucherTransactionsScheduled'
-      description: "Response body schema for **POST** `/loyalties/members/{memberId}/transactions/export`\
-        \ and for **POST** `/loyalties/{campaignId}/members/{memberId}/transactions/export`."
+      description: "Response body schema for **POST** `v1/loyalties/members/{memberId}/transactions/export`\
+        \ and for **POST** `v1/loyalties/{campaignId}/members/{memberId}/transactions/export`."
       title: Loyalties Members Transactions Export Create Response Body
     LoyaltiesMembersTransactionsListResponseBody:
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/members/{memberId}/transactions`\
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/members/{memberId}/transactions`\
         \ and `/loyalties/members/{memberId}/transactions`."
       example:
         data:
@@ -27321,13 +27333,13 @@ components:
       title: Loyalties Members Transactions List Response Body
       type: object
     LoyaltiesMembersTransfersCreateRequestBody:
-      description: "Response body schema for **POST** `/loyalties/{campaignId}/members/{memberId}/transfers`."
+      description: "Response body schema for **POST** `v1/loyalties/{campaignId}/members/{memberId}/transfers`."
       items:
         $ref: '#/components/schemas/LoyaltiesTransferPoints'
       title: Loyalties Members Transfers Create Request Body
       type: array
     LoyaltiesMembersTransfersCreateResponseBody:
-      description: "Response body schema for **POST** `/loyalties/{campaignId}/members/{memberId}/transfers`."
+      description: "Response body schema for **POST** `v1/loyalties/{campaignId}/members/{memberId}/transfers`."
       example:
         metadata: "{}"
         code: code
@@ -27516,7 +27528,8 @@ components:
           nullable: true
           type: boolean
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           nullable: true
           type: string
         updated_at:
@@ -27537,23 +27550,23 @@ components:
     LoyaltiesRewardAssignmentsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/reward-assignments/{assignmentId}`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/reward-assignments/{assignmentId}`."
       title: Loyalties Reward Assignments Get Response Body
       type: object
     LoyaltiesRewardAssignmentsListResponseBody:
       allOf:
       - $ref: '#/components/schemas/LoyaltiesRewardsListAssignmentsResponseBody'
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/reward-assignments`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/reward-assignments`."
       title: Loyalties Reward Assignments List Response Body
       type: object
     LoyaltiesRewardAssignmentsRewardGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Reward'
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward`"
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/reward-assignments/{assignmentId}/reward`"
       title: Loyalties Reward Assignments Reward Get Response Body
       type: object
     LoyaltiesRewardsCreateAssignmentRequestBody:
-      description: "Request body schema for **POST** `/loyalties/{campaignId}/rewards`."
+      description: "Request body schema for **POST** `v1/loyalties/{campaignId}/rewards`."
       items:
         $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentItemRequestBody'
       title: Loyalties Rewards Create Assignment Request Body
@@ -27561,13 +27574,13 @@ components:
     LoyaltiesRewardsCreateAssignmentResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
-      description: "Response body schema for **POST** `/v1/loyalties/{campaignId}/rewards`."
+      description: "Response body schema for **POST** `v1/v1/loyalties/{campaignId}/rewards`."
       title: Loyalties Rewards Create Assignment Response Body
       type: object
     LoyaltiesRewardsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/rewards/{assignmentId}`"
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/rewards/{assignmentId}`"
       title: Loyalties Rewards Get Response Body
       type: object
     LoyaltiesRewardsListAssignmentsResponseBody:
@@ -27609,28 +27622,28 @@ components:
     LoyaltiesRewardsUpdateAssignmentRequestBody:
       allOf:
       - $ref: '#/components/schemas/RewardsAssignmentsUpdateRequestBody'
-      description: "Response body schema for **PUT** `/v1/loyalties/{campaignId}/rewards/{assignmentId}`."
+      description: "Response body schema for **PUT** `v1/v1/loyalties/{campaignId}/rewards/{assignmentId}`."
       title: Loyalties Rewards Update Assignment Request Body
     LoyaltiesRewardsUpdateAssignmentResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
-      description: "Response body schema for **PUT** `/v1/loyalties/{campaignId}/rewards/{assignmentId}`."
+      description: "Response body schema for **PUT** `v1/v1/loyalties/{campaignId}/rewards/{assignmentId}`."
       title: Loyalties Rewards Update Assignment Response Body
       type: object
     LoyaltiesTiersCreateInBulkRequestBody:
-      description: "Request body schema for **POST** `/loyalties/{campaignId}/tiers`"
+      description: "Request body schema for **POST** `v1/loyalties/{campaignId}/tiers`"
       items:
         $ref: '#/components/schemas/Loyalties_Tiers_Create_In_Bulk_Request_Body_Item'
       title: Loyalties Tiers Create Request Body
       type: array
     LoyaltiesTiersCreateInBulkResponseBody:
-      description: "Response body schema for **POST** `/loyalties/{campaignId}/tiers`."
+      description: "Response body schema for **POST** `v1/loyalties/{campaignId}/tiers`."
       items:
         $ref: '#/components/schemas/LoyaltyTier'
       title: Loyalties Tiers Create Response Body
       type: array
     LoyaltiesTiersEarningRulesListResponseBody:
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/earning-rules`."
       example:
         total: 0
         data:
@@ -27670,11 +27683,11 @@ components:
     LoyaltiesTiersGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/LoyaltyTier'
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/tiers/{loyaltyTierId}`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/tiers/{loyaltyTierId}`."
       title: Loyalties Tiers Get Response Body
       type: object
     LoyaltiesTiersListResponseBody:
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/tiers`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/tiers`."
       example:
         total: 0
         data:
@@ -27714,7 +27727,7 @@ components:
       title: Loyalties Tiers List Response Body
       type: object
     LoyaltiesTiersRewardsListResponseBody:
-      description: "Response body schema for **GET** `/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards`."
+      description: "Response body schema for **GET** `v1/loyalties/{campaignId}/tiers/{loyaltyTierId}/rewards`."
       example:
         total: 0
         data:
@@ -27792,17 +27805,17 @@ components:
     OrdersCreateRequestBody:
       allOf:
       - $ref: '#/components/schemas/Order'
-      description: Request body schema for **POST** `/orders`.
+      description: Request body schema for **POST** `v1/orders`.
       title: Orders Create Request Body
       type: object
     OrdersCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/OrderCalculated'
-      description: Response body schema for **POST** `/orders`.
+      description: Response body schema for **POST** `v1/orders`.
       title: Orders Create Response Body
       type: object
     OrdersExportCreateRequestBody:
-      description: Request body schema for **POST** `/orders/export`.
+      description: Request body schema for **POST** `v1/orders/export`.
       example:
         parameters:
           filters: ""
@@ -27819,12 +27832,12 @@ components:
       allOf:
       - $ref: '#/components/schemas/ExportScheduledBase'
       - $ref: '#/components/schemas/ExportOrderBase'
-      description: Response body schema for **POST** `/orders/export`.
+      description: Response body schema for **POST** `v1/orders/export`.
       title: Orders Export Create Response Body
     OrdersGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/OrderCalculatedNoCustomerData'
-      description: "Response body schema for **GET** `/orders/{orderId}`."
+      description: "Response body schema for **GET** `v1/orders/{orderId}`."
       title: Orders Get Response Body
     OrdersImportCreateRequestBody:
       description: Request body schema for POST `/orders/import`.
@@ -27835,11 +27848,11 @@ components:
     OrdersImportCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/orders/import`.
+      description: Response body schema for **POST** `v1/orders/import`.
       title: Orders Import Create Response Body
       type: object
     OrdersListResponseBody:
-      description: Response body schema representing **GET** `/orders`.
+      description: Response body schema representing **GET** `v1/orders`.
       example:
         total: 0
         data_ref: orders
@@ -27879,13 +27892,13 @@ components:
     OrdersUpdateRequestBody:
       allOf:
       - $ref: '#/components/schemas/OrderBase'
-      description: "Request body schema for **PUT** `/orders/{orderId}`."
+      description: "Request body schema for **PUT** `v1/orders/{orderId}`."
       title: Orders Update Request Body
       type: object
     OrdersUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/OrderCalculated'
-      description: "Response body schema for **PUT** `/orders/{orderId}`."
+      description: "Response body schema for **PUT** `v1/orders/{orderId}`."
       title: Orders Update Response Body
       type: object
     ParameterActivityCategory:
@@ -28209,29 +28222,29 @@ components:
     ProductCollectionsCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/ProductCollectionsItem'
-      description: Response body schema for **POST** `/product-collections`.
+      description: Response body schema for **POST** `v1/product-collections`.
       title: Product Collections Create Response Body
       type: object
     ProductCollectionsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/ProductCollectionsItem'
-      description: "Response body schema for **GET** `/product-collections/{productCollectionId}`."
+      description: "Response body schema for **GET** `v1/product-collections/{productCollectionId}`."
       title: Product Collections Get Response Body
       type: object
     ProductCollectionsListResponseBody:
       allOf:
       - $ref: '#/components/schemas/ProductCollectionsList'
-      description: Response body schema for **GET** `/product-collections`.
+      description: Response body schema for **GET** `v1/product-collections`.
       title: Product Collections List Response Body
       type: object
     ProductCollectionsProductsListResponseBody:
       allOf:
       - $ref: '#/components/schemas/ProductCollectionsProductsList'
-      description: "Response body schema for **GET** `/product-collections/{productCollectionId}/products`."
+      description: "Response body schema for **GET** `v1/product-collections/{productCollectionId}/products`."
       title: Product Collections Products List Response Body
       type: object
     ProductsCreateRequestBody:
-      description: Request schema for **POST** `/products`.
+      description: Request schema for **POST** `v1/products`.
       example:
         metadata: "{}"
         price: 0
@@ -28291,29 +28304,29 @@ components:
     ProductsCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Product'
-      description: Response body schema for **POST** `/products`.
+      description: Response body schema for **POST** `v1/products`.
       title: Products Create Response Body
       type: object
     ProductsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Product'
-      description: "Response body schema for **GET** `/products/{productId}`."
+      description: "Response body schema for **GET** `v1/products/{productId}`."
       title: Products Get Response Body
       type: object
     ProductsImportCSVRequestBody:
       allOf:
       - $ref: '#/components/schemas/ImportCSVRequestBody'
-      description: Response body schema for **POST** `/products/importCSV`.
+      description: Response body schema for **POST** `v1/products/importCSV`.
       title: Products Import C S V Request Body
       type: object
     ProductsImportCsvCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/products/importCSV`.
+      description: Response body schema for **POST** `v1/products/importCSV`.
       title: Products Import Csv Create Response Body
       type: object
     ProductsListResponseBody:
-      description: Response body schema for **GET** `/products`.
+      description: Response body schema for **GET** `v1/products`.
       example:
         total: 0
         data_ref: products
@@ -28347,7 +28360,7 @@ components:
       title: Products List Response Body
       type: object
     ProductsMetadataUpdateInBulkRequestBody:
-      description: Request schema for **POST** `/products/metadata/async`.
+      description: Request schema for **POST** `v1/products/metadata/async`.
       example:
         source_ids:
         - source_ids
@@ -28372,11 +28385,11 @@ components:
     ProductsMetadataUpdateInBulkResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/products/metadata/async`.
+      description: Response body schema for **POST** `v1/products/metadata/async`.
       title: Products Metadata Update In Bulk Response Body
       type: object
     ProductsSkusCreateRequestBody:
-      description: "Request body schema for **POST** `/products/{productId}/skus"
+      description: "Request body schema for **POST** `v1/products/{productId}/skus"
       example:
         metadata: "{}"
         price: 0
@@ -28436,17 +28449,17 @@ components:
     ProductsSkusCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Sku'
-      description: "Response body schema for **PUT** `/products/{productId}/skus`."
+      description: "Response body schema for **PUT** `v1/products/{productId}/skus`."
       title: Products Skus Create Response Body
       type: object
     ProductsSkusListResponseBody:
       allOf:
       - $ref: '#/components/schemas/SkusList'
-      description: "Response body schema for **GET** `/products/{productId}/skus`."
+      description: "Response body schema for **GET** `v1/products/{productId}/skus`."
       title: Products Skus List Response Body
       type: object
     ProductsSkusUpdateRequestBody:
-      description: "Request body schema for **PUT** `/products/{productId}/skus/{skuId}`."
+      description: "Request body schema for **PUT** `v1/products/{productId}/skus/{skuId}`."
       example:
         metadata: "{}"
         price: 0
@@ -28493,11 +28506,11 @@ components:
     ProductsSkusUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Sku'
-      description: "Response body schema for **PUT** `/products/{productId}/skus/{skuId}`."
+      description: "Response body schema for **PUT** `v1/products/{productId}/skus/{skuId}`."
       title: Products Skus Update Response Body
       type: object
     ProductsUpdateInBulkRequestBody:
-      description: Request schema for **POST** `/products/bulk/async`.
+      description: Request schema for **POST** `v1/products/bulk/async`.
       example:
         metadata: "{}"
         price: 0
@@ -28550,11 +28563,11 @@ components:
     ProductsUpdateInBulkResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/products/bulk/async`.
+      description: Response body schema for **POST** `v1/products/bulk/async`.
       title: Products Update In Bulk Response Body
       type: object
     ProductsUpdateRequestBody:
-      description: Request schema for **PUT** `/products`.
+      description: Request schema for **PUT** `v1/products`.
       example:
         metadata: "{}"
         price: 0
@@ -28601,7 +28614,7 @@ components:
     ProductsUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Product'
-      description: "Response body schema for **PUT** `/products/{productId}`."
+      description: "Response body schema for **PUT** `v1/products/{productId}`."
       title: Products Update Response Body
       type: object
     PromotionsStacksCreateRequestBody:
@@ -28613,7 +28626,7 @@ components:
             nullable: true
             type: string
         type: object
-      description: "Request body schema for **POST** `/promotions/{campaignId}/stacks`."
+      description: "Request body schema for **POST** `v1/promotions/{campaignId}/stacks`."
       title: Promotions Stacks Create Request Body
     PromotionsStacksCreateResponseBody:
       allOf:
@@ -28651,17 +28664,17 @@ components:
             nullable: true
             type: array
         type: object
-      description: "Response body schema for **POST** `/promotions/{campaignId}/stacks`."
+      description: "Response body schema for **POST** `v1/promotions/{campaignId}/stacks`."
       title: Promotions Stacks Create Response Body
     PromotionsStacksGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionStack'
-      description: "Response body schema for **GET** `/promotions/{campaignId}/stacks/{stackId}`."
+      description: "Response body schema for **GET** `v1/promotions/{campaignId}/stacks/{stackId}`."
       title: Promotions Stacks Get Response Body
       type: object
     PromotionsStacksListResponseBody:
-      description: "Response body schema for **GET** `/promotions/stacks` and for\
-        \ **GET** `/promotions/{campaignId}/stacks`."
+      description: "Response body schema for **GET** `v1/promotions/stacks` and for\
+        \ **GET** `v1/promotions/{campaignId}/stacks`."
       example:
         total: 0
         data:
@@ -28700,7 +28713,7 @@ components:
       title: Promotions Stacks List Response Body
       type: object
     PromotionsStacksUpdateRequestBody:
-      description: "Request Body schema for **PUT** `/promotions/{campaignId}/stacks/{stackId}`."
+      description: "Request Body schema for **PUT** `v1/promotions/{campaignId}/stacks/{stackId}`."
       example:
         tiers:
           ids:
@@ -28764,52 +28777,52 @@ components:
             nullable: true
             type: array
         type: object
-      description: "Response body schema for **PUT** `/promotions/{campaignId}/stacks/{stackId}`."
+      description: "Response body schema for **PUT** `v1/promotions/{campaignId}/stacks/{stackId}`."
       title: Promotions Stacks Update Response Body
     PromotionsTiersCreateRequestBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTierCreate'
-      description: "Request body schema for **POST** `/v1/promotions/{campaignId}/tiers`."
+      description: "Request body schema for **POST** `v1/v1/promotions/{campaignId}/tiers`."
       title: Promotions Tiers Create Request Body
     PromotionsTiersCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
-      description: "Response body schema for **POST** `/promotions/{campaignId}/tiers`."
+      description: "Response body schema for **POST** `v1/promotions/{campaignId}/tiers`."
       title: Promotions Tiers Create Response Body
     PromotionsTiersDisableResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
-      description: "Response body schema for **POST** `/promotions/tiers/{promotionTierId}/disable`."
+      description: "Response body schema for **POST** `v1/promotions/tiers/{promotionTierId}/disable`."
       title: Promotions Tiers Disable Response Body
       type: object
     PromotionsTiersEnableResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
-      description: "Response body schema for **POST** `/promotions/tiers/{promotionTierId}/enable`."
+      description: "Response body schema for **POST** `v1/promotions/tiers/{promotionTierId}/enable`."
       title: Promotions Tiers Enable Response Body
       type: object
     PromotionsTiersGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
-      description: "Response body schema for **GET** `/promotions/tiers/{promotionTierId}`."
+      description: "Response body schema for **GET** `v1/promotions/tiers/{promotionTierId}`."
       title: Promotions Tiers Get Response Body
       type: object
     PromotionsTiersListResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTiersList'
-      description: "Response body schema for **GET** `/promotions/{campaignId}/tiers`\
-        \ and **GET** `/promotions/tiers`."
+      description: "Response body schema for **GET** `v1/promotions/{campaignId}/tiers`\
+        \ and **GET** `v1/promotions/tiers`."
       title: Promotions Tiers List Response Body
       type: object
     PromotionsTiersUpdateRequestBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTierUpdate'
-      description: "Request body schema for **PUT** `/promotions/tiers/{promotionTierId}`."
+      description: "Request body schema for **PUT** `v1/promotions/tiers/{promotionTierId}`."
       title: Promotions Tiers Update Request Body
     PromotionsTiersUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/PromotionTier'
-      description: "Response body schema for **PUT** `/promotions/tiers/{promotionTierId}`."
+      description: "Response body schema for **PUT** `v1/promotions/tiers/{promotionTierId}`."
       title: Promotions Tiers Update Response Body
     PublicationsCreateRequestBody:
       example:
@@ -29086,7 +29099,7 @@ components:
       title: PublicationsCreateResponseBody
       type: object
     PublicationsListResponseBody:
-      description: Response body schema for listing publications using **GET** `/publications`.
+      description: Response body schema for listing publications using **GET** `v1/publications`.
       example:
         total: 0
         data_ref: publications
@@ -29242,7 +29255,7 @@ components:
       title: Publications List Response Body
       type: object
     QualificationsCheckEligibilityRequestBody:
-      description: Request body schema for **POST** `/qualifications`.
+      description: Request body schema for **POST** `v1/qualifications`.
       example:
         metadata: "{}"
         scenario: ALL
@@ -29303,7 +29316,7 @@ components:
       title: Qualifications Check Eligibility Request Body
       type: object
     QualificationsCheckEligibilityResponseBody:
-      description: Response body schema for **POST** `/qualifications`.
+      description: Response body schema for **POST** `v1/qualifications`.
       example:
         redeemables:
           total: 5
@@ -29349,8 +29362,9 @@ components:
       example:
         date: 2021-12-22T10:13:06.487Z
         reward:
-          product: null
-          voucher: null
+          product: ""
+          metadata: "{}"
+          voucher: ""
           created_at: 2021-12-22T10:13:06.487Z
           type: CAMPAIGN
           assignment_id: assignment_id
@@ -29358,7 +29372,7 @@ components:
           loyalty_tier_id: loyalty_tier_id
           name: Reward Name
           id: rew_0bc92f81a6801f9bca
-          sku: null
+          sku: ""
           parameters:
             product:
               sku_id: sku_0a41e31c7b41c28358
@@ -29873,14 +29887,15 @@ components:
       title: RedemptionsGetResponseBody
       type: object
     RedemptionsListResponseBody:
-      description: Response body schema for **GET** `/redemptions`.
+      description: Response body schema for **GET** `v1/redemptions`.
       example:
         total: 6
         redemptions:
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -29888,7 +29903,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -30301,8 +30316,9 @@ components:
             object: customer
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -30310,7 +30326,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -30755,11 +30771,11 @@ components:
             $ref: '#/components/schemas/ClientRedemptionsRedeemRequestBody_allOf_options'
         type: object
       - $ref: '#/components/schemas/StackableValidateRedeemBase'
-      description: Response body schema for **POST** `/redemptions`.
+      description: Response body schema for **POST** `v1/redemptions`.
       title: Redemptions Redeem Request Body
       type: object
     RedemptionsRedeemResponseBody:
-      description: Response body schema for **POST** `/redemptions`.
+      description: Response body schema for **POST** `v1/redemptions`.
       example:
         inapplicable_redeemables:
         - result:
@@ -30827,8 +30843,9 @@ components:
         redemptions:
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -30836,7 +30853,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -30887,8 +30904,9 @@ components:
           customer: ""
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -30896,7 +30914,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -30948,8 +30966,9 @@ components:
         parent_redemption:
           date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -30957,7 +30976,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -31082,7 +31101,7 @@ components:
       title: Redemptions Redeem Response Body
       type: object
     RedemptionsRollbackCreateRequestBody:
-      description: "Request body schema for **POST** `/redemptions/{redemptionId}/rollback`."
+      description: "Request body schema for **POST** `v1/redemptions/{redemptionId}/rollback`."
       example:
         reason: reason
         metadata: "{}"
@@ -31112,10 +31131,10 @@ components:
     RedemptionsRollbackCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/RedemptionRollback'
-      description: "Response body schema for **POST** `/redemptions/{redemptionId}/rollback`."
+      description: "Response body schema for **POST** `v1/redemptions/{redemptionId}/rollback`."
       title: Redemptions Rollback Create Response Body
     RedemptionsRollbacksCreateRequestBody:
-      description: "Request body schema for **POST** `/redemptions/{parentRedemptionId}/rollbacks`."
+      description: "Request body schema for **POST** `v1/redemptions/{parentRedemptionId}/rollbacks`."
       example:
         reason: reason
         metadata: "{}"
@@ -31148,8 +31167,9 @@ components:
         parent_rollback:
           date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -31157,7 +31177,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -31210,8 +31230,9 @@ components:
         rollbacks:
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -31219,7 +31240,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -31271,8 +31292,9 @@ components:
           customer: ""
         - date: 2021-12-22T10:13:06.487Z
           reward:
-            product: null
-            voucher: null
+            product: ""
+            metadata: "{}"
+            voucher: ""
             created_at: 2021-12-22T10:13:06.487Z
             type: CAMPAIGN
             assignment_id: assignment_id
@@ -31280,7 +31302,7 @@ components:
             loyalty_tier_id: loyalty_tier_id
             name: Reward Name
             id: rew_0bc92f81a6801f9bca
-            sku: null
+            sku: ""
             parameters:
               product:
                 sku_id: sku_0a41e31c7b41c28358
@@ -31431,7 +31453,7 @@ components:
         campaign: campaign
         parameters:
           loyalty:
-            points: 0
+            points: 1
         validation_rules:
         - validation_rules
         - validation_rules
@@ -31453,17 +31475,17 @@ components:
     RewardsAssignmentsCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
-      description: "Response body schema for **GET** `/rewards/{rewardId}/assignments/{assignmentId}`."
+      description: "Response body schema for **GET** `v1/rewards/{rewardId}/assignments/{assignmentId}`."
       title: Rewards Assignments Create Response Body
       type: object
     RewardsAssignmentsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
-      description: "Response body schema for **GET** `/rewards/{rewardId}/assignments/{assignmentId}`."
+      description: "Response body schema for **GET** `v1/rewards/{rewardId}/assignments/{assignmentId}`."
       title: Rewards Assignments Get Response Body
       type: object
     RewardsAssignmentsListResponseBody:
-      description: "Response body schema for **GET** `/rewards/{rewardID}/assignments`."
+      description: "Response body schema for **GET** `v1/rewards/{rewardID}/assignments`."
       example:
         total: 0
         data:
@@ -31496,7 +31518,7 @@ components:
       title: Rewards Assignments List Response Body
       type: object
     RewardsAssignmentsUpdateRequestBody:
-      description: "Request body schema for **PUT** `/rewards/{rewardId}/assignments/{assignmentId}`."
+      description: "Request body schema for **PUT** `v1/rewards/{rewardId}/assignments/{assignmentId}`."
       example:
         parameters:
           loyalty:
@@ -31509,7 +31531,7 @@ components:
     RewardsAssignmentsUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/RewardAssignment'
-      description: "Response body schema for **GET** `/rewards/{rewardId}/assignments/{assignmentId}`."
+      description: "Response body schema for **GET** `v1/rewards/{rewardId}/assignments/{assignmentId}`."
       title: Rewards Assignments Update Response Body
       type: object
     RewardsCreateRequestBody:
@@ -31553,10 +31575,10 @@ components:
     RewardsCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Reward'
-      description: Response body schema for **POST** `/rewards`.
+      description: Response body schema for **POST** `v1/rewards`.
       title: Rewards Create Response Body
     RewardsListResponseBody:
-      description: Response body schema for **GET** `/rewards`.
+      description: Response body schema for **GET** `v1/rewards`.
       example:
         total: 20
         data:
@@ -31656,7 +31678,7 @@ components:
     RewardsUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Reward'
-      description: "Response body schema for **PUT** `/rewards/{rewardId}`."
+      description: "Response body schema for **PUT** `v1/rewards/{rewardId}`."
       title: Rewards Update Response Body
     SegmentsCreateRequestBody:
       example:
@@ -31692,33 +31714,33 @@ components:
     SegmentsCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Segment'
-      description: Response body schema for **POST** `/segments`.
+      description: Response body schema for **POST** `v1/segments`.
       title: Segments Create Response Body
     SegmentsGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Segment'
-      description: "Response body schema for **GET** `/v1/segments/{segmentId}`."
+      description: "Response body schema for **GET** `v1/v1/segments/{segmentId}`."
       title: Segments Get Response Body
     SkusGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Sku'
-      description: "Response body schema for **GET** `/skus/{skuId}`."
+      description: "Response body schema for **GET** `v1/skus/{skuId}`."
       title: Skus Get Response Body
       type: object
     SkusImportCSVRequestBody:
       allOf:
       - $ref: '#/components/schemas/ImportCSVRequestBody'
-      description: Response body schema for **POST** `/skus/importCSV`.
+      description: Response body schema for **POST** `v1/skus/importCSV`.
       title: Skus Import C S V Request Body
       type: object
     SkusImportCsvCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/skus/importCSV`.
+      description: Response body schema for **POST** `v1/skus/importCSV`.
       title: Skus Import Csv Create Response Body
       type: object
     ValidationRulesAssignmentsCreateRequestBody:
-      description: "Request body schema for **POST** `/validation-rules/{validationRuleId}/assignments`."
+      description: "Request body schema for **POST** `v1/validation-rules/{validationRuleId}/assignments`."
       example:
         related_object_type: voucher
         related_object_id: related_object_id
@@ -31745,14 +31767,14 @@ components:
     ValidationRulesAssignmentsCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/ValidationRuleAssignment'
-      description: "Response body for **POST** `/validation-rules/{validationRuleId}/assignments`."
+      description: "Response body for **POST** `v1/validation-rules/{validationRuleId}/assignments`."
       title: Validation Rules Assignments Create Response Body
       type: object
     ValidationRulesAssignmentsListResponseBody:
       allOf:
       - $ref: '#/components/schemas/ValidationRuleAssignmentsList'
-      description: "Response body for **GET** `/validation-rules-assignments` and\
-        \ **GET** `/validation-rules/{validationRuleId}/assignments`."
+      description: "Response body for **GET** `v1/validation-rules-assignments` and\
+        \ **GET** `v1/validation-rules/{validationRuleId}/assignments`."
       title: Validation Rules Assignments List Response Body
       type: object
     ValidationRulesCreateRequestBody:
@@ -31761,22 +31783,22 @@ components:
       - required:
         - name
         type: object
-      description: Request body schema for **POST** `/validation-rules`.
+      description: Request body schema for **POST** `v1/validation-rules`.
       title: Validation Rules Create Request Body
     ValidationRulesCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/ValidationRule'
-      description: Response body schema for **POST** `/validation-rules`.
+      description: Response body schema for **POST** `v1/validation-rules`.
       title: Validation Rules Create Response Body
       type: object
     ValidationRulesGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/ValidationRule'
-      description: "Response body schema for **GET** `/validation-rules/{validationRuleId}`."
+      description: "Response body schema for **GET** `v1/validation-rules/{validationRuleId}`."
       title: Validation Rules Get Response Body
       type: object
     ValidationRulesListResponseBody:
-      description: Response body schema for **GET** `/validation-rules`.
+      description: Response body schema for **GET** `v1/validation-rules`.
       example:
         total: 0
         data:
@@ -31812,12 +31834,12 @@ components:
     ValidationRulesUpdateRequestBody:
       allOf:
       - $ref: '#/components/schemas/ValidationRuleBase'
-      description: "Response body schema for **PUT** `/validation-rules/{validationRuleId}`."
+      description: "Response body schema for **PUT** `v1/validation-rules/{validationRuleId}`."
       title: Validation Rules Update Request Body
     ValidationRulesUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/ValidationRule'
-      description: "Response body schema for **PUT** `/validation-rules/{validationRuleId}`."
+      description: "Response body schema for **PUT** `v1/validation-rules/{validationRuleId}`."
       title: Validation Rules Update Response Body
       type: object
     ValidationsValidateRequestBody:
@@ -31827,7 +31849,7 @@ components:
             $ref: '#/components/schemas/ClientValidationsValidateRequestBody_allOf_options'
         type: object
       - $ref: '#/components/schemas/StackableValidateRedeemBase'
-      description: Response body schema for **POST** `/validations`.
+      description: Response body schema for **POST** `v1/validations`.
       title: Validations Validate Request Body
     ValidationsValidateResponseBody:
       description: Response body schema for POST `/validations`.
@@ -32224,49 +32246,221 @@ components:
     VouchersCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Voucher'
-      description: "Response body schema for **POST** `/vouchers` and `/vouchers/{code}`"
+      description: "Response body schema for **POST** `v1/vouchers` and `/vouchers/{code}`"
       title: Vouchers Create Response Body
       type: object
-    VouchersCreateWithWithSpecificCodeRequestBody:
+    VouchersCreateWithSpecificCodeRequestBody:
       example:
-        code_config:
-          charset: charset
-          prefix: prefix
-          length: 0.8008281904610115
-          pattern: pattern
-          postfix: postfix
-          initial_count: 6
+        gift:
+          amount: 5.637376656633329
+          balance: 2.3021358869347655
+          effect: APPLY_TO_ORDER
+        metadata: "{}"
+        validity_hours:
+          daily:
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+          - days_of_week:
+            - 2
+            - 2
+            start_time: 12:00
+            expiration_time: 14:00
+        active: true
+        discount:
+          fixed_amount_formula: fixed_amount_formula
+          product: ""
+          fixed_amount: 7.061401241503109
+          aggregated_amount_limit: 6
+          unit_off: 1
+          units:
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          - product: ""
+            unit_off: 5.962133916683182
+            effect: ADD_NEW_ITEMS
+            unit_type: unit_type
+            sku: ""
+            unit_off_formula: unit_off_formula
+          type: AMOUNT
+          unit_type: unit_type
+          unit_off_formula: unit_off_formula
+          percent_off_formula: percent_off_formula
+          amount_limit: 2.3021358869347655
+          amount_off_formula: amount_off_formula
+          effect: APPLY_TO_ORDER
+          is_dynamic: true
+          percent_off: 5.637376656633329
+          sku:
+            name: name
+            id: id
+            source_id: source_id
+          amount_off: 0.8008281904610115
+        expiration_date: 2021-12-31T00:00:00Z
+        type: LOYALTY_CARD
+        validation_rules:
+        - "[val_4j7DCRm2IS59]"
+        - "[val_4j7DCRm2IS59]"
+        category_id: cat_0b6152ce12414820dc
+        validity_day_of_week:
+        - 0
+        - 0
+        redemption:
+          quantity: 6
+        additional_info: additional_info
+        campaign: Gift Card Campaign
+        category: category
+        loyalty_card:
+          next_expiration_date: next_expiration_date
+          balance: 1
+          next_expiration_points: 5
+          points: 6
+        campaign_id: camp_FNYR4jhqZBM9xTptxDGgeNBV
+        validity_timeframe:
+          duration: PT1H
+          interval: P2D
+        start_date: 2021-12-01T00:00:00Z
       properties:
-        code_config:
-          $ref: '#/components/schemas/CodeConfig'
-      title: VouchersCreateWithWithSpecificCodeRequestBody
+        campaign:
+          description: Identifies the voucher's parent campaign using a unique campaign
+            name.
+          example: Gift Card Campaign
+          nullable: true
+          type: string
+        campaign_id:
+          description: Identifies the voucher's parent campaign using a unique campaign
+            ID assigned by the Voucherify API.
+          example: camp_FNYR4jhqZBM9xTptxDGgeNBV
+          nullable: true
+          type: string
+        category:
+          description: "The name of the category that this voucher belongs to. Useful\
+            \ when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint."
+          nullable: true
+          type: string
+        category_id:
+          description: "Unique identifier assigned by Voucherify to the name of the\
+            \ category that this voucher belongs to. Useful when listing vouchers\
+            \ with the [List Vouchers](ref:list-vouchers) endpoint."
+          example: cat_0b6152ce12414820dc
+          nullable: true
+          type: string
+        start_date:
+          description: Start date defines when the code starts to be active. Activation
+            timestamp is presented in the ISO 8601 format. Voucher is *inactive before*
+            this date.
+          example: 2021-12-01T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        expiration_date:
+          description: Expiration date defines when the code expires. Expiration timestamp
+            is presented in the ISO 8601 format.  Voucher is *inactive after* this
+            date.
+          example: 2021-12-31T00:00:00Z
+          format: date-time
+          nullable: true
+          type: string
+        validity_timeframe:
+          $ref: '#/components/schemas/ValidityTimeframe'
+        validity_day_of_week:
+          description: |-
+            Integer array corresponding to the particular days of the week in which the voucher is valid.
+
+            - `0` Sunday
+            - `1` Monday
+            - `2` Tuesday
+            - `3` Wednesday
+            - `4` Thursday
+            - `5` Friday
+            - `6` Saturday
+          items:
+            enum:
+            - 0
+            - 1
+            - 2
+            - 3
+            - 4
+            - 5
+            - 6
+            type: integer
+          title: Validity Day Of Week
+          type: array
+        validity_hours:
+          $ref: '#/components/schemas/ValidityHours'
+        active:
+          description: "A flag to toggle the voucher on or off. You can disable a\
+            \ voucher even though it's within the active period defined by the `start_date`\
+            \ and `expiration_date`.  \n\n- `true` indicates an *active* voucher\n\
+            - `false` indicates an *inactive* voucher"
+          nullable: true
+          type: boolean
+        additional_info:
+          description: An optional field to keep any extra textual information about
+            the code such as a code description and details.
+          nullable: true
+          type: string
+        metadata:
+          nullable: true
+          title: VouchersCreateWithSpecificCodeRequestBodyMetadata
+          type: object
+        validation_rules:
+          description: Array containing the ID of the validation rule associated with
+            the voucher.
+          items:
+            example: "[val_4j7DCRm2IS59]"
+            type: string
+          nullable: true
+          type: array
+        redemption:
+          $ref: '#/components/schemas/VouchersCreateWithSpecificCodeRequestBodyRedemption'
+        type:
+          enum:
+          - LOYALTY_CARD
+          - GIFT_VOUCHER
+          - DISCOUNT_VOUCHER
+          nullable: true
+          type: string
+        loyalty_card:
+          $ref: '#/components/schemas/SimpleLoyaltyCard'
+        gift:
+          $ref: '#/components/schemas/Gift'
+        discount:
+          $ref: '#/components/schemas/Discount'
+      title: VouchersCreateWithSpecificCodeRequestBody
       type: object
     VouchersDisableResponseBody:
       allOf:
       - $ref: '#/components/schemas/Voucher'
-      description: "Response body schema for **POST** `/vouchers/{code}/disable`."
+      description: "Response body schema for **POST** `v1/vouchers/{code}/disable`."
       title: Vouchers Disable Response Body
       type: object
     VouchersEnableResponseBody:
       allOf:
       - $ref: '#/components/schemas/Voucher'
-      description: "Response body schema for **POST** `/vouchers/{code}/enable`."
+      description: "Response body schema for **POST** `v1/vouchers/{code}/enable`."
       title: Vouchers Enable Response Body
       type: object
     VouchersGetResponseBody:
       allOf:
       - $ref: '#/components/schemas/Voucher'
-      description: "Response body schema for **GET** `/vouchers/{code}`."
+      description: "Response body schema for **GET** `v1/vouchers/{code}`."
       title: Vouchers Get Response Body
       type: object
     VouchersImportCSVRequestBody:
       allOf:
       - $ref: '#/components/schemas/ImportCSVRequestBody'
-      description: Request body schema for **POST** `/vouchers/importCSV`.
+      description: Request body schema for **POST** `v1/vouchers/importCSV`.
       title: Vouchers Import C S V Request Body
       type: object
     VouchersImportCreateRequestBody:
-      description: Request body schema for **POST** `/vouchers/import`.
+      description: Request body schema for **POST** `v1/vouchers/import`.
       items:
         $ref: '#/components/schemas/VouchersImportCreateItemRequestBody'
       title: Vouchers Import Request Body
@@ -32274,16 +32468,16 @@ components:
     VouchersImportCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/vouchers/import`.
+      description: Response body schema for **POST** `v1/vouchers/import`.
       title: Vouchers Import Create Response Body
     VouchersImportCsvCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/vouchers/importCSV`.
+      description: Response body schema for **POST** `v1/vouchers/importCSV`.
       title: Vouchers Import Csv Create Response Body
       type: object
     VouchersListResponseBody:
-      description: Response body schema for **GET** `/vouchers`.
+      description: Response body schema for **GET** `v1/vouchers`.
       example:
         total: 20
         data_ref: vouchers
@@ -32358,10 +32552,10 @@ components:
     VouchersMetadataUpdateInBulkResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/vouchers/metadata/async`.
+      description: Response body schema for **POST** `v1/vouchers/metadata/async`.
       title: Vouchers Metadata Update In Bulk Response Body
     VouchersRedemptionGetResponseBody:
-      description: "Response body schema for **GET** `/vouchers/{code}/redemption`."
+      description: "Response body schema for **GET** `v1/vouchers/{code}/redemption`."
       example:
         total: 1
         quantity: 0
@@ -32414,7 +32608,7 @@ components:
       title: Vouchers Redemption Get Response Body
       type: object
     VouchersTransactionsExportCreateRequestBody:
-      description: Request body schema for **POST** `/vouchers/transactions/export`.
+      description: Request body schema for **POST** `v1/vouchers/transactions/export`.
       example:
         parameters: ""
       properties:
@@ -32427,11 +32621,11 @@ components:
     VouchersTransactionsExportCreateResponseBody:
       allOf:
       - $ref: '#/components/schemas/VoucherTransactionsExport'
-      description: "Response body schema for **POST** `/vouchers/{code}/transactions/export`."
+      description: "Response body schema for **POST** `v1/vouchers/{code}/transactions/export`."
       title: Vouchers Transactions Export Create Response Body
       type: object
     VouchersTransactionsListResponseBody:
-      description: "Response body schema for **GET** `/vouchers/{code}/transactions`."
+      description: "Response body schema for **GET** `v1/vouchers/{code}/transactions`."
       example:
         data:
         - reason: reason
@@ -32567,7 +32761,7 @@ components:
       title: Vouchers Transactions List Response Body
       type: object
     VouchersUpdateInBulkRequestBody:
-      description: Request body schema for **POST** `/vouchers/bulk/async`.
+      description: Request body schema for **POST** `v1/vouchers/bulk/async`.
       items:
         $ref: '#/components/schemas/VouchersUpdateInBulkItemRequestBody'
       title: Vouchers Update In Bulk Request Body
@@ -32575,7 +32769,7 @@ components:
     VouchersUpdateInBulkResponseBody:
       allOf:
       - $ref: '#/components/schemas/AsyncActions'
-      description: Response body schema for **POST** `/vouchers/bulk/async`.
+      description: Response body schema for **POST** `v1/vouchers/bulk/async`.
       title: Vouchers Update In Bulk Response Body
     VouchersUpdateRequestBody:
       example:
@@ -32649,15 +32843,14 @@ components:
         start_date: 2021-12-01T00:00:00Z
       properties:
         category:
-          description: "The name of the tag defining the category that this voucher\
-            \ belongs to. Useful when listing vouchers using the [List Vouchers](ref:list-vouchers)\
-            \ endpoint."
+          description: "The name of the category that this voucher belongs to. Useful\
+            \ when listing vouchers with the [List Vouchers](ref:list-vouchers) endpoint."
           nullable: true
           type: string
         category_id:
-          description: "The unique ID assigned by Voucherify of the tag defining the\
+          description: "Unique identifier assigned by Voucherify to the name of the\
             \ category that this voucher belongs to. Useful when listing vouchers\
-            \ using the [List Vouchers](ref:list-vouchers) endpoint."
+            \ with the [List Vouchers](ref:list-vouchers) endpoint."
           example: cat_0bb81a481615a37b5e
           nullable: true
           type: string
@@ -32738,7 +32931,7 @@ components:
     VouchersUpdateResponseBody:
       allOf:
       - $ref: '#/components/schemas/Voucher'
-      description: "Response body schema for **PUT** `/vouchers/{code}`."
+      description: "Response body schema for **PUT** `v1/vouchers/{code}`."
       title: Vouchers Update Response Body
       type: object
     ParameterCreatedBeforeAfter:
@@ -33274,11 +33467,11 @@ components:
       description: Schema model for a campaign loyalty card.
       example:
         expiration_rules:
-          period_value: 5
-          rounding_value: 2
+          period_value: 7
+          rounding_value: 9
           rounding_type: rounding_type
           period_type: period_type
-        points: 5
+        points: 2
       properties:
         points:
           description: The initial number of points to assign to the loyalty card.
@@ -33294,7 +33487,7 @@ components:
       allOf:
       - $ref: '#/components/schemas/CampaignsCreateBase'
       - description: Body schema for creating a campaign of loyalty type using **POST**
-          `/campaigns`.
+          `v1/campaigns`.
         properties:
           campaign_type:
             default: LOYALTY_PROGRAM
@@ -33468,7 +33661,7 @@ components:
       allOf:
       - $ref: '#/components/schemas/CampaignsUpdateCouponCampaignBase'
       - description: Body schema for update a campaign of loyalty type using **PUT**
-          `/campaigns`.
+          `v1/campaigns`.
         properties:
           loyalty_tiers_expiration:
             $ref: '#/components/schemas/LoyaltyTiersExpirationAll'
@@ -33533,15 +33726,15 @@ components:
       title: Category
       type: object
     CodeConfig:
-      description: "Schema containing information about config used for voucher. Defines\
-        \ code's pattern (prefix, suffix, length, charset, etc)."
+      description: "Contains information about the config used for the voucher code.\
+        \ Defines the code's pattern (prefix, postfix, length, charset, etc)."
       example:
         charset: charset
         prefix: prefix
-        length: 0.8008281904610115
+        length: 1.4658129805029452
         pattern: pattern
         postfix: postfix
-        initial_count: 6
+        initial_count: 5
       properties:
         length:
           description: Number of characters in a generated code (excluding prefix
@@ -33571,7 +33764,7 @@ components:
           nullable: true
           type: string
         initial_count:
-          description: The initial count
+          description: "Internal value, does not change anything if provided."
           nullable: true
           type: integer
       title: Code Config
@@ -33978,16 +34171,16 @@ components:
           type: string
         start_date:
           description: "Start date defines when the earning rule starts to be active.\
-            \ Activation timestamp is presented in the ISO 8601 format. Earning rule\
-            \ is inactive before this date. If you don't define the start date for\
-            \ an earning rule, it'll inherit the campaign start date by default."
+            \ Activation timestamp is presented in the ISO 8601 format. The earning\
+            \ rule is inactive before this date. If you do not define the start date\
+            \ for an earning rule, it will inherit the campaign start date by default."
           nullable: true
           type: string
         expiration_date:
           description: "Expiration date defines when the earning rule expires. Expiration\
-            \ timestamp is presented in the ISO 8601 format. Earning rule is inactive\
-            \ after this date.If you don't define the expiration date for an earning\
-            \ rule, it'll inherit the campaign expiration date by default."
+            \ timestamp is presented in the ISO 8601 format. The earning rule is inactive\
+            \ after this date. If you do not define the expiration date for an earning\
+            \ rule, it will inherit the campaign expiration date by default."
           nullable: true
           type: string
         validity_timeframe:
@@ -34774,7 +34967,7 @@ components:
           nullable: true
           type: string
         loyalty:
-          $ref: '#/components/schemas/Define_fixed_amount_of_points'
+          $ref: '#/components/schemas/EarningRuleFixed'
         event:
           description: "Defines the event which triggers the earning rule to add points\
             \ to a loyalty card.  \n\n- `customer.loyalty.tier.joined` an event defined\
@@ -34909,12 +35102,11 @@ components:
         - validation_rules
       properties:
         reward:
-          description: The reward ID of the campaign to which the campaign is to be
-            assigned.
+          description: The ID of the reward that will be assigned to the campaign.
           nullable: true
           type: string
         parameters:
-          $ref: '#/components/schemas/RewardsAssignmentsCreateRequestBody_parameters'
+          $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentItemRequestBody_parameters'
         validation_rules:
           items:
             type: string
@@ -35442,7 +35634,7 @@ components:
         assets:
           $ref: '#/components/schemas/VoucherAssets'
         is_referral_code:
-          description: This willbe alwatys false for loyalty member
+          description: This is always false for loyalty members.
           nullable: true
           type: boolean
         created_at:
@@ -35470,7 +35662,7 @@ components:
           nullable: true
           type: string
         publish:
-          $ref: '#/components/schemas/CampaignsVouchersCreateCombinedResponseBody_publish'
+          $ref: '#/components/schemas/LoyaltyMember_publish'
         redemption:
           $ref: '#/components/schemas/CampaignsVouchersCreateCombinedResponseBody_redemption'
       title: Loyalty Member
@@ -36265,7 +36457,7 @@ components:
         Promotion tiers are always assigned to a campaign and cannot be used standalone.
       example:
         metadata: "{}"
-        hierarchy: 7
+        hierarchy: 3
         validity_hours:
           daily:
           - days_of_week:
@@ -36285,8 +36477,8 @@ components:
         - validation_rules
         - validation_rules
         validity_day_of_week:
-        - 9
-        - 9
+        - 2
+        - 2
         category_id: cat_0c9da30e7116ba6bba
         name: name
         action:
@@ -36649,8 +36841,9 @@ components:
       example:
         date: 2021-12-22T10:13:06.487Z
         reward:
-          product: null
-          voucher: null
+          product: ""
+          metadata: "{}"
+          voucher: ""
           created_at: 2021-12-22T10:13:06.487Z
           type: CAMPAIGN
           assignment_id: assignment_id
@@ -36658,7 +36851,7 @@ components:
           loyalty_tier_id: loyalty_tier_id
           name: Reward Name
           id: rew_0bc92f81a6801f9bca
-          sku: null
+          sku: ""
           parameters:
             product:
               sku_id: sku_0a41e31c7b41c28358
@@ -36924,8 +37117,9 @@ components:
       type: object
     RedemptionRewardResult:
       example:
-        product: null
-        voucher: null
+        product: ""
+        metadata: "{}"
+        voucher: ""
         created_at: 2021-12-22T10:13:06.487Z
         type: CAMPAIGN
         assignment_id: assignment_id
@@ -36933,7 +37127,7 @@ components:
         loyalty_tier_id: loyalty_tier_id
         name: Reward Name
         id: rew_0bc92f81a6801f9bca
-        sku: null
+        sku: ""
         parameters:
           product:
             sku_id: sku_0a41e31c7b41c28358
@@ -36957,11 +37151,17 @@ components:
           nullable: true
           type: string
         voucher:
-          $ref: '#/components/schemas/RedemptionRewardResult_voucher'
+          allOf:
+          - $ref: '#/components/schemas/Voucher'
+          nullable: true
         product:
-          $ref: '#/components/schemas/RedemptionRewardResult_product'
+          allOf:
+          - $ref: '#/components/schemas/Product'
+          nullable: true
         sku:
-          $ref: '#/components/schemas/RedemptionRewardResult_sku'
+          allOf:
+          - $ref: '#/components/schemas/Sku'
+          nullable: true
         loyalty_tier_id:
           description: Unique loyalty tier ID assigned by Voucherify.
           nullable: true
@@ -36999,6 +37199,11 @@ components:
           type: string
         parameters:
           $ref: '#/components/schemas/RedemptionRewardResult_parameters'
+        metadata:
+          description: A set of custom key/value pairs that you can attach to a reward.
+            The metadata object stores all custom attributes assigned to the reward.
+          nullable: true
+          type: object
         type:
           description: Reward type.
           enum:
@@ -37016,8 +37221,9 @@ components:
       example:
         date: 2021-12-22T10:13:06.487Z
         reward:
-          product: null
-          voucher: null
+          product: ""
+          metadata: "{}"
+          voucher: ""
           created_at: 2021-12-22T10:13:06.487Z
           type: CAMPAIGN
           assignment_id: assignment_id
@@ -37025,7 +37231,7 @@ components:
           loyalty_tier_id: loyalty_tier_id
           name: Reward Name
           id: rew_0bc92f81a6801f9bca
-          sku: null
+          sku: ""
           parameters:
             product:
               sku_id: sku_0a41e31c7b41c28358
@@ -37324,6 +37530,7 @@ components:
       title: Session
       type: object
     SimpleCustomer:
+      description: Simplified customer data.
       example:
         metadata: "{}"
         name: name
@@ -37333,15 +37540,8 @@ components:
         object: customer
       properties:
         id:
-          description: The ID of an existing customer that will be linked to redemption
-            in this request.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
+          description: Unique identifier of an existing customer. It is assigned by
+            Voucherify.
           nullable: true
           type: string
         name:
@@ -37352,13 +37552,14 @@ components:
           description: Customer's email address.
           nullable: true
           type: string
+        source_id:
+          description: "A unique identifier of the customer. It can be a customer\
+            \ ID or email from a CRM system, database, or a third-party service."
+          nullable: true
+          type: string
         metadata:
-          description: A set of custom key/value pairs that you can attach to a customer.
-            The metadata object stores all custom attributes assigned to the customer.
-            It can be useful for storing additional information about the customer
-            in a structured format. This metadata can be used for validating whether
-            the customer qualifies for a discount or it can be used in building customer
-            segments.
+          description: A set of custom key/value pairs that are attached to the customer.
+            It stores all custom attributes assigned to the customer.
           nullable: true
           type: object
         object:
@@ -37420,7 +37621,7 @@ components:
         points: 6
       properties:
         points:
-          description: Total points incurred over lifespan of loyalty card.
+          description: Total points incurred over the lifespan of the loyalty card.
           nullable: true
           type: integer
         balance:
@@ -38467,7 +38668,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -38704,7 +38906,7 @@ components:
             | **Field** | **Definition** | **Example Export** |
             |:---|:---|:---|
             | id | Unique transaction ID. | vtx_0cb7811f1c07765800 |
-            | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL` <br> - `POINTS_CANCELLATION` <br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
+            | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL` <br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
             | source_id | Unique transaction source ID. | 8638 |
             | reason | Contains the reason for the transaction if one was included originally. |  |
             | balance | The gift card or loyalty card balance after the transaction. |  |
@@ -39230,7 +39432,7 @@ components:
       title: Campaign Voucher
       type: object
     CampaignsCreateBase:
-      description: Base body schema for creating a campaign using **POST** `/campaigns`.
+      description: Base body schema for creating a campaign using **POST** `v1/campaigns`.
       properties:
         name:
           description: Campaign name.
@@ -39379,7 +39581,7 @@ components:
             type: string
         type: object
       description: Base body schema for updating a campaign which contains coupon
-        codes using **PUT** `/campaigns`.
+        codes using **PUT** `v1/campaigns`.
       title: Campaigns Update Coupon Campaign Base
       type: object
     CustomerId:
@@ -39447,9 +39649,9 @@ components:
       title: Customer Summary
       type: object
     EarningRuleEvent:
-      example: "\"order.paid\", \"customer.segment.entered\", \"customer.loyalty.tier.upgraded\"\
-        , \"customer.loyalty.tier.downgraded\", \"customer.loyalty.tier.prolonged\"\
-        , \"customer.loyalty.tier.joined\", \"customer.loyalty.tier.left\""
+      example: "`order.paid`, `customer.segment.entered`, `customer.loyalty.tier.upgraded`,\
+        \ `customer.loyalty.tier.downgraded`, `customer.loyalty.tier.prolonged`, `customer.loyalty.tier.joined`,\
+        \ `customer.loyalty.tier.left`"
       title: Earning Rule Event
       type: string
     ExportVoucherTransactionsBase:
@@ -39575,7 +39777,7 @@ components:
           - length
           - pattern
         is_referral_code:
-          description: Always `false` for loyalty card voucher
+          description: Always `false` for a loyalty card voucher
           nullable: true
           type: boolean
         start_date:
@@ -39626,7 +39828,6 @@ components:
     LoyaltyCardTransactionsType:
       enum:
       - POINTS_ACCRUAL
-      - POINTS_CANCELLATION
       - POINTS_REDEMPTION
       - POINTS_REFUND
       - POINTS_ADDITION
@@ -40157,7 +40358,8 @@ components:
           nullable: true
           type: boolean
         holder_id:
-          description: Unique customer ID of the campaign owner.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -40185,14 +40387,14 @@ components:
           type: boolean
         created_at:
           description: Timestamp representing the date and time when the order was
-            created. Timestamp is presented in the ISO 8601 format.
+            created in the ISO 8601 format.
           example: 2021-12-22T10:13:06.487Z
           format: date-time
           nullable: true
           type: string
         updated_at:
-          description: Timestamp representing the date and time when the voucher was
-            updated in the ISO 8601 format.
+          description: Timestamp representing the date and time when the order was
+            created. The value is shown in the ISO 8601 format.
           example: 2024-01-01T11:11:11.111Z
           format: date-time
           nullable: true
@@ -40225,8 +40427,6 @@ components:
           - voucher
           nullable: true
           type: string
-      required:
-      - inapplicable_to
       title: Simple Voucher
       type: object
     SkusListForProduct:
@@ -40394,7 +40594,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -40441,7 +40642,7 @@ components:
             | **Field** | **Definition** | **Example Export** |
             |:---|:---|:---|
             | id | Unique transaction ID. | vtx_0cb7811f1c07765800 |
-            | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL` <br> - `POINTS_CANCELLATION` <br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
+            | type | Transaction type. | - `CREDITS_REMOVAL` <br> - `CREDITS_ADDITION` <br> - `CREDITS_REFUND` <br> - `CREDITS_REDEMPTION` <br> - `POINTS_ACCRUAL`<br> - `POINTS_REDEMPTION`<br> - `POINTS_REFUND`<br> - `POINTS_ADDITION`<br> - `POINTS_REMOVAL`<br> - `POINTS_EXPIRATION`<br> - `POINTS_TRANSFER_IN`<br> - `POINTS_TRANSFER_OUT` |
             | source_id | Unique transaction source ID. | 8638 |
             | reason | Contains the reason for the transaction if one was included originally. |  |
             | balance | The gift card or loyalty card balance after the transaction. |  |
@@ -40527,7 +40728,7 @@ components:
       title: Areas and Stores Campain Assignment
       type: object
     CampaignsUpdateBase:
-      description: Base body schema for creating a campaign using **PUT** `/campaigns`.
+      description: Base body schema for creating a campaign using **PUT** `v1/campaigns`.
       properties:
         start_date:
           description: 'Activation timestamp defines when the campaign starts to be
@@ -40877,7 +41078,7 @@ components:
       description: Redeemable loyalty card object response
       properties:
         points:
-          description: Total points incurred over lifespan of loyalty card.
+          description: Total points incurred over the lifespan of the loyalty card.
           example: 7000
           nullable: true
           type: integer
@@ -41105,7 +41306,7 @@ components:
       type: object
     CampaignsCreateRequestBodyVoucherRedemption:
       example:
-        quantity: 1
+        quantity: 5
       nullable: true
       properties:
         quantity:
@@ -41123,7 +41324,7 @@ components:
           effect: APPLY_TO_ORDER
         is_referral_code: true
         redemption:
-          quantity: 1
+          quantity: 5
         discount:
           fixed_amount_formula: fixed_amount_formula
           product: ""
@@ -41160,18 +41361,18 @@ components:
         type: DISCOUNT_VOUCHER
         loyalty_card:
           expiration_rules:
-            period_value: 5
-            rounding_value: 2
+            period_value: 7
+            rounding_value: 9
             rounding_type: rounding_type
             period_type: period_type
-          points: 5
+          points: 2
         code_config:
           charset: charset
           prefix: prefix
-          length: 0.8008281904610115
+          length: 1.4658129805029452
           pattern: pattern
           postfix: postfix
-          initial_count: 6
+          initial_count: 5
       nullable: true
       properties:
         type:
@@ -41202,7 +41403,7 @@ components:
       example:
         tiers:
         - metadata: "{}"
-          hierarchy: 7
+          hierarchy: 3
           validity_hours:
             daily:
             - days_of_week:
@@ -41222,8 +41423,8 @@ components:
           - validation_rules
           - validation_rules
           validity_day_of_week:
-          - 9
-          - 9
+          - 2
+          - 2
           category_id: cat_0c9da30e7116ba6bba
           name: name
           action:
@@ -41266,7 +41467,7 @@ components:
             interval: P2D
           start_date: 2022-09-23T00:00:00Z
         - metadata: "{}"
-          hierarchy: 7
+          hierarchy: 3
           validity_hours:
             daily:
             - days_of_week:
@@ -41286,8 +41487,8 @@ components:
           - validation_rules
           - validation_rules
           validity_day_of_week:
-          - 9
-          - 9
+          - 2
+          - 2
           category_id: cat_0c9da30e7116ba6bba
           name: name
           action:
@@ -41388,7 +41589,7 @@ components:
       nullable: true
       properties:
         points:
-          description: Total points incurred over lifespan of loyalty card.
+          description: Total points incurred over the lifespan of the loyalty card.
           example: 7000
           nullable: true
           type: integer
@@ -41410,16 +41611,9 @@ components:
           type: integer
       type: object
     CampaignsVouchersCreateCombinedResponseBody_publish:
-      description: "This object stores a summary of publish events: an events counter\
-        \ and an endpoint which can be called to return details of each event.  A\
-        \ publication is required for loyalty cards and referral codes. This object\
-        \ gets updated whenever a voucher has been published. Publication means assigning\
-        \ a code to a particular customer. Typically, a publication is made by distributing\
-        \ your codes to your customers, e.g. through Export to MailChimp or <!-- [publish\
-        \ voucher](OpenAPI.json/paths/~1publications/post) -->[publish voucher](ref:create-publication)\
-        \ API method. \n\n<!-- title: My Table Title -->\n\n| Required | Optional\
-        \ |\n| -------- | :------: |\n| `type`:`LOYALTY_CARD` |  `type`:`DISCOUNT_VOUCHER`\
-        \   | \n| `is_referral_code`:`true`      |    `type`:`GIFT_VOUCHER`   |\n"
+      description: "Stores a summary of publication events: an event counter and endpoint\
+        \ to return details of each event. Publication is an assignment of a code\
+        \ to a customer, e.g. through a distribution."
       example:
         count: 0
         url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
@@ -42119,7 +42313,7 @@ components:
       nullable: true
       properties:
         points:
-          description: Total points incurred over lifespan of loyalty card.
+          description: Total points incurred over the lifespan of the loyalty card.
           nullable: true
           type: integer
         balance:
@@ -42430,7 +42624,7 @@ components:
           description: Product ID for SKUs.
           type: string
         object:
-          description: Denotes the type of object represented by the ID.
+          description: Denotes the type of the object represented by the ID.
           enum:
           - sku
           - product
@@ -42502,7 +42696,8 @@ components:
       - junction
       type: object
     PromotionsStacksUpdateRequestBody_tiers:
-      description: Contains the tier configuration.
+      description: Contains the tier configuration. A promotion stack can include
+        up to 30 tiers.
       example:
         ids:
         - ids
@@ -43121,15 +43316,8 @@ components:
       nullable: true
       properties:
         id:
-          description: The ID of an existing customer that will be linked to redemption
-            in this request.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
+          description: Unique identifier of an existing customer. It is assigned by
+            Voucherify.
           nullable: true
           type: string
         name:
@@ -43138,6 +43326,11 @@ components:
           type: string
         email:
           description: Customer's email address.
+          nullable: true
+          type: string
+        source_id:
+          description: "A unique identifier of the customer. It can be a customer\
+            \ ID or email from a CRM system, database, or a third-party service."
           nullable: true
           type: string
         metadata:
@@ -43191,7 +43384,7 @@ components:
       nullable: true
       properties:
         points:
-          description: Total points incurred over lifespan of loyalty card.
+          description: Total points incurred over the lifespan of the loyalty card.
           example: 7000
           nullable: true
           type: integer
@@ -43546,7 +43739,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -44359,15 +44553,8 @@ components:
         object: customer
       properties:
         id:
-          description: The ID of an existing customer that will be linked to redemption
-            in this request.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
+          description: Unique identifier of an existing customer. It is assigned by
+            Voucherify.
           nullable: true
           type: string
         name:
@@ -44376,6 +44563,11 @@ components:
           type: string
         email:
           description: Customer's email address.
+          nullable: true
+          type: string
+        source_id:
+          description: "A unique identifier of the customer. It can be a customer\
+            \ ID or email from a CRM system, database, or a third-party service."
           nullable: true
           type: string
         metadata:
@@ -44426,7 +44618,7 @@ components:
         points: 7000
       properties:
         points:
-          description: Total points incurred over lifespan of loyalty card.
+          description: Total points incurred over the lifespan of the loyalty card.
           example: 7000
           nullable: true
           type: integer
@@ -44777,7 +44969,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -45261,8 +45454,9 @@ components:
       example:
         date: 2021-12-22T10:13:06.487Z
         reward:
-          product: null
-          voucher: null
+          product: ""
+          metadata: "{}"
+          voucher: ""
           created_at: 2021-12-22T10:13:06.487Z
           type: CAMPAIGN
           assignment_id: assignment_id
@@ -45270,7 +45464,7 @@ components:
           loyalty_tier_id: loyalty_tier_id
           name: Reward Name
           id: rew_0bc92f81a6801f9bca
-          sku: null
+          sku: ""
           parameters:
             product:
               sku_id: sku_0a41e31c7b41c28358
@@ -45797,12 +45991,13 @@ components:
     RewardsAssignmentsCreateRequestBody_parameters_loyalty:
       description: Defines the equivalent points value of the reward.
       example:
-        points: 0
+        points: 1
       nullable: true
       properties:
         points:
           description: Number of points that will be subtracted from the loyalty card
-            points balance if the reward is redeemed.
+            points balance if the reward is redeemed. Must be positive integer.
+          minimum: 1
           nullable: true
           type: integer
       type: object
@@ -45810,7 +46005,7 @@ components:
       description: Defines the cost of the reward.
       example:
         loyalty:
-          points: 0
+          points: 1
       nullable: true
       properties:
         loyalty:
@@ -45941,7 +46136,7 @@ components:
           type: string
         balance:
           description: "The incremental points to be added to the current balance\
-            \ on the loyalty card. and The incremental amout to be added to the current\
+            \ on the loyalty card. and The incremental amount to be added to the current\
             \ balance on the gift card. Value is multiplied by 100 to precisely represent\
             \ 2 decimal places. For example, $100 amount is written as 10000."
           nullable: true
@@ -46387,10 +46582,22 @@ components:
           nullable: true
           type: string
       type: object
+    VouchersCreateWithSpecificCodeRequestBodyRedemption:
+      example:
+        quantity: 6
+      nullable: true
+      properties:
+        quantity:
+          description: How many times a voucher can be redeemed. A `null` value means
+            unlimited.
+          nullable: true
+          type: integer
+      title: VouchersCreateWithSpecificCodeRequestBodyRedemption
+      type: object
     CampaignLoyaltyCard_expiration_rules:
       example:
-        period_value: 5
-        rounding_value: 2
+        period_value: 7
+        rounding_value: 9
         rounding_type: rounding_type
         period_type: period_type
       nullable: true
@@ -46696,15 +46903,17 @@ components:
       title: Earning Rule Base Loyalty
       type: object
     EarningRuleBase_custom_event:
+      description: Contains details about the custom event.
       nullable: true
       properties:
         schema_id:
+          description: Unique identifier of the custom event schema
           nullable: true
           type: string
       type: object
     EarningRuleBase_segment:
-      description: Contains the ID of a customer segment. Required for the customer.segment.entered
-        option in event.
+      description: Contains the ID of a customer segment. Required for the `customer.segment.entered`
+        option in the event.
       nullable: true
       properties:
         id:
@@ -47055,7 +47264,7 @@ components:
           type: integer
       title: Loyalties Earning Rules Create Order Paid Request Body Loyalty
       type: object
-    Define_fixed_amount_of_points:
+    EarningRuleFixed:
       nullable: true
       properties:
         type:
@@ -47070,7 +47279,65 @@ components:
             adds a fixed number of points.
           nullable: true
           type: integer
-      title: Define fixed amount of points
+      title: EarningRuleFixed
+      type: object
+    LoyaltiesRewardsCreateAssignmentItemRequestBody_parameters_loyalty:
+      description: Defines the equivalent points value of the reward.
+      example:
+        points: 0
+      nullable: true
+      properties:
+        points:
+          description: Number of points that will be subtracted from the loyalty card
+            points balance if the reward is redeemed.
+          nullable: true
+          type: integer
+      type: object
+    LoyaltiesRewardsCreateAssignmentItemRequestBody_parameters:
+      description: Defines the cost of the reward.
+      example:
+        loyalty:
+          points: 0
+      nullable: true
+      properties:
+        loyalty:
+          $ref: '#/components/schemas/LoyaltiesRewardsCreateAssignmentItemRequestBody_parameters_loyalty'
+      type: object
+    LoyaltyMember_publish:
+      description: "This object stores a summary of publish events: an events counter\
+        \ and an endpoint which can be called to return details of each event.  A\
+        \ publication is required for loyalty cards and referral codes. This object\
+        \ gets updated whenever a voucher has been published. Publication means assigning\
+        \ a code to a particular customer. Typically, a publication is made by distributing\
+        \ your codes to your customers, e.g. through Export to MailChimp or <!-- [publish\
+        \ voucher](OpenAPI.json/paths/~1publications/post) -->[publish voucher](ref:create-publication)\
+        \ API method. \n\n<!-- title: My Table Title -->\n\n| Required | Optional\
+        \ |\n| -------- | :------: |\n| `type`:`LOYALTY_CARD` |  `type`:`DISCOUNT_VOUCHER`\
+        \   | \n| `is_referral_code`:`true`      |    `type`:`GIFT_VOUCHER`   |\n"
+      example:
+        count: 0
+        url: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+        object: list
+      nullable: true
+      properties:
+        object:
+          default: list
+          description: "The type of the object represented is by default `list`. To\
+            \ get this list, you need to make a call to the endpoint returned in the\
+            \ `url` attribute."
+          nullable: true
+          type: string
+        count:
+          description: Publication event counter.
+          example: 0
+          nullable: true
+          type: integer
+        url:
+          description: "The endpoint where this list of publications can be accessed\
+            \ using a GET method. `/v1/vouchers/{voucher_code}/publications`"
+          example: /v1/vouchers/WVPblOYX/publications?page=1&limit=10
+          nullable: true
+          type: string
       type: object
     LoyaltyTier_allOf_config_points:
       description: Defines range of loyalty tier in points.
@@ -47318,7 +47585,7 @@ components:
           description: Product ID for SKUs.
           type: string
         object:
-          description: Denotes the type of object represented by the ID.
+          description: Denotes the type of the object represented by the ID.
           enum:
           - sku
           - product
@@ -47387,7 +47654,8 @@ components:
       title: Product Collections Products List Data Item
       type: object
     PromotionStackBase_tiers:
-      description: Contains the tier configuration.
+      description: Contains the tier configuration. A promotion stack can include
+        up to 30 tiers.
       nullable: true
       properties:
         ids:
@@ -48016,15 +48284,8 @@ components:
       nullable: true
       properties:
         id:
-          description: The ID of an existing customer that will be linked to redemption
-            in this request.
-          nullable: true
-          type: string
-        source_id:
-          description: "A unique identifier of the customer who validates a voucher.\
-            \ It can be a customer ID or email from a CRM system, database, or a third-party\
-            \ service. If you also pass a customer ID (unique ID assigned by Voucherify),\
-            \ the source ID will be ignored."
+          description: Unique identifier of an existing customer. It is assigned by
+            Voucherify.
           nullable: true
           type: string
         name:
@@ -48033,6 +48294,11 @@ components:
           type: string
         email:
           description: Customer's email address.
+          nullable: true
+          type: string
+        source_id:
+          description: "A unique identifier of the customer. It can be a customer\
+            \ ID or email from a CRM system, database, or a third-party service."
           nullable: true
           type: string
         metadata:
@@ -48077,7 +48343,7 @@ components:
       nullable: true
       properties:
         points:
-          description: Total points incurred over lifespan of loyalty card.
+          description: Total points incurred over the lifespan of the loyalty card.
           example: 7000
           nullable: true
           type: integer
@@ -48283,7 +48549,8 @@ components:
           nullable: true
           type: string
         holder_id:
-          description: Unique identifier of the customer who owns the voucher.
+          description: Unique customer identifier of the redeemable holder. It equals
+            to the customer ID assigned by Voucherify.
           example: cust_eWgXlBBiY6THFRJwX45Iakv4
           nullable: true
           type: string
@@ -48570,21 +48837,6 @@ components:
           type: integer
       title: RedemptionEntryLoyaltyCard
       type: object
-    RedemptionRewardResult_voucher:
-      allOf:
-      - $ref: '#/components/schemas/Voucher'
-      description: Defines of the voucher.
-      nullable: true
-    RedemptionRewardResult_product:
-      allOf:
-      - $ref: '#/components/schemas/Product'
-      description: Defines of the product.
-      nullable: true
-    RedemptionRewardResult_sku:
-      allOf:
-      - $ref: '#/components/schemas/Sku'
-      description: Defines of the sku.
-      nullable: true
     RedemptionRewardResult_parameters_campaign:
       description: Defines the product redeemed as a reward.
       example:
@@ -48858,18 +49110,17 @@ components:
           nullable: true
           type: string
         balance:
-          description: "The incremental amout to be added to the current balance on\
-            \ the gift card. Value is multiplied by 100 to precisely represent 2 decimal\
-            \ places. For example, $100 amount is written as 10000."
+          description: |-
+            The number of points to be added to a loyalty card or the amount to be added to the current balance on the gift card.
+
+            For gift cards, the value is multiplied by 100 to precisely represent 2 decimal places. For example, $100 amount is written as 10000.
           nullable: true
           type: integer
         type:
           description: Campaign type.
           enum:
           - DISCOUNT_COUPONS
-          - PROMOTION
           - GIFT_VOUCHERS
-          - REFERRAL_PROGRAM
           - LOYALTY_PROGRAM
           nullable: true
           type: string

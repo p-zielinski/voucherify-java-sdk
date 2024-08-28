@@ -1,6 +1,6 @@
 
 
-# DefineFixedAmountOfPoints
+# EarningRuleFixed
 
 
 ## Properties
